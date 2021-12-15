@@ -1,0 +1,73 @@
+package com.authok.client.mgmt;
+
+import com.authok.client.mgmt.filter.FieldsFilter;
+import com.authok.json.mgmt.tenants.Tenant;
+import com.authok.net.CustomRequest;
+import com.authok.net.Request;
+import com.authok.utils.Asserts;
+import com.fasterxml.jackson.core.type.TypeReference;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+
+import java.util.Map;
+
+/**
+ * Class that provides an implementation of the Tenant Settings methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Tenants
+ * <p>
+ * This class is not thread-safe.
+ *
+ * @see ManagementAPI
+ */
+@SuppressWarnings("WeakerAccess")
+public class TenantsEntity extends BaseManagementEntity {
+
+    TenantsEntity(OkHttpClient client, HttpUrl baseUrl, String apiToken) {
+        super(client, baseUrl, apiToken);
+    }
+
+    /**
+     * Request the Tenant Settings. A token with scope read:tenant_settings is needed.
+     * See https://authok.com/docs/api/management/v2#!/Tenants/get_settings
+     *
+     * @param filter the filter to use. Can be null.
+     * @return a Request to execute.
+     */
+    public Request<Tenant> get(FieldsFilter filter) {
+        HttpUrl.Builder builder = baseUrl
+                .newBuilder()
+                .addPathSegments("api/v2/tenants/settings");
+        if (filter != null) {
+            for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
+                builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
+            }
+        }
+        String url = builder.build().toString();
+        CustomRequest<Tenant> request = new CustomRequest<>(client, url, "GET", new TypeReference<Tenant>() {
+        });
+        request.addHeader("Authorization", "Bearer " + apiToken);
+        return request;
+    }
+
+    /**
+     * Update the Tenant Settings. A token with scope update:tenant_settings is needed.
+     * See https://authok.com/docs/api/management/v2#!/Tenants/patch_settings
+     *
+     * @param tenant the tenant data to set.
+     * @return a Request to execute.
+     */
+    public Request<Tenant> update(Tenant tenant) {
+        Asserts.assertNotNull(tenant, "tenant");
+
+        String url = baseUrl
+                .newBuilder()
+                .addPathSegments("api/v2/tenants/settings")
+                .build()
+                .toString();
+
+        CustomRequest<Tenant> request = new CustomRequest<>(client, url, "PATCH", new TypeReference<Tenant>() {
+        });
+        request.addHeader("Authorization", "Bearer " + apiToken);
+        request.setBody(tenant);
+        return request;
+    }
+}

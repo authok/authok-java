@@ -1,0 +1,8 @@
+{
+  "template": "welcome_email",
+  "from": "me@authok.com",
+  "subject": "Some subject",
+  "syntax": "liquid",
+  "body": "<html> </html>",
+  "enabled": false
+}

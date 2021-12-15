@@ -1,0 +1,39 @@
+package com.authok.json.mgmt.client;
+
+import com.authok.json.JsonMatcher;
+import com.authok.json.JsonTest;
+
+import org.hamcrest.MatcherAssert;
+import org.junit.Test;
+
+import java.util.Arrays;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+public class AndroidTest extends JsonTest<Android> {
+
+    private static final String json = "{\"app_package_name\":\"pkg\",\"sha256_cert_fingerprints\":[\"cert1\",\"cert2\"]}";
+
+    @Test
+    public void shouldSerialize() throws Exception {
+        Android android = new Android("pkg", Arrays.asList("cert1", "cert2"));
+
+        String serialized = toJSON(android);
+        assertThat(serialized, is(notNullValue()));
+        MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("app_package_name", "pkg"));
+        assertThat(serialized, JsonMatcher.hasEntry("sha256_cert_fingerprints", Arrays.asList("cert1", "cert2")));
+    }
+
+
+    @Test
+    public void shouldDeserialize() throws Exception {
+        Android android = fromJSON(json, Android.class);
+
+        assertThat(android, is(notNullValue()));
+
+        assertThat(android.getAppPackageName(), is("pkg"));
+        assertThat(android.getSHA256CertFingerprints(), contains("cert1", "cert2"));
+        assertThat(android.getSHA256CertFingerprints().size(), is(2));
+    }
+}

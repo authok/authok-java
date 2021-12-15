@@ -1,0 +1,7 @@
+{
+  "user_id": "u123",
+  "email": "me@authok.com",
+  "send_mail": false,
+  "ticket_id": "12345679",
+  "ticket_url": "https://authok.com/guardian/tickets/123"
+}
