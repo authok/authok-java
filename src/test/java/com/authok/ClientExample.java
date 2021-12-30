@@ -5,6 +5,7 @@ import com.authok.client.mgmt.ManagementAPI;
 import com.authok.exception.AuthokException;
 import com.authok.json.auth.TokenHolder;
 import com.authok.json.mgmt.client.Client;
+import com.authok.net.Request;
 import com.authok.net.TokenRequest;
 
 import java.security.cert.CertificateException;
@@ -53,13 +54,15 @@ public class ClientExample {
     }
 
     private void authenticate() throws Exception {
-        this.authAPI = new AuthAPI("https://brucke.authok.com", "v9Nre01S1mN9ovRKcMW8GJSY5cyJKhEc", "jU0oMu-LIxaJ7wWBcEEw4sFg12bBE8IlWunWsaIGusXpBHpjLwDeGXIb6BeeDebO");
+        this.authAPI = new AuthAPI("https://brucke.authok.cn", "v9Nre01S1mN9ovRKcMW8GJSY5cyJKhEc", "jU0oMu-LIxaJ7wWBcEEw4sFg12bBE8IlWunWsaIGusXpBHpjLwDeGXIb6BeeDebO");
 
-        TokenRequest req = authAPI.requestToken("https://brucke.authok.com/api/v2/")
-            .setScope("openid contacts");
+        TokenRequest req = authAPI.requestToken("https://brucke.authok.cn/api/v2/");//.setScope("openid contacts");
         TokenHolder holder = req.execute();
 
-        this.managementAPI = new ManagementAPI("https://brucke.authok.com", holder.getAccessToken());
+        Request<Void> req1 = authAPI.resetPasswordByEmail("52388483@qq.com", "c1");
+        Void r = req1.execute();
+
+        this.managementAPI = new ManagementAPI("https://brucke.authok.cn", holder.getAccessToken());
     }
 
     private void testClient() {

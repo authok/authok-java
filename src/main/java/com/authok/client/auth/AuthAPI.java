@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Class that provides an implementation of some of the Authentication and Authorization API methods defined in https://authok.com/docs/api/authentication.
+ * Class that provides an implementation of some of the Authentication and Authorization API methods defined in https://authok.cn/docs/api/authentication.
  * To begin create a new instance of {@link #AuthAPI(String, String, String)} using the tenant domain, and the Application's client id and client secret.
  * <p>
  * This class is not entirely thread-safe:
@@ -65,7 +65,7 @@ public class AuthAPI {
 
     /**
      * Create a new instance with the given tenant's domain, application's client id and client secret.
-     * These values can be obtained at https://manage.authok.com/#/applications/{YOUR_CLIENT_ID}/settings.
+     * These values can be obtained at https://manage.authok.cn/#/applications/{YOUR_CLIENT_ID}/settings.
      * In addition, accepts an {@link HttpOptions} that will be used to configure the networking client.
      *
      * @param domain       tenant's domain.
@@ -95,7 +95,7 @@ public class AuthAPI {
 
     /**
      * Create a new instance with the given tenant's domain, application's client id and client secret.
-     * These values can be obtained at https://manage.authok.com/#/applications/{YOUR_CLIENT_ID}/settings.
+     * These values can be obtained at https://manage.authok.cn/#/applications/{YOUR_CLIENT_ID}/settings.
      *
      * @param domain       tenant's domain.
      * @param clientId     the application's client id.
@@ -195,10 +195,10 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
-     * String url = auth.authorizeUrl("https://me.authok.com/callback")
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * String url = auth.authorizeUrl("https://me.authok.cn/callback")
      *      .withConnection("facebook")
-     *      .withAudience("https://api.me.authok.com/users")
+     *      .withAudience("https://api.me.authok.cn/users")
      *      .withScope("openid contacts")
      *      .withState("my-custom-state")
      *      .build();
@@ -219,8 +219,8 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
-     * String url = auth.logoutUrl("https://me.authok.com/home", true)
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * String url = auth.logoutUrl("https://me.authok.cn/home", true)
      *      .useFederated(true)
      *      .withAccessToken("A9CvPwFojaBIA9CvI");
      * }
@@ -242,7 +242,7 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      UserInfo result = auth.userInfo("A9CvPwFojaBIA9CvI").execute();
      * } catch (AuthokException e) {
@@ -274,9 +274,9 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      auth.resetPassword("me@authok.com", "db-connection").execute();
+     *      auth.resetPassword("me@authok.cn", "db-connection").execute();
      * } catch (AuthokException e) {
      *      //Something happened
      * }
@@ -327,12 +327,12 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      Map<String, String> fields = new HashMap<String, String>();
      *      fields.put("age", "25);
      *      fields.put("city", "Buenos Aires");
-     *      auth.signUp("me@authok.com", "myself", "topsecret", "db-connection")
+     *      auth.signUp("me@authok.cn", "myself", "topsecret", "db-connection")
      *          .setCustomFields(fields)
      *          .execute();
      * } catch (AuthokException e) {
@@ -359,12 +359,12 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      Map<String, String> fields = new HashMap<String, String>();
      *      fields.put("age", "25);
      *      fields.put("city", "Buenos Aires");
-     *      auth.signUp("me@authok.com", "myself", new char[]{'s','e','c','r','e','t'}, "db-connection")
+     *      auth.signUp("me@authok.cn", "myself", new char[]{'s','e','c','r','e','t'}, "db-connection")
      *          .setCustomFields(fields)
      *          .execute();
      * } catch (AuthokException e) {
@@ -392,12 +392,12 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      Map<String, String> fields = new HashMap<String, String>();
      *      fields.put("age", "25);
      *      fields.put("city", "Buenos Aires");
-     *      auth.signUp("me@authok.com", "topsecret", "db-connection")
+     *      auth.signUp("me@authok.cn", "topsecret", "db-connection")
      *          .setCustomFields(fields)
      *          .execute();
      * } catch (AuthokException e) {
@@ -422,12 +422,12 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      Map<String, String> fields = new HashMap<String, String>();
      *      fields.put("age", "25);
      *      fields.put("city", "Buenos Aires");
-     *      auth.signUp("me@authok.com", new char[]{'s','e','c','r','e','t'}, "db-connection")
+     *      auth.signUp("me@authok.cn", new char[]{'s','e','c','r','e','t'}, "db-connection")
      *          .setCustomFields(fields)
      *          .execute();
      * } catch (AuthokException e) {
@@ -465,9 +465,9 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      TokenHolder result = auth.login("me@authok.com", "topsecret")
+     *      TokenHolder result = auth.login("me@authok.cn", "topsecret")
      *          .setScope("openid email nickname")
      *          .execute();
      * } catch (AuthokException e) {
@@ -491,9 +491,9 @@ public class AuthAPI {
      * i.e.:
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      TokenHolder result = auth.login("me@authok.com", new char[]{'s','e','c','r','e','t})
+     *      TokenHolder result = auth.login("me@authok.cn", new char[]{'s','e','c','r','e','t})
      *          .setScope("openid email nickname")
      *          .execute();
      * } catch (AuthokException e) {
@@ -530,10 +530,10 @@ public class AuthAPI {
      * Default used realm and audience are defined in the "API Authorization Settings" in the account's advanced settings in the Authok Dashboard.
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      TokenHolder result = auth.login("me@authok.com", "topsecret", "my-realm")
-     *          .setAudience("https://myapi.me.authok.com/users")
+     *      TokenHolder result = auth.login("me@authok.cn", "topsecret", "my-realm")
+     *          .setAudience("https://myapi.me.authok.cn/users")
      *          .execute();
      * } catch (AuthokException e) {
      *      //Something happened
@@ -557,10 +557,10 @@ public class AuthAPI {
      * Default used realm and audience are defined in the "API Authorization Settings" in the account's advanced settings in the Authok Dashboard.
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      TokenHolder result = auth.login("me@authok.com", new char[]{'s','e','c','r','e','t'}, "my-realm")
-     *          .setAudience("https://myapi.me.authok.com/users")
+     *      TokenHolder result = auth.login("me@authok.cn", new char[]{'s','e','c','r','e','t'}, "my-realm")
+     *          .setAudience("https://myapi.me.authok.cn/users")
      *          .execute();
      * } catch (AuthokException e) {
      *      //Something happened
@@ -587,7 +587,7 @@ public class AuthAPI {
         TokenRequest request = new TokenRequest(client, url);
         request.addParameter(KEY_CLIENT_ID, clientId);
         request.addParameter(KEY_CLIENT_SECRET, clientSecret);
-        request.addParameter(KEY_GRANT_TYPE, "http://authok.com/oauth/grant-type/password-realm");
+        request.addParameter(KEY_GRANT_TYPE, "http://authok.cn/oauth/grant-type/password-realm");
         request.addParameter(KEY_USERNAME, emailOrUsername);
         request.addParameter(KEY_PASSWORD, password);
         request.addParameter(KEY_REALM, realm);
@@ -599,7 +599,7 @@ public class AuthAPI {
      *
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      TokenHolder result = auth.exchangePasswordlessOtp("user@domain.com", "email", new char[]{'c','o','d','e'})
      *          .execute();
@@ -615,7 +615,7 @@ public class AuthAPI {
      *
      * @return A request to configure and execute
      *
-     * @see <a href="https://authok.com/docs/connections/passwordless/reference/relevant-api-endpoints">Using Passwordless APIs</a>
+     * @see <a href="https://authok.cn/docs/connections/passwordless/reference/relevant-api-endpoints">Using Passwordless APIs</a>
      * @see AuthAPI#startPasswordlessEmailFlow(String, PasswordlessEmailType)
      * @see AuthAPI#startPasswordlessSmsFlow(String)
      */
@@ -633,7 +633,7 @@ public class AuthAPI {
         TokenRequest request = new TokenRequest(client, url);
         request.addParameter(KEY_CLIENT_ID, clientId);
         request.addParameter(KEY_CLIENT_SECRET, clientSecret);
-        request.addParameter(KEY_GRANT_TYPE, "http://authok.com/oauth/grant-type/passwordless/otp");
+        request.addParameter(KEY_GRANT_TYPE, "http://authok.cn/oauth/grant-type/passwordless/otp");
         request.addParameter(KEY_USERNAME, emailOrPhone);
         request.addParameter(KEY_REALM, realm);
         request.addParameter(KEY_OTP, otp);
@@ -645,9 +645,9 @@ public class AuthAPI {
      * Default used realm is defined in the "API Authorization Settings" in the account's advanced settings in the Authok Dashboard.
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      TokenHolder result = auth.requestToken("https://myapi.me.authok.com/users")
+     *      TokenHolder result = auth.requestToken("https://myapi.me.authok.cn/users")
      *          .setRealm("my-realm")
      *          .execute();
      * } catch (AuthokException e) {
@@ -680,7 +680,7 @@ public class AuthAPI {
      * Creates a request to revoke an existing Refresh Token.
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      auth.revokeToken("ej2E8zNEzjrcSD2edjaE")
      *          .execute();
@@ -714,7 +714,7 @@ public class AuthAPI {
      * Creates a request to renew the authentication and get fresh new credentials using a valid Refresh Token and the 'refresh_token' grant.
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      TokenHolder result = auth.renewAuth("ej2E8zNEzjrcSD2edjaE")
      *          .execute();
@@ -748,9 +748,9 @@ public class AuthAPI {
      * Creates a request to exchange the code obtained in the /authorize call using the 'Authorization Code' grant.
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
-     *      TokenHolder result = auth.exchangeCode("SnWoFLMzApDskr", "https://me.authok.com/callback")
+     *      TokenHolder result = auth.exchangeCode("SnWoFLMzApDskr", "https://me.authok.cn/callback")
      *          .setScope("openid name nickname")
      *          .execute();
      * } catch (AuthokException e) {
@@ -787,7 +787,7 @@ public class AuthAPI {
      *
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      PasswordlessEmailResponse result = auth.startPasswordlessEmailFlow("user@domain.com", PasswordlessEmailType.CODE)
      *          .execute();
@@ -802,8 +802,8 @@ public class AuthAPI {
      *
      * @return a Request to configure and execute.
      *
-     * @see <a href="https://authok.com/docs/connections/passwordless/guides/email-otp">Passwordless Authentication with Email documentation</a>
-     * @see <a href="https://authok.com/docs/api/authentication#get-code-or-link">Get code or link API reference documentation</a>
+     * @see <a href="https://authok.cn/docs/connections/passwordless/guides/email-otp">Passwordless Authentication with Email documentation</a>
+     * @see <a href="https://authok.cn/docs/api/authentication#get-code-or-link">Get code or link API reference documentation</a>
      */
     public CustomRequest<PasswordlessEmailResponse> startPasswordlessEmailFlow(String email, PasswordlessEmailType type) {
         Asserts.assertNotNull(email, "email");
@@ -831,7 +831,7 @@ public class AuthAPI {
      *
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      PasswordlessSmsResponse result = auth.startPasswordlessSmsFlow("+16511234567")
      *          .execute();
@@ -845,8 +845,8 @@ public class AuthAPI {
      *
      * @return a Request to configure and execute.
      *
-     * @see <a href="https://authok.com/docs/connections/passwordless/guides/sms-otp">Passwordless Authentication with SMS documentation</a>
-     * @see <a href="https://authok.com/docs/api/authentication#get-code-or-link">Get code or link API reference documentation</a>
+     * @see <a href="https://authok.cn/docs/connections/passwordless/guides/sms-otp">Passwordless Authentication with SMS documentation</a>
+     * @see <a href="https://authok.cn/docs/api/authentication#get-code-or-link">Get code or link API reference documentation</a>
      */
     public CustomRequest<PasswordlessSmsResponse> startPasswordlessSmsFlow(String phoneNumber) {
         Asserts.assertNotNull(phoneNumber, "phoneNumber");
@@ -872,7 +872,7 @@ public class AuthAPI {
      *
      * <pre>
      * {@code
-     * AuthAPI auth = new AuthAPI("me.authok.com", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
+     * AuthAPI auth = new AuthAPI("me.authok.cn", "B3c6RYhk1v9SbIJcRIOwu62gIUGsnze", "2679NfkaBn62e6w5E8zNEzjr-yWfkaBne");
      * try {
      *      TokenHolder result = auth.exchangeMfaOtp("the-mfa-token”, new char[]{‘a','n','o','t',’p’})
      *          .execute();
@@ -887,7 +887,7 @@ public class AuthAPI {
      *
      * @return a Request to configure and execute.
      *
-     * @see <a href="https://authok.com/docs/api/authentication#verify-with-one-time-password-otp-">Verify with one-time password (OTP) API documentation</a>
+     * @see <a href="https://authok.cn/docs/api/authentication#verify-with-one-time-password-otp-">Verify with one-time password (OTP) API documentation</a>
      */
     public TokenRequest exchangeMfaOtp(String mfaToken, char[] otp) {
         Asserts.assertNotNull(mfaToken, "mfa token");
@@ -902,7 +902,7 @@ public class AuthAPI {
         TokenRequest request = new TokenRequest(client, url);
         request.addParameter(KEY_CLIENT_ID, clientId);
         request.addParameter(KEY_CLIENT_SECRET, clientSecret);
-        request.addParameter(KEY_GRANT_TYPE, "http://authok.com/oauth/grant-type/mfa-otp");
+        request.addParameter(KEY_GRANT_TYPE, "http://authok.cn/oauth/grant-type/mfa-otp");
         request.addParameter(KEY_MFA_TOKEN, mfaToken);
         request.addParameter(KEY_OTP, otp);
         return request;

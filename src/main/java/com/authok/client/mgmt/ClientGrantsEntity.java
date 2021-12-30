@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Client Grants methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Client_Grants
+ * Class that provides an implementation of the Client Grants methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Client_Grants
  * <p>
  * This class is not thread-safe.
  *
@@ -30,7 +30,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Client Grants. A token with scope read:client_grants is needed.
-     * See https://authok.com/docs/api/management/v2#!/Client_Grants/get_client_grants
+     * See https://authok.cn/docs/api/management/v2#!/Client_Grants/get_client_grants
      *
      * @param filter the filter to use. Can be null
      * @return a Request to execute.
@@ -54,7 +54,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Client Grants. A token with scope read:client_grants is needed.
-     * See https://authok.com/docs/api/management/v2#!/Client_Grants/get_client_grants
+     * See https://authok.cn/docs/api/management/v2#!/Client_Grants/get_client_grants
      *
      * @return a Request to execute.
      * @deprecated Calling this method will soon stop returning the complete list of client grants and instead, limit to the first page of results.
@@ -75,7 +75,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
     /**
      * Create a Client Grant. A token with scope create:client_grants is needed.
-     * See https://authok.com/docs/api/management/v2#!/Client_Grants/post_client_grants
+     * See https://authok.cn/docs/api/management/v2#!/Client_Grants/post_client_grants
      *
      * @param clientId the application's client id to associate this grant with.
      * @param audience the audience of the grant.
@@ -104,7 +104,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Client Grant. A token with scope delete:client_grants is needed.
-     * See https://authok.com/docs/api/management/v2#!/Client_Grants/delete_client_grants_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Client_Grants/delete_client_grants_by_id
      *
      * @param clientGrantId the client grant id.
      * @return a Request to execute.
@@ -125,7 +125,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
     /**
      * Update an existing Client Grant. A token with scope update:client_grants is needed.
-     * See https://authok.com/docs/api/management/v2#!/Client_Grants/patch_client_grants_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Client_Grants/patch_client_grants_by_id
      *
      * @param clientGrantId the client grant id.
      * @param scope         the scope to grant.

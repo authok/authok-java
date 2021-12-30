@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Class that provides an implementation of the Management API methods defined in https://authok.com/docs/api/management/v2.
+ * Class that provides an implementation of the Management API methods defined in https://authok.cn/docs/api/management/v2.
  * To begin create an instance of {@link #ManagementAPI(String, String)} using the tenant domain and API token.
  * <p>
  * This class is not entirely thread-safe:
@@ -34,7 +34,7 @@ public class ManagementAPI {
     /**
      * Create an instance with the given tenant's domain and API token.
      * In addition, accepts an {@link HttpOptions} that will be used to configure the networking client.
-     * See the Management API section in the readme or visit https://authok.com/docs/api/management/v2/tokens
+     * See the Management API section in the readme or visit https://authok.cn/docs/api/management/v2/tokens
      * to learn how to obtain a token.
      *
      * @param domain   the tenant's domain.
@@ -60,7 +60,7 @@ public class ManagementAPI {
 
     /**
      * Create an instance with the given tenant's domain and API token.
-     * See the Management API section in the readme or visit https://authok.com/docs/api/management/v2/tokens
+     * See the Management API section in the readme or visit https://authok.cn/docs/api/management/v2/tokens
      * to learn how to obtain a token.
      *
      * @param domain   the tenant's domain.
@@ -117,7 +117,7 @@ public class ManagementAPI {
     /**
      * Update the API token to use on new calls. This is useful when the token is about to expire or already has.
      * Please note you'll need to obtain the corresponding entity again for this to apply. e.g. call {@link #clients()} again.
-     * See the Management API section in the readme or visit https://authok.com/docs/api/management/v2/tokens to learn how to obtain a token.
+     * See the Management API section in the readme or visit https://authok.cn/docs/api/management/v2/tokens to learn how to obtain a token.
      *
      * @param apiToken the token to authenticate the calls with.
      */

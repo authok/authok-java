@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Users methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Users and https://authok.com/docs/api/management/v2#!/Users_By_Email
+ * Class that provides an implementation of the Users methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Users and https://authok.cn/docs/api/management/v2#!/Users_By_Email
  * <p>
  * This class is not thread-safe.
  *
@@ -46,7 +46,7 @@ public class UsersEntity extends BaseManagementEntity {
      * Request all the Users that match a given email.
      * A token with scope read:users is needed.
      * If you want the identities.access_token property to be included, you will also need the scope read:user_idp_tokens.
-     * See https://authok.com/docs/api/management/v2#!/Users_By_Email/get_users_by_email
+     * See https://authok.cn/docs/api/management/v2#!/Users_By_Email/get_users_by_email
      *
      * @param email  the email of the users to look up.
      * @param filter the filter to use. Can be null.
@@ -76,7 +76,7 @@ public class UsersEntity extends BaseManagementEntity {
      * Request all the Users.
      * A token with scope read:users is needed.
      * If you want the identities.access_token property to be included, you will also need the scope read:user_idp_tokens.
-     * See https://authok.com/docs/api/management/v2#!/Users/get_users
+     * See https://authok.cn/docs/api/management/v2#!/Users/get_users
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -105,7 +105,7 @@ public class UsersEntity extends BaseManagementEntity {
      * Request a User.
      * A token with scope read:users is needed.
      * If you want the identities.access_token property to be included, you will also need the scope read:user_idp_tokens.
-     * See https://authok.com/docs/api/management/v2#!/Users/get_users_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id
      *
      * @param userId the id of the user to retrieve.
      * @param filter the filter to use. Can be null.
@@ -133,7 +133,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Create a User.
      * A token with scope create:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/post_users
+     * See https://authok.cn/docs/api/management/v2#!/Users/post_users
      *
      * @param user the user data to set
      * @return a Request to execute.
@@ -156,7 +156,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Delete an existing User.
      * A token with scope delete:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/delete_users_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Users/delete_users_by_id
      *
      * @param userId the user id
      * @return a Request to execute.
@@ -179,7 +179,7 @@ public class UsersEntity extends BaseManagementEntity {
      * Update an existing User.
      * A token with scope update:users is needed.
      * If you're updating app_metadata you'll also need update:users_app_metadata scope.
-     * See https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id
      *
      * @param userId the user id
      * @param user   the user data to set. It can't include id.
@@ -205,7 +205,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Request all the Guardian Enrollments for a given User.
      * A token with scope read:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/get_enrollments
+     * See https://authok.cn/docs/api/management/v2#!/Users/get_enrollments
      *
      * @param userId the id of the user to retrieve.
      * @return a Request to execute.
@@ -230,7 +230,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Request all the Events Log for a given User.
      * A token with scope read:logs is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/get_logs_by_user
+     * See https://authok.cn/docs/api/management/v2#!/Users/get_logs_by_user
      *
      * @param userId the id of the user to retrieve.
      * @param filter the filter to use.
@@ -259,7 +259,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Delete an existing User's Multifactor Provider.
      * A token with scope update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/delete_multifactor_by_provider
+     * See https://authok.cn/docs/api/management/v2#!/Users/delete_multifactor_by_provider
      *
      * @param userId   the user id
      * @param provider the multifactor provider
@@ -288,7 +288,7 @@ public class UsersEntity extends BaseManagementEntity {
      *
      * @param userId the user id
      * @return a Request to execute.
-     * @see <a href="https://authok.com/docs/api/management/v2#!/Users/post_recovery_code_regeneration">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v2#!/Users/post_recovery_code_regeneration">Management API2 docs</a>
      */
     public Request<RecoveryCode> rotateRecoveryCode(String userId) {
         Asserts.assertNotNull(userId, "user id");
@@ -310,7 +310,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Links two User's Identities.
      * A token with scope update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/post_identities
+     * See https://authok.cn/docs/api/management/v2#!/Users/post_identities
      *
      * @param primaryUserId   the primary identity's user id
      * @param secondaryUserId the secondary identity's user id
@@ -345,7 +345,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * A token with scope update:current_user_identities is needed.
      * It only works for the user the access token represents.
-     * See https://authok.com/docs/api/management/v2#!/Users/post_identities
+     * See https://authok.cn/docs/api/management/v2#!/Users/post_identities
      *
      * @param primaryUserId the primary identity's user id associated with the access token this client was configured with.
      * @param secondaryIdToken the user ID token representing the identity to link with the current user
@@ -374,7 +374,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Un-links two User's Identities.
      * A token with scope update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/delete_provider_by_user_id
+     * See https://authok.cn/docs/api/management/v2#!/Users/delete_provider_by_user_id
      *
      * @param primaryUserId   the primary identity's user id
      * @param secondaryUserId the secondary identity's user id
@@ -405,7 +405,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Get the permissions associated to the user.
      * A token with read:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/get_permissions
+     * See https://authok.cn/docs/api/management/v2#!/Users/get_permissions
      *
      * @param userId the role id
      * @param filter an optional pagination filter
@@ -434,7 +434,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Remove permissions from a user.
      * A token with update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/delete_permissions
+     * See https://authok.cn/docs/api/management/v2#!/Users/delete_permissions
      *
      * @param userId      the user id
      * @param permissions a list of permission objects to remove from the user
@@ -463,7 +463,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Assign permissions to a user.
      * A token with update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/post_permissions
+     * See https://authok.cn/docs/api/management/v2#!/Users/post_permissions
      *
      * @param userId      the user id
      * @param permissions a list of permission objects to assign to the user
@@ -492,7 +492,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Get the roles associated with a user.
      * A token with read:users and read:roles is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/get_user_roles
+     * See https://authok.cn/docs/api/management/v2#!/Users/get_user_roles
      *
      * @param userId the role id
      * @param filter an optional pagination filter
@@ -521,7 +521,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Remove roles from a user.
      * A token with update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/delete_user_roles
+     * See https://authok.cn/docs/api/management/v2#!/Users/delete_user_roles
      *
      * @param userId  the user id
      * @param roleIds a list of role ids to remove from the user
@@ -550,7 +550,7 @@ public class UsersEntity extends BaseManagementEntity {
     /**
      * Assign roles to a user.
      * A token with update:users is needed.
-     * See https://authok.com/docs/api/management/v2#!/Users/post_user_roles
+     * See https://authok.cn/docs/api/management/v2#!/Users/post_user_roles
      *
      * @param userId  the user id
      * @param roleIds a list of role ids to assign to the user
@@ -584,7 +584,7 @@ public class UsersEntity extends BaseManagementEntity {
      * @param filter an optional pagination filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.com/docs/api/management/v2#!/Users/get_organizations">https://authok.com/docs/api/management/v2#!/Users/get_organizations</a>
+     * @see <a href="https://authok.cn/docs/api/management/v2#!/Users/get_organizations">https://authok.cn/docs/api/management/v2#!/Users/get_organizations</a>
      */
     public Request<OrganizationsPage> getOrganizations(String userId, PageFilter filter) {
         Asserts.assertNotNull(userId, "user ID");

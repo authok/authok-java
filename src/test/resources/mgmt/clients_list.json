@@ -5,19 +5,19 @@
     "client_secret": "MG_TNT2ver-SylNat-_VeMmd-4m0Waba0jr1troztBniSChEw0glxEmgEi2Kw40H",
     "logo_uri": "https://my.logo.com/uri",
     "callbacks": [
-      "https://domain.authok.com/callback"
+      "https://domain.authok.cn/callback"
     ],
     "allowed_origins": [
-      "https://domain.authok.com"
+      "https://domain.authok.cn"
     ],
     "client_aliases": [
-      "https://domain.authok.com"
+      "https://domain.authok.cn"
     ],
     "allowed_clients": [
       "clientId1"
     ],
     "allowed_logout_urls": [
-      "https://domain.authok.com/logout"
+      "https://domain.authok.cn/logout"
     ],
     "token_endpoint_auth_method": "code",
     "app_type": "native",
@@ -76,19 +76,19 @@
     "client_secret": "MG_TNT2ver-SylNat-_VeMmd-4m0Waba0jr1troztBniSChEw0glxEmgEi2Kw40H",
     "logo_uri": "https://my.logo.com/uri",
     "callbacks": [
-      "https://domain.authok.com/callback"
+      "https://domain.authok.cn/callback"
     ],
     "allowed_origins": [
-      "https://domain.authok.com"
+      "https://domain.authok.cn"
     ],
     "client_aliases": [
-      "https://domain.authok.com"
+      "https://domain.authok.cn"
     ],
     "allowed_clients": [
       "clientId1"
     ],
     "allowed_logout_urls": [
-      "https://domain.authok.com/logout"
+      "https://domain.authok.cn/logout"
     ],
     "token_endpoint_auth_method": "code",
     "app_type": "native",

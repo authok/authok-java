@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Roles methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Roles/
+ * Class that provides an implementation of the Roles methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Roles/
  * <p>
  * This class is not thread-safe.
  *
@@ -36,7 +36,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Request all Roles created by this tenant that can be assigned to a given user or user group.
    * A token with read:roles is needed
-   * See https://authok.com/docs/api/management/v2#!/Roles/get_roles
+   * See https://authok.cn/docs/api/management/v2#!/Roles/get_roles
    *
    * @param filter optional filtering and pagination criteria
    * @return a Request to execute
@@ -59,7 +59,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Get a single role created by this tenant that can be assigned to a given user or user group.
    * A token with scope read:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/get_roles_by_id
+   * See https://authok.cn/docs/api/management/v2#!/Roles/get_roles_by_id
    *
    * @param roleId the id of the user to retrieve.
    * @return a Request to execute.
@@ -82,7 +82,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Create a Role.
    * A token with scope create:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/post_roles
+   * See https://authok.cn/docs/api/management/v2#!/Roles/post_roles
    *
    * @param role the role data to set
    * @return a Request to execute.
@@ -104,7 +104,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Delete an existing Role.
    * A token with scope delete:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/delete_roles_by_id
+   * See https://authok.cn/docs/api/management/v2#!/Roles/delete_roles_by_id
    *
    * @param roleId The id of the role to delete.
    * @return a Request to execute.
@@ -126,7 +126,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Update an existing Role.
    * A token with scope update:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/patch_roles_by_id
+   * See https://authok.cn/docs/api/management/v2#!/Roles/patch_roles_by_id
    *
    * @param roleId the role id
    * @param role the role data to set. It can't include id.
@@ -152,7 +152,7 @@ public class RolesEntity extends BaseManagementEntity {
    * Lists the users that have been associated with a given role.
    * A token with scope read:users and read:roles is needed.
    *
-   * See https://authok.com/docs/api/management/v2#!/Roles/get_role_user
+   * See https://authok.cn/docs/api/management/v2#!/Roles/get_role_user
    *
    * @param roleId the role id
    * @param filter an optional pagination filter
@@ -179,7 +179,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Assign users to a role.
    * A token with update:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/post_role_users
+   * See https://authok.cn/docs/api/management/v2#!/Roles/post_role_users
    *
    * @param roleId the role id
    * @param userIds a list of user ids to assign to the role
@@ -208,7 +208,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Get the permissions associated to the role.
    * A token with read:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/get_permissions
+   * See https://authok.cn/docs/api/management/v2#!/Roles/get_permissions
    *
    * @param roleId the role id
    * @param filter an optional pagination filter
@@ -236,7 +236,7 @@ public class RolesEntity extends BaseManagementEntity {
   /**
    * Un-associate permissions from a role.
    * A token with update:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/delete_role_permission_assignment
+   * See https://authok.cn/docs/api/management/v2#!/Roles/delete_role_permission_assignment
    *
    * @param roleId the role id
    * @param permissions a list of permission objects to un-associate from the role
@@ -266,7 +266,7 @@ public class RolesEntity extends BaseManagementEntity {
    * Associate permissions with a role. Only the `permission_name` and
    * `resource_server_identifier` Permission attributes should be specified.
    * A token with update:roles is needed.
-   * See https://authok.com/docs/api/management/v2#!/Roles/post_role_permission_assignment
+   * See https://authok.cn/docs/api/management/v2#!/Roles/post_role_permission_assignment
    *
    * @param roleId the role id
    * @param permissions a list of permission objects to associate to the role

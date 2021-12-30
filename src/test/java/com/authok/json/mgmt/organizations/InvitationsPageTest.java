@@ -21,7 +21,7 @@ public class InvitationsPageTest extends JsonTest<InvitationsPage> {
         "    \"invitee\": {\n" +
         "      \"email\": \"dave@domain.com\"\n" +
         "    },\n" +
-        "    \"invitation_url\": \"https://some-domain.authok.com/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
+        "    \"invitation_url\": \"https://some-domain.authok.cn/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
         "    \"ticket_id\": \"U0o1uoXAl1VPkKbZla0a833soMUMOo1E\",\n" +
         "    \"created_at\": \"2021-03-31T19:08:40.295Z\",\n" +
         "    \"expires_at\": \"2021-04-07T19:08:40.295Z\",\n" +
@@ -31,14 +31,14 @@ public class InvitationsPageTest extends JsonTest<InvitationsPage> {
         "    \"id\": \"uinv_Q3lgZ0a99aY7Rqs3\",\n" +
         "    \"client_id\": \"klCnbSD1U1Yd0333dvEAFMwDoOX5bfsb\",\n" +
         "    \"inviter\": {\n" +
-        "      \"name\": \"jim.anderson@authok.com\"\n" +
+        "      \"name\": \"jim.anderson@authok.cn\"\n" +
         "    },\n" +
         "    \"invitee\": {\n" +
-        "      \"email\": \"jim.anderson+android@authok.com\"\n" +
+        "      \"email\": \"jim.anderson+android@authok.cn\"\n" +
         "    },\n" +
         "    \"app_metadata\": {},\n" +
         "    \"user_metadata\": {},\n" +
-        "    \"invitation_url\": \"https://some-domain.authok.com/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
+        "    \"invitation_url\": \"https://some-domain.authok.cn/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
         "    \"ticket_id\": \"U0o1uoXAl1VPkK0a940a833soMUMOo1E\",\n" +
         "    \"created_at\": \"2021-03-31T17:59:23.132Z\",\n" +
         "    \"expires_at\": \"2021-04-07T17:59:23.132Z\",\n" +
@@ -57,7 +57,7 @@ public class InvitationsPageTest extends JsonTest<InvitationsPage> {
         "      \"invitee\": {\n" +
         "        \"email\": \"dave@domain.com\"\n" +
         "      },\n" +
-        "      \"invitation_url\": \"https://some-domain.authok.com/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
+        "      \"invitation_url\": \"https://some-domain.authok.cn/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
         "      \"ticket_id\": \"U0o1uoXAl1VPkKbZla0a833soMUMOo1E\",\n" +
         "      \"created_at\": \"2021-03-31T19:08:40.295Z\",\n" +
         "      \"expires_at\": \"2021-04-07T19:08:40.295Z\",\n" +
@@ -67,14 +67,14 @@ public class InvitationsPageTest extends JsonTest<InvitationsPage> {
         "      \"id\": \"uinv_Q3lgZ0a99aY7Rqs3\",\n" +
         "      \"client_id\": \"klCnbSD1U1Yd0333dvEAFMwDoOX5bfsb\",\n" +
         "      \"inviter\": {\n" +
-        "        \"name\": \"jim.anderson@authok.com\"\n" +
+        "        \"name\": \"jim.anderson@authok.cn\"\n" +
         "      },\n" +
         "      \"invitee\": {\n" +
-        "        \"email\": \"jim.anderson+android@authok.com\"\n" +
+        "        \"email\": \"jim.anderson+android@authok.cn\"\n" +
         "      },\n" +
         "      \"app_metadata\": {},\n" +
         "      \"user_metadata\": {},\n" +
-        "      \"invitation_url\": \"https://some-domain.authok.com/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
+        "      \"invitation_url\": \"https://some-domain.authok.cn/login?invitation=U0o1uoXAl1VPkKbZlaRWEWJadkeed1E&organization=org_W3OHp07dfbjhHuWK&organization_name=timmy-org\",\n" +
         "      \"ticket_id\": \"U0o1uoXAl1VPkK0a940a833soMUMOo1E\",\n" +
         "      \"created_at\": \"2021-03-31T17:59:23.132Z\",\n" +
         "      \"expires_at\": \"2021-04-07T17:59:23.132Z\",\n" +

@@ -19,11 +19,11 @@ public class ClientGrantsFilterTest {
 
     @Test
     public void shouldFilterByAudience() {
-        ClientGrantsFilter instance = filter.withAudience("https://myapi.authok.com");
+        ClientGrantsFilter instance = filter.withAudience("https://myapi.authok.cn");
 
         assertThat(filter, is(instance));
         assertThat(filter.getAsMap(), is(notNullValue()));
-        assertThat(filter.getAsMap(), Matchers.hasEntry("audience", "https://myapi.authok.com"));
+        assertThat(filter.getAsMap(), Matchers.hasEntry("audience", "https://myapi.authok.cn"));
     }
 
     @Test

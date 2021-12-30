@@ -8,7 +8,7 @@ import java.util.Map;
 import static com.authok.utils.Asserts.assertNotNull;
 
 /**
- * Class that provides the methods to generate a valid Authok Authorize Url. It's based on the https://authok.com/docs/api/authentication#social docs.
+ * Class that provides the methods to generate a valid Authok Authorize Url. It's based on the https://authok.cn/docs/api/authentication#social docs.
  * <p>
  * This class is not thread-safe:
  * It makes use of {@link HashMap} for storing the parameters. Make sure to not call the builder methods

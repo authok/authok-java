@@ -90,7 +90,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
     @Test
     public void shouldListGrantsWithAdditionalProperties() throws Exception {
         GrantsFilter filter = new GrantsFilter()
-                .withAudience("https://myapi.authok.com")
+                .withAudience("https://myapi.authok.cn")
                 .withClientId("u9e3hh3e9j2fj9092ked");
         Request<GrantsPage> request = api.grants().list("userId", filter);
         assertThat(request, is(notNullValue()));
@@ -103,7 +103,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
-        assertThat(recordedRequest, hasQueryParameter("audience", "https://myapi.authok.com"));
+        assertThat(recordedRequest, hasQueryParameter("audience", "https://myapi.authok.cn"));
         assertThat(recordedRequest, hasQueryParameter("client_id", "u9e3hh3e9j2fj9092ked"));
 
         assertThat(response, is(notNullValue()));

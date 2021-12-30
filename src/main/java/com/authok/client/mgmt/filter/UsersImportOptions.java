@@ -42,7 +42,7 @@ public class UsersImportOptions extends BaseFilter {
      * with upsertable attributes. For a list of user profile fields that can be upserted during import,
      * see the following article.
      * <p>
-     * https://authok.com/docs/users/references/user-profile-structure#user-profile-attributes
+     * https://authok.cn/docs/users/references/user-profile-structure#user-profile-attributes
      *
      * @param upsert Whether to update users if they already exist (true) or to ignore them (false). Defaults to false.
      * @return this filter instance

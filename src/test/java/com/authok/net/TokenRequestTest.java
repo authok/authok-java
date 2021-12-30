@@ -48,13 +48,13 @@ public class TokenRequestTest {
     public void shouldSetAudience() throws Exception {
         TokenRequest request = new TokenRequest(client, server.getBaseUrl());
         assertThat(request, is(notNullValue()));
-        request.setAudience("https://myapi.authok.com/users");
+        request.setAudience("https://myapi.authok.cn/users");
 
         server.jsonResponse(AUTH_TOKENS, 200);
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
         Map<String, Object> values = bodyFromRequest(recordedRequest);
-        assertThat(values, hasEntry("audience", "https://myapi.authok.com/users"));
+        assertThat(values, hasEntry("audience", "https://myapi.authok.cn/users"));
     }
 
     @Test

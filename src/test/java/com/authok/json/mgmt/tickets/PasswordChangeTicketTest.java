@@ -12,16 +12,16 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class PasswordChangeTicketTest extends JsonTest<PasswordChangeTicket> {
 
-    private static final String readOnlyJson = "{\"ticket\":\"https://page.authok.com/tickets/123\"}";
+    private static final String readOnlyJson = "{\"ticket\":\"https://page.authok.cn/tickets/123\"}";
 
     @SuppressWarnings("deprecation")
     @Test
     public void shouldSerialize() throws Exception {
         PasswordChangeTicket ticket = new PasswordChangeTicket("usr123");
-        ticket.setResultUrl("https://page.authok.com/result");
+        ticket.setResultUrl("https://page.authok.cn/result");
         ticket.setTTLSeconds(36000);
         ticket.setConnectionId("12");
-        ticket.setEmail("me@authok.com");
+        ticket.setEmail("me@authok.cn");
         ticket.setNewPassword("pass123");
         ticket.setMarkEmailAsVerified(true);
         ticket.setOrganizationId("org_abc");
@@ -31,11 +31,11 @@ public class PasswordChangeTicketTest extends JsonTest<PasswordChangeTicket> {
         String serialized = toJSON(ticket);
         assertThat(serialized, is(notNullValue()));
         MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("user_id", "usr123"));
-        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.com/result"));
+        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.cn/result"));
         assertThat(serialized, JsonMatcher.hasEntry("ttl_sec", 36000));
         assertThat(serialized, JsonMatcher.hasEntry("new_password", "pass123"));
         assertThat(serialized, JsonMatcher.hasEntry("connection_id", "12"));
-        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.com"));
+        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.cn"));
         assertThat(serialized, JsonMatcher.hasEntry("mark_email_as_verified", true));
         assertThat(serialized, JsonMatcher.hasEntry("organization_id", "org_abc"));
         assertThat(serialized, JsonMatcher.hasEntry("client_id", "client_abc"));
@@ -46,20 +46,20 @@ public class PasswordChangeTicketTest extends JsonTest<PasswordChangeTicket> {
     @Test
     public void shouldSerializeWithCustomizedConnection() throws Exception {
         PasswordChangeTicket ticket = new PasswordChangeTicket("user@emailprovider.com", "connid123");
-        ticket.setResultUrl("https://page.authok.com/result");
+        ticket.setResultUrl("https://page.authok.cn/result");
         ticket.setTTLSeconds(36000);
-        ticket.setEmail("me@authok.com");
+        ticket.setEmail("me@authok.cn");
         ticket.setNewPassword("pass123");
         ticket.setUserId("usr123");
 
         String serialized = toJSON(ticket);
         assertThat(serialized, is(notNullValue()));
         assertThat(serialized, JsonMatcher.hasEntry("user_id", "usr123"));
-        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.com/result"));
+        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.cn/result"));
         assertThat(serialized, JsonMatcher.hasEntry("ttl_sec", 36000));
         assertThat(serialized, JsonMatcher.hasEntry("new_password", "pass123"));
         assertThat(serialized, JsonMatcher.hasEntry("connection_id", "connid123"));
-        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.com"));
+        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.cn"));
     }
     
     @Test
@@ -67,7 +67,7 @@ public class PasswordChangeTicketTest extends JsonTest<PasswordChangeTicket> {
         PasswordChangeTicket ticket = fromJSON(readOnlyJson, PasswordChangeTicket.class);
         assertThat(ticket, is(notNullValue()));
 
-        assertThat(ticket.getTicket(), is("https://page.authok.com/tickets/123"));
+        assertThat(ticket.getTicket(), is("https://page.authok.cn/tickets/123"));
     }
 
     @SuppressWarnings("deprecation")

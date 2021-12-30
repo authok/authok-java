@@ -12,7 +12,7 @@ import okhttp3.OkHttpClient;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Tenant Settings methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Tenants
+ * Class that provides an implementation of the Tenant Settings methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Tenants
  * <p>
  * This class is not thread-safe.
  *
@@ -27,7 +27,7 @@ public class TenantsEntity extends BaseManagementEntity {
 
     /**
      * Request the Tenant Settings. A token with scope read:tenant_settings is needed.
-     * See https://authok.com/docs/api/management/v2#!/Tenants/get_settings
+     * See https://authok.cn/docs/api/management/v2#!/Tenants/get_settings
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -50,7 +50,7 @@ public class TenantsEntity extends BaseManagementEntity {
 
     /**
      * Update the Tenant Settings. A token with scope update:tenant_settings is needed.
-     * See https://authok.com/docs/api/management/v2#!/Tenants/patch_settings
+     * See https://authok.cn/docs/api/management/v2#!/Tenants/patch_settings
      *
      * @param tenant the tenant data to set.
      * @return a Request to execute.

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Device Credentials methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Device_Credentials
+ * Class that provides an implementation of the Device Credentials methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Device_Credentials
  * <p>
  * This class is not thread-safe.
  *
@@ -29,7 +29,7 @@ public class DeviceCredentialsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Device Credentials. A token with scope read:device_credentials is needed.
-     * See https://authok.com/docs/api/management/v2#!/Device_Credentials/get_device_credentials
+     * See https://authok.cn/docs/api/management/v2#!/Device_Credentials/get_device_credentials
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -52,7 +52,7 @@ public class DeviceCredentialsEntity extends BaseManagementEntity {
 
     /**
      * Create a Device Credentials. A token with scope create:current_user_device_credentials is needed.
-     * See https://authok.com/docs/api/management/v2#!/Device_Credentials/post_device_credentials
+     * See https://authok.cn/docs/api/management/v2#!/Device_Credentials/post_device_credentials
      *
      * @param deviceCredentials the device credentials data to set.
      * @return a Request to execute.
@@ -74,7 +74,7 @@ public class DeviceCredentialsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Device Credentials. A token with scope delete:device_credentials is needed.
-     * See https://authok.com/docs/api/management/v2#!/Device_Credentials/post_device_credentials
+     * See https://authok.cn/docs/api/management/v2#!/Device_Credentials/post_device_credentials
      *
      * @param deviceCredentialsId the device credentials id
      * @return a Request to execute.

@@ -16,7 +16,7 @@ public class UserFilter extends QueryFilter {
      * <p>
      * Since version 1.12.0 this SDK no longer specifies a search engine version by default. If you need to use
      * a version different than the latest one, please set it explicitly by calling {@link #withSearchEngine(String)}.
-     * See the latest user search doc: https://authok.com/docs/users/search/
+     * See the latest user search doc: https://authok.cn/docs/users/search/
      */
     public UserFilter() {
     }
@@ -30,7 +30,7 @@ public class UserFilter extends QueryFilter {
     /**
      * Selects which Search Engine version to use when querying for users.
      * <p>
-     * See the latest user search doc: https://authok.com/docs/users/search/
+     * See the latest user search doc: https://authok.cn/docs/users/search/
      *
      * @param searchEngineVersion the search engine version to use on queries.
      * @return this filter instance
@@ -43,7 +43,7 @@ public class UserFilter extends QueryFilter {
     /**
      * Filter by a query
      *
-     * @param query the query expression to use following the syntax defined at https://authok.com/docs/users/search/v3/query-syntax
+     * @param query the query expression to use following the syntax defined at https://authok.cn/docs/users/search/v3/query-syntax
      * @return this filter instance
      */
     @Override

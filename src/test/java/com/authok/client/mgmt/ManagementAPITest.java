@@ -25,7 +25,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ManagementAPITest {
 
-    private static final String DOMAIN = "domain.authok.com";
+    private static final String DOMAIN = "domain.authok.cn";
     private static final String API_TOKEN = "apiToken";
 
     private MockServer server;

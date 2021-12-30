@@ -44,7 +44,7 @@ public class EmailTemplatesEntityTest extends BaseMgmtEntityTest {
         EmailTemplate template = new EmailTemplate();
         template.setName("welcome_email");
         template.setBody("Welcome!!");
-        template.setFrom("authok.com");
+        template.setFrom("authok.cn");
         template.setSubject("Welcome");
         template.setSyntax("liquid");
         template.setEnabled(true);
@@ -64,7 +64,7 @@ public class EmailTemplatesEntityTest extends BaseMgmtEntityTest {
         assertThat(body.size(), is(6));
         assertThat(body, hasEntry("template", "welcome_email"));
         assertThat(body, hasEntry("body", "Welcome!!"));
-        assertThat(body, hasEntry("from", "authok.com"));
+        assertThat(body, hasEntry("from", "authok.cn"));
         assertThat(body, hasEntry("syntax", "liquid"));
         assertThat(body, hasEntry("subject", "Welcome"));
         assertThat(body, hasEntry("enabled", true));

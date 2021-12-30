@@ -12,17 +12,17 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class EnrollmentTicketTest extends JsonTest<EnrollmentTicket> {
 
-    private static final String readOnlyJson = "{\"ticket_id\":\"ticket123\",\"ticket_url\":\"https://authok.com/guardian/tickets/123\"}";
+    private static final String readOnlyJson = "{\"ticket_id\":\"ticket123\",\"ticket_url\":\"https://authok.cn/guardian/tickets/123\"}";
 
     @Test
     public void shouldSerializeDataToBeSent() throws Exception {
-        EnrollmentTicket ticket = new EnrollmentTicket("1", true, "me@authok.com");
+        EnrollmentTicket ticket = new EnrollmentTicket("1", true, "me@authok.cn");
 
         String serialized = toJSON(ticket);
         assertThat(serialized, is(notNullValue()));
         MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("user_id", "1"));
         assertThat(serialized, JsonMatcher.hasEntry("send_mail", true));
-        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.com"));
+        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.cn"));
     }
 
     @Test
@@ -50,6 +50,6 @@ public class EnrollmentTicketTest extends JsonTest<EnrollmentTicket> {
         assertThat(ticket, is(notNullValue()));
 
         assertThat(ticket.getTicketId(), is("ticket123"));
-        assertThat(ticket.getTicketUrl(), is("https://authok.com/guardian/tickets/123"));
+        assertThat(ticket.getTicketUrl(), is("https://authok.cn/guardian/tickets/123"));
     }
 }

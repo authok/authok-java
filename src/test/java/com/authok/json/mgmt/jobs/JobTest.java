@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class JobTest extends JsonTest<Job> {
 
     private static final String json = "{\"status\": \"completed\",\"type\": \"verification_email\",\"created_at\": \"2016-02-23T19:57:29.532Z\",\"id\": \"job_0000000000000001\"}";
-    private static final String readOnlyJson = "{\"status\": \"completed\",\"type\": \"verification_email\",\"created_at\": \"2016-02-23T19:57:29.532Z\",\"id\": \"job_0000000000000001\", \"connection_id\": \"conn_1\", \"connection\": \"Custom-DB-Connection\", \"format\": \"csv\", \"location\": \"https://authok.com/jobs/\", \"percentage_done\": 89, \"time_left_seconds\": 9814, \"summary\":{\"failed\":2,\"updated\":1,\"inserted\":3,\"total\":6}, \"external_id\": \"ext_id123\"}";
+    private static final String readOnlyJson = "{\"status\": \"completed\",\"type\": \"verification_email\",\"created_at\": \"2016-02-23T19:57:29.532Z\",\"id\": \"job_0000000000000001\", \"connection_id\": \"conn_1\", \"connection\": \"Custom-DB-Connection\", \"format\": \"csv\", \"location\": \"https://authok.cn/jobs/\", \"percentage_done\": 89, \"time_left_seconds\": 9814, \"summary\":{\"failed\":2,\"updated\":1,\"inserted\":3,\"total\":6}, \"external_id\": \"ext_id123\"}";
 
     @Test
     public void shouldDeserialize() throws Exception {
@@ -39,7 +39,7 @@ public class JobTest extends JsonTest<Job> {
         assertThat(job.getFormat(), is("csv"));
         assertThat(job.getConnection(), is("Custom-DB-Connection"));
         assertThat(job.getConnectionId(), is("conn_1"));
-        assertThat(job.getLocation(), is("https://authok.com/jobs/"));
+        assertThat(job.getLocation(), is("https://authok.cn/jobs/"));
         assertThat(job.getPercentageDone(), is(89));
         assertThat(job.getTimeLeftSeconds(), is(9814));
         assertThat(job.getExternalId(), is("ext_id123"));

@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class ErrorPageCustomizationTest extends JsonTest<ErrorPageCustomization> {
 
-    private static final String json = "{\"enabled\":true,\"html\":\"thewebpage\",\"show_log_link\":true,\"url\":\"https://page.authok.com/main\"}";
+    private static final String json = "{\"enabled\":true,\"html\":\"thewebpage\",\"show_log_link\":true,\"url\":\"https://page.authok.cn/main\"}";
 
     @Test
     public void shouldSerialize() throws Exception {
@@ -20,14 +20,14 @@ public class ErrorPageCustomizationTest extends JsonTest<ErrorPageCustomization>
         customization.setEnabled(true);
         customization.setHTML("thewebpage");
         customization.setShowLogLink(true);
-        customization.setUrl("https://page.authok.com/main");
+        customization.setUrl("https://page.authok.cn/main");
 
         String serialized = toJSON(customization);
         assertThat(serialized, is(notNullValue()));
         MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("enabled", true));
         assertThat(serialized, JsonMatcher.hasEntry("html", "thewebpage"));
         assertThat(serialized, JsonMatcher.hasEntry("show_log_link", true));
-        assertThat(serialized, JsonMatcher.hasEntry("url", "https://page.authok.com/main"));
+        assertThat(serialized, JsonMatcher.hasEntry("url", "https://page.authok.cn/main"));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class ErrorPageCustomizationTest extends JsonTest<ErrorPageCustomization>
         assertThat(customization.isEnabled(), is(true));
         assertThat(customization.getHTML(), is("thewebpage"));
         assertThat(customization.willShowLogLink(), is(true));
-        assertThat(customization.getUrl(), is("https://page.authok.com/main"));
+        assertThat(customization.getUrl(), is("https://page.authok.cn/main"));
     }
 
 }

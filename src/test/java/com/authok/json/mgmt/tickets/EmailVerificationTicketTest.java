@@ -16,12 +16,12 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class EmailVerificationTicketTest extends JsonTest<EmailVerificationTicket> {
 
-    private static final String readOnlyJson = "{\"ticket\":\"https://page.authok.com/tickets/123\"}";
+    private static final String readOnlyJson = "{\"ticket\":\"https://page.authok.cn/tickets/123\"}";
 
     @Test
     public void shouldSerialize() throws Exception {
         EmailVerificationTicket ticket = new EmailVerificationTicket("usr123");
-        ticket.setResultUrl("https://page.authok.com/result");
+        ticket.setResultUrl("https://page.authok.cn/result");
         ticket.setTTLSeconds(36000);
         ticket.setIncludeEmailInRedirect(true);
         ticket.setClientId("client_abc");
@@ -30,7 +30,7 @@ public class EmailVerificationTicketTest extends JsonTest<EmailVerificationTicke
         String serialized = toJSON(ticket);
         assertThat(serialized, is(notNullValue()));
         MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("user_id", "usr123"));
-        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.com/result"));
+        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.cn/result"));
         assertThat(serialized, JsonMatcher.hasEntry("ttl_sec", 36000));
         assertThat(serialized, JsonMatcher.hasEntry("includeEmailInRedirect", true));
         assertThat(serialized, JsonMatcher.hasEntry("client_id", "client_abc"));
@@ -40,7 +40,7 @@ public class EmailVerificationTicketTest extends JsonTest<EmailVerificationTicke
     @Test
     public void shouldSerializeWithIdentity() throws Exception {
         EmailVerificationTicket ticket = new EmailVerificationTicket("usr123");
-        ticket.setResultUrl("https://page.authok.com/result");
+        ticket.setResultUrl("https://page.authok.cn/result");
         ticket.setTTLSeconds(36000);
         EmailVerificationIdentity identity = new EmailVerificationIdentity("some-provider", "some-user-id");
         ticket.setIdentity(identity);
@@ -48,7 +48,7 @@ public class EmailVerificationTicketTest extends JsonTest<EmailVerificationTicke
         String serialized = toJSON(ticket);
         assertThat(serialized, is(notNullValue()));
         assertThat(serialized, JsonMatcher.hasEntry("user_id", "usr123"));
-        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.com/result"));
+        assertThat(serialized, JsonMatcher.hasEntry("result_url", "https://page.authok.cn/result"));
         assertThat(serialized, JsonMatcher.hasEntry("ttl_sec", 36000));
 
         Map<String, String> identityMap = new HashMap<>();
@@ -62,7 +62,7 @@ public class EmailVerificationTicketTest extends JsonTest<EmailVerificationTicke
         EmailVerificationTicket ticket = fromJSON(readOnlyJson, EmailVerificationTicket.class);
         assertThat(ticket, is(notNullValue()));
 
-        assertThat(ticket.getTicket(), is("https://page.authok.com/tickets/123"));
+        assertThat(ticket.getTicket(), is("https://page.authok.cn/tickets/123"));
     }
 
 }

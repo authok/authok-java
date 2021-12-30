@@ -10,7 +10,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 /**
- * Class that provides an implementation of the Tickets methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Tickets
+ * Class that provides an implementation of the Tickets methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Tickets
  * <p>
  * This class is not thread-safe.
  *
@@ -25,7 +25,7 @@ public class TicketsEntity extends BaseManagementEntity {
 
     /**
      * Create an Email Verification Ticket. A token with scope create:user_tickets is needed.
-     * See https://authok.com/docs/api/management/v2#!/Tickets/post_email_verification
+     * See https://authok.cn/docs/api/management/v2#!/Tickets/post_email_verification
      *
      * @param emailVerificationTicket the email verification ticket data to set.
      * @return a Request to execute.
@@ -48,7 +48,7 @@ public class TicketsEntity extends BaseManagementEntity {
 
     /**
      * Create a Password Change Ticket. A token with scope create:user_tickets is needed.
-     * See https://authok.com/docs/api/management/v2#!/Tickets/post_password_change
+     * See https://authok.cn/docs/api/management/v2#!/Tickets/post_password_change
      *
      * @param passwordChangeTicket the password change ticket data to set.
      * @return a Request to execute.

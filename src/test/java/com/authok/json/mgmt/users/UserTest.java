@@ -16,7 +16,7 @@ import static org.hamcrest.collection.IsMapContaining.hasEntry;
 
 public class UserTest extends JsonTest<User> {
 
-    private static final String json = "{\"user_id\":\"user|123\",\"connection\":\"authok\",\"client_id\":\"client123\",\"password\":\"pwd\",\"verify_password\":true,\"username\":\"usr\",\"email\":\"me@authok.com\",\"email_verified\":true,\"verify_email\":true,\"phone_number\":\"1234567890\",\"phone_verified\":true,\"verify_phone_number\":true,\"picture\":\"https://pic.ture/12\",\"name\":\"John\",\"nickname\":\"Johny\",\"given_name\":\"John\",\"family_name\":\"Walker\",\"app_metadata\":{},\"user_metadata\":{},\"blocked\":true,\"context\":\"extra information\"}";
+    private static final String json = "{\"user_id\":\"user|123\",\"connection\":\"authok\",\"client_id\":\"client123\",\"password\":\"pwd\",\"verify_password\":true,\"username\":\"usr\",\"email\":\"me@authok.cn\",\"email_verified\":true,\"verify_email\":true,\"phone_number\":\"1234567890\",\"phone_verified\":true,\"verify_phone_number\":true,\"picture\":\"https://pic.ture/12\",\"name\":\"John\",\"nickname\":\"Johny\",\"given_name\":\"John\",\"family_name\":\"Walker\",\"app_metadata\":{},\"user_metadata\":{},\"blocked\":true,\"context\":\"extra information\"}";
     private static final String readOnlyJson = "{\"user_id\":\"user|123\",\"last_ip\":\"10.0.0.1\",\"last_login\":\"2016-02-23T19:57:29.532Z\",\"last_password_reset\":\"2016-02-23T19:57:29Z\",\"logins_count\":10,\"created_at\":\"2016-02-23T19:57:29.532Z\",\"updated_at\":\"2016-02-23T19:57:29.532Z\",\"identities\":[]}";
 
     @Test
@@ -37,7 +37,7 @@ public class UserTest extends JsonTest<User> {
         user.setPassword("pwd");
         user.setVerifyPassword(true);
         user.setUsername("usr");
-        user.setEmail("me@authok.com");
+        user.setEmail("me@authok.cn");
         user.setClientId("client123");
         user.setVerifyEmail(true);
         user.setEmailVerified(true);
@@ -61,7 +61,7 @@ public class UserTest extends JsonTest<User> {
         assertThat(serialized, JsonMatcher.hasEntry("password", "pwd"));
         assertThat(serialized, JsonMatcher.hasEntry("verify_password", true));
         assertThat(serialized, JsonMatcher.hasEntry("username", "usr"));
-        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.com"));
+        assertThat(serialized, JsonMatcher.hasEntry("email", "me@authok.cn"));
         assertThat(serialized, JsonMatcher.hasEntry("verify_email", true));
         assertThat(serialized, JsonMatcher.hasEntry("email_verified", true));
         assertThat(serialized, JsonMatcher.hasEntry("client_id", "client123"));
@@ -88,7 +88,7 @@ public class UserTest extends JsonTest<User> {
         assertThat(user.getPassword(), is(new char[]{'p','w','d'}));
         assertThat(user.willVerifyPassword(), is(true));
         assertThat(user.getUsername(), is("usr"));
-        assertThat(user.getEmail(), is("me@authok.com"));
+        assertThat(user.getEmail(), is("me@authok.cn"));
         assertThat(user.willVerifyEmail(), is(true));
         assertThat(user.getClientId(), is("client123"));
         assertThat(user.isEmailVerified(), is(true));

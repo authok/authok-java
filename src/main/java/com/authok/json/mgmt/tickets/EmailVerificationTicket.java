@@ -83,7 +83,7 @@ public class EmailVerificationTicket {
      *
      * @param clientId the ID of the client
      *
-     * @see <a href="https://authok.com/docs/universal-login/configure-default-login-routes#completing-the-password-reset-flow">Configuring Default Login Routes</a>
+     * @see <a href="https://authok.cn/docs/universal-login/configure-default-login-routes#completing-the-password-reset-flow">Configuring Default Login Routes</a>
      */
     @JsonProperty("client_id")
     public void setClientId(String clientId) {

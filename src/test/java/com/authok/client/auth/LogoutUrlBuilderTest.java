@@ -14,9 +14,9 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class LogoutUrlBuilderTest {
 
-    private static final HttpUrl DOMAIN = HttpUrl.parse("https://domain.authok.com");
+    private static final HttpUrl DOMAIN = HttpUrl.parse("https://domain.authok.cn");
     private static final String CLIENT_ID = "clientId";
-    private static final String RETURN_TO_URL = "https://domain.authok.com/callback";
+    private static final String RETURN_TO_URL = "https://domain.authok.cn/callback";
 
     @SuppressWarnings("deprecation")
     @Rule
@@ -49,16 +49,16 @@ public class LogoutUrlBuilderTest {
 
     @Test
     public void shouldBuildValidLogoutUrlWithHttp() {
-        HttpUrl httpBaseUrl = HttpUrl.parse("http://domain.authok.com");
+        HttpUrl httpBaseUrl = HttpUrl.parse("http://domain.authok.cn");
         String url = LogoutUrlBuilder.newInstance(httpBaseUrl, CLIENT_ID, RETURN_TO_URL, true).build();
-        assertThat(url, isUrl("http", "domain.authok.com", "/v2/logout"));
+        assertThat(url, isUrl("http", "domain.authok.cn", "/v2/logout"));
     }
 
     @Test
     public void shouldBuildValidLogoutUrlWithHttps() {
-        HttpUrl httpsBaseUrl = HttpUrl.parse("https://domain.authok.com");
+        HttpUrl httpsBaseUrl = HttpUrl.parse("https://domain.authok.cn");
         String url = LogoutUrlBuilder.newInstance(httpsBaseUrl, CLIENT_ID, RETURN_TO_URL, true).build();
-        assertThat(url, isUrl("https", "domain.authok.com", "/v2/logout"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/v2/logout"));
     }
 
     @Test

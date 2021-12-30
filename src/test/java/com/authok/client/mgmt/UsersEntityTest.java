@@ -45,7 +45,7 @@ public class UsersEntityTest extends BaseMgmtEntityTest {
 
     @Test
     public void shouldListUsersByEmail() throws Exception {
-        Request<List<User>> request = api.users().listByEmail("johndoe@authok.com", null);
+        Request<List<User>> request = api.users().listByEmail("johndoe@authok.cn", null);
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(MGMT_USERS_LIST, 200);
@@ -55,7 +55,7 @@ public class UsersEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/users-by-email"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
-        assertThat(recordedRequest, hasQueryParameter("email", "johndoe@authok.com"));
+        assertThat(recordedRequest, hasQueryParameter("email", "johndoe@authok.cn"));
 
         assertThat(response, is(notNullValue()));
         assertThat(response, hasSize(2));
@@ -64,7 +64,7 @@ public class UsersEntityTest extends BaseMgmtEntityTest {
     @Test
     public void shouldListUsersByEmailWithFields() throws Exception {
         FieldsFilter filter = new FieldsFilter().withFields("some,random,fields", true);
-        Request<List<User>> request = api.users().listByEmail("johndoe@authok.com", filter);
+        Request<List<User>> request = api.users().listByEmail("johndoe@authok.cn", filter);
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(MGMT_USERS_LIST, 200);
@@ -74,7 +74,7 @@ public class UsersEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/users-by-email"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
-        assertThat(recordedRequest, hasQueryParameter("email", "johndoe@authok.com"));
+        assertThat(recordedRequest, hasQueryParameter("email", "johndoe@authok.cn"));
         assertThat(recordedRequest, hasQueryParameter("fields", "some,random,fields"));
         assertThat(recordedRequest, hasQueryParameter("include_fields", "true"));
 
@@ -84,7 +84,7 @@ public class UsersEntityTest extends BaseMgmtEntityTest {
 
     @Test
     public void shouldReturnEmptyUsersByEmail() throws Exception {
-        Request<List<User>> request = api.users().listByEmail("missing@authok.com", null);
+        Request<List<User>> request = api.users().listByEmail("missing@authok.cn", null);
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(MGMT_EMPTY_LIST, 200);

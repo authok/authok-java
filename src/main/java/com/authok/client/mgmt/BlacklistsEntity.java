@@ -12,7 +12,7 @@ import okhttp3.OkHttpClient;
 import java.util.List;
 
 /**
- * Class that provides an implementation of the Blacklists methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Blacklists
+ * Class that provides an implementation of the Blacklists methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Blacklists
  * <p>
  * This class is not thread-safe.
  *
@@ -27,7 +27,7 @@ public class BlacklistsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Blacklisted Tokens with a given audience. A token with scope blacklist:tokens is needed.
-     * See https://authok.com/docs/api/management/v2#!/Blacklists/get_tokens.
+     * See https://authok.cn/docs/api/management/v2#!/Blacklists/get_tokens.
      *
      * @param audience the token audience (aud).
      * @return a Request to execute.
@@ -49,7 +49,7 @@ public class BlacklistsEntity extends BaseManagementEntity {
 
     /**
      * Add a Token to the Blacklist. A token with scope blacklist:tokens is needed.
-     * See https://authok.com/docs/api/management/v2#!/Blacklists/post_tokens.
+     * See https://authok.cn/docs/api/management/v2#!/Blacklists/post_tokens.
      *
      * @param token the token to blacklist.
      * @return a Request to execute.

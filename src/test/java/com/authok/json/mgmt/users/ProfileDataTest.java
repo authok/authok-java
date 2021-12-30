@@ -11,14 +11,14 @@ import static org.hamcrest.collection.IsMapContaining.hasEntry;
 
 public class ProfileDataTest extends JsonTest<ProfileData> {
 
-    private static final String json = "{\"email\":\"me@authok.com\",\"email_verified\":true,\"name\":\"John\", \"username\":\"usr\", \"given_name\":\"John\", \"family_name\":\"Walker\", \"phone_number\":\"1234567890\", \"phone_verified\":true, \"description\":\"My description\"}";
+    private static final String json = "{\"email\":\"me@authok.cn\",\"email_verified\":true,\"name\":\"John\", \"username\":\"usr\", \"given_name\":\"John\", \"family_name\":\"Walker\", \"phone_number\":\"1234567890\", \"phone_verified\":true, \"description\":\"My description\"}";
 
     @Test
     public void shouldDeserialize() throws Exception {
         ProfileData data = fromJSON(json, ProfileData.class);
 
         assertThat(data, is(notNullValue()));
-        assertThat(data.getEmail(), is("me@authok.com"));
+        assertThat(data.getEmail(), is("me@authok.cn"));
         assertThat(data.isEmailVerified(), is(true));
         assertThat(data.getName(), is("John"));
         assertThat(data.getUsername(), is("usr"));

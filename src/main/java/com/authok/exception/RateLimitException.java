@@ -6,7 +6,7 @@ package com.authok.exception;
  * Getters for {@code limit, remaining} and {@code reset} corresponds to {@code X-RateLimit-Limit, X-RateLimit-Remaining} and {@code X-RateLimit-Reset} HTTP headers.
  * If the value of any headers is missing, then a default value -1 will assigned.
  * <p>
- * To learn more about rate limits, visit <a href="https://authok.com/docs/policies/rate-limits">https://authok.com/docs/policies/rate-limits</a>
+ * To learn more about rate limits, visit <a href="https://authok.cn/docs/policies/rate-limits">https://authok.cn/docs/policies/rate-limits</a>
  */
 public class RateLimitException extends APIException {
 

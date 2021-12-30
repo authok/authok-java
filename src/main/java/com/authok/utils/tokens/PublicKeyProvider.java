@@ -13,7 +13,7 @@ import java.security.interfaces.RSAPublicKey;
  * <a href="https://github.com/authok/jwks-rsa-java">jwks-rsa-java library</a> to fetch the public key.</p>
  *
  * <pre>
- * JwkProvider provider = new JwkProviderBuilder("https://your-domain.authok.com").build();
+ * JwkProvider provider = new JwkProviderBuilder("https://your-domain.authok.cn").build();
  * SignatureVerifier sigVerifier = SignatureVerifier.forRS256(new PublicKeyProvider() {
  *     &#064;Override
  *     public RSAPublicKey getPublicKeyById(String keyId) throws PublicKeyProviderException {

@@ -82,7 +82,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
     @Test
     public void shouldListClientGrantsWithAdditionalProperties() throws Exception {
         ClientGrantsFilter filter = new ClientGrantsFilter()
-                .withAudience("https://myapi.authok.com")
+                .withAudience("https://myapi.authok.cn")
                 .withClientId("u9e3hh3e9j2fj9092ked");
         Request<ClientGrantsPage> request = api.clientGrants().list(filter);
         assertThat(request, is(notNullValue()));
@@ -94,7 +94,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
-        assertThat(recordedRequest, hasQueryParameter("audience", "https://myapi.authok.com"));
+        assertThat(recordedRequest, hasQueryParameter("audience", "https://myapi.authok.cn"));
         assertThat(recordedRequest, hasQueryParameter("client_id", "u9e3hh3e9j2fj9092ked"));
 
         assertThat(response, is(notNullValue()));

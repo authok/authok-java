@@ -306,7 +306,7 @@ public class Client {
 
     /**
      * Setter for the list of grant types for the application.
-     * See allowed values at https://authok.com/docs/applications/application-grant-types.
+     * See allowed values at https://authok.cn/docs/applications/application-grant-types.
      *
      * @param grantTypes the list of grant types to set.
      */

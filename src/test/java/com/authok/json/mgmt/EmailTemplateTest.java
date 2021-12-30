@@ -12,29 +12,29 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class EmailTemplateTest extends JsonTest<EmailTemplate> {
 
-    private static final String json = "{\"template\": \"welcome_email\", \"from\": \"you@authok.com\", \"subject\": \"Some subject\", \"syntax\": \"liquid\", \"body\": \"<html> </html>\", \"enabled\": true}";
+    private static final String json = "{\"template\": \"welcome_email\", \"from\": \"you@authok.cn\", \"subject\": \"Some subject\", \"syntax\": \"liquid\", \"body\": \"<html> </html>\", \"enabled\": true}";
 
     @Test
     public void shouldSerialize() throws Exception {
         EmailTemplate template = new EmailTemplate();
-        template.setResultUrl("https://authok.com");
+        template.setResultUrl("https://authok.cn");
         template.setUrlLifetimeInSeconds(993311);
         template.setBody("SOME HTML");
         template.setEnabled(false);
         template.setSyntax("html");
         template.setSubject("Hello world");
-        template.setFrom("me@authok.com");
+        template.setFrom("me@authok.cn");
         template.setName("farewell");
 
         String serialized = toJSON(template);
         assertThat(serialized, is(notNullValue()));
-        MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("resultUrl", "https://authok.com"));
+        MatcherAssert.assertThat(serialized, JsonMatcher.hasEntry("resultUrl", "https://authok.cn"));
         assertThat(serialized, JsonMatcher.hasEntry("urlLifetimeInSeconds", 993311));
         assertThat(serialized, JsonMatcher.hasEntry("body", "SOME HTML"));
         assertThat(serialized, JsonMatcher.hasEntry("enabled", false));
         assertThat(serialized, JsonMatcher.hasEntry("syntax", "html"));
         assertThat(serialized, JsonMatcher.hasEntry("subject", "Hello world"));
-        assertThat(serialized, JsonMatcher.hasEntry("from", "me@authok.com"));
+        assertThat(serialized, JsonMatcher.hasEntry("from", "me@authok.cn"));
         assertThat(serialized, JsonMatcher.hasEntry("template", "farewell"));
     }
 
@@ -44,7 +44,7 @@ public class EmailTemplateTest extends JsonTest<EmailTemplate> {
 
         assertThat(template, is(notNullValue()));
         assertThat(template.getName(), is("welcome_email"));
-        assertThat(template.getFrom(), is("you@authok.com"));
+        assertThat(template.getFrom(), is("you@authok.cn"));
         assertThat(template.getSubject(), is("Some subject"));
         assertThat(template.getSyntax(), is("liquid"));
         assertThat(template.getBody(), is("<html> </html>"));

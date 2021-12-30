@@ -17,7 +17,7 @@ public class ConnectionTest extends JsonTest<Connection> {
     private static final String json = "{\"name\": \"my-connection\",\"display_name\": \"My cool connection!\",\"strategy\": \"authok\",\"options\": {},\"enabled_clients\": [\"client1\",\"client2\"],\"metadata\": {\"key\": \"value\"}}";
     private static final String readOnlyJson = "{\"id\":\"connectionId\"}";
 
-    private static final String jsonAd = "{\"name\":\"my-ad-connection\",\"strategy\":\"ad\",\"provisioning_ticket_url\":\"https://demo.authok.com/p/ad/ddQTRlVt\",\"options\":{},\"enabled_clients\":[\"client1\",\"client2\"]}";
+    private static final String jsonAd = "{\"name\":\"my-ad-connection\",\"strategy\":\"ad\",\"provisioning_ticket_url\":\"https://demo.authok.cn/p/ad/ddQTRlVt\",\"options\":{},\"enabled_clients\":[\"client1\",\"client2\"]}";
 
     @Test
     public void shouldSerialize() throws Exception {
@@ -61,7 +61,7 @@ public class ConnectionTest extends JsonTest<Connection> {
         assertThat(connection.getOptions(), is(notNullValue()));
         assertThat(connection.getStrategy(), is("ad"));
         assertThat(connection.getEnabledClients(), contains("client1", "client2"));
-        assertThat(connection.getProvisioningTicketUrl(), is("https://demo.authok.com/p/ad/ddQTRlVt"));
+        assertThat(connection.getProvisioningTicketUrl(), is("https://demo.authok.cn/p/ad/ddQTRlVt"));
         assertThat(connection.getMetadata(), is(nullValue()));
     }
 

@@ -1,6 +1,6 @@
 {
   "template": "welcome_email",
-  "from": "me@authok.com",
+  "from": "me@authok.cn",
   "subject": "Some subject",
   "syntax": "liquid",
   "body": "<html> </html>",

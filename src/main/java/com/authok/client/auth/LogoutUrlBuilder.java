@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class that provides the methods to generate a valid Authok Logout Url. It's based on the https://authok.com/docs/api/authentication#logout docs.
+ * Class that provides the methods to generate a valid Authok Logout Url. It's based on the https://authok.cn/docs/api/authentication#logout docs.
  * <p>
  * This class is not thread-safe:
  * It makes use of {@link HashMap} for storing the parameters. Make sure to not call the builder methods

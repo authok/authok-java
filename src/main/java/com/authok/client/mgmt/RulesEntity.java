@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Rules methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Rules
+ * Class that provides an implementation of the Rules methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Rules
  * <p>
  * This class is not thread-safe.
  *
@@ -30,7 +30,7 @@ public class RulesEntity extends BaseManagementEntity {
 
     /**
      * Request all the Rules. A token with scope read:rules is needed.
-     * See https://authok.com/docs/api/management/v2#!/Rules/get_rules
+     * See https://authok.cn/docs/api/management/v2#!/Rules/get_rules
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -53,7 +53,7 @@ public class RulesEntity extends BaseManagementEntity {
 
     /**
      * Request all the Rules. A token with scope read:rules is needed.
-     * See https://authok.com/docs/api/management/v2#!/Rules/get_rules
+     * See https://authok.cn/docs/api/management/v2#!/Rules/get_rules
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -82,7 +82,7 @@ public class RulesEntity extends BaseManagementEntity {
 
     /**
      * Request a Rule. A token with scope read:rules is needed.
-     * See https://authok.com/docs/api/management/v2#!/Rules/get_rules_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Rules/get_rules_by_id
      *
      * @param ruleId the id of the rule to retrieve.
      * @param filter the filter to use. Can be null.
@@ -109,7 +109,7 @@ public class RulesEntity extends BaseManagementEntity {
 
     /**
      * Create a Rule. A token with scope create:rules is needed.
-     * See https://authok.com/docs/api/management/v2#!/Rules/post_rules
+     * See https://authok.cn/docs/api/management/v2#!/Rules/post_rules
      *
      * @param rule the rule data to set
      * @return a Request to execute.
@@ -131,7 +131,7 @@ public class RulesEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Rule. A token with scope delete:rules is needed.
-     * See https://authok.com/docs/api/management/v2#!/Rules/delete_rules_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Rules/delete_rules_by_id
      *
      * @param ruleId the rule id
      * @return a Request to execute.
@@ -152,7 +152,7 @@ public class RulesEntity extends BaseManagementEntity {
 
     /**
      * Update an existing Rule. A token with scope update:rules is needed.
-     * See https://authok.com/docs/api/management/v2#!/Rules/patch_rules_by_id
+     * See https://authok.cn/docs/api/management/v2#!/Rules/patch_rules_by_id
      *
      * @param ruleId the rule id
      * @param rule   the rule data to set. It can't include id.

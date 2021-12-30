@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Class that provides an implementation of the Stats methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Stats
+ * Class that provides an implementation of the Stats methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Stats
  * <p>
  * This class is not thread-safe.
  *
@@ -28,7 +28,7 @@ public class StatsEntity extends BaseManagementEntity {
 
     /**
      * Request the Active Users Count (logged in during the last 30 days). A token with scope read:stats is needed.
-     * See https://authok.com/docs/api/management/v2#!/Stats/get_active_users
+     * See https://authok.cn/docs/api/management/v2#!/Stats/get_active_users
      *
      * @return a Request to execute.
      */
@@ -47,7 +47,7 @@ public class StatsEntity extends BaseManagementEntity {
 
     /**
      * Request the Daily Stats for a given period. A token with scope read:stats is needed.
-     * See https://authok.com/docs/api/management/v2#!/Stats/get_daily
+     * See https://authok.cn/docs/api/management/v2#!/Stats/get_daily
      *
      * @param from the first day of the period (inclusive). Time is not taken into account.
      * @param to   the last day of the period (inclusive). Time is not taken into account.

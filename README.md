@@ -6,7 +6,7 @@
 [![JCenter][jcenter-badge]][jcenter-url]
 [![codecov][codecov-badge]][codecov-url]
 
-[Authok](https://authok.com) 平台的 Java 客户端库.
+[Authok](https://authok.cn) 平台的 Java 客户端库.
 
 ## Download
 
@@ -33,9 +33,9 @@ The Authok Authentication API and User's Management API are available for Androi
 
 ## Auth API
 
-The implementation is based on the [Authentication API Docs](https://authok.com/docs/api/authentication).
+The implementation is based on the [Authentication API Docs](https://authok.cn/docs/api/authentication).
 
-Create an `AuthAPI` instance by providing the Application details from the [dashboard](https://manage.authok.com/#/applications). Read the [recommendations](#api-clients-recommendations) for keeping the resources usage low. 
+Create an `AuthAPI` instance by providing the Application details from the [dashboard](https://manage.authok.cn/#/applications). Read the [recommendations](#api-clients-recommendations) for keeping the resources usage low. 
 
 ```java
 AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
@@ -49,9 +49,9 @@ Creates an `AuthorizeUrlBuilder` to authenticate the user with an OAuth provider
 
 Example:
 ```java
-String url = auth.authorizeUrl("https://me.authok.com/callback")
+String url = auth.authorizeUrl("https://me.authok.cn/callback")
     .withConnection("facebook")
-    .withAudience("https://api.me.authok.com/users")
+    .withAudience("https://api.me.authok.cn/users")
     .withScope("openid contacts")
     .withState("state123")
     .build();
@@ -64,7 +64,7 @@ Creates a `LogoutUrlBuilder` to log out the user. The `returnToUrl` must be whit
 
 Example:
 ```java
-String url = auth.logoutUrl("https://me.authok.com/home", true)
+String url = auth.logoutUrl("https://me.authok.cn/home", true)
     .useFederated(true)
     .build();
 ```
@@ -136,8 +136,8 @@ Creates a request to exchange the `code` previously obtained by calling the /aut
 
 Example:
 ```java
-AuthRequest request = auth.exchangeCode("asdfgh", "https://me.authok.com/callback")
-    .setAudience("https://api.me.authok.com/users")
+AuthRequest request = auth.exchangeCode("asdfgh", "https://me.authok.cn/callback")
+    .setAudience("https://api.me.authok.cn/users")
     .setScope("openid contacts");
 try {
     TokenHolder holder = request.execute();
@@ -157,7 +157,7 @@ Creates a request to log in the user with `username` and `password`. The connect
 Example:
 ```java
 AuthRequest request = auth.login("me@domain.com", "password123")
-    .setAudience("https://api.me.authok.com/users")
+    .setAudience("https://api.me.authok.cn/users")
     .setScope("openid contacts");
 try {
     TokenHolder holder = request.execute();
@@ -177,7 +177,7 @@ Creates a request to log in the user with `username` and `password` using the Pa
 Example:
 ```java
 AuthRequest request = auth.login("me@domain.com", "password123", "Username-Password-Authentication")
-    .setAudience("https://api.me.authok.com/users")
+    .setAudience("https://api.me.authok.cn/users")
     .setScope("openid contacts");
 try {
     TokenHolder holder = request.execute();
@@ -196,7 +196,7 @@ Creates a request to get a Token for the given Audience.
 
 Example:
 ```java
-AuthRequest request = auth.requestToken("https://api.me.authok.com/users")
+AuthRequest request = auth.requestToken("https://api.me.authok.cn/users")
     .setScope("openid contacts");
 try {
     TokenHolder holder = request.execute();
@@ -245,7 +245,7 @@ try {
 
 ### Passwordless Authentication
 
-This library supports [Passwordless Authentication](https://authok.com/docs/connections/passwordless) to allow users to log in without the need to remember a password.
+This library supports [Passwordless Authentication](https://authok.cn/docs/connections/passwordless) to allow users to log in without the need to remember a password.
 
 The email flow supports sending both a code or link to initiate login:
 
@@ -282,7 +282,7 @@ try {
 
 ### Organizations
 
-[Organizations](https://authok.com/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
+[Organizations](https://authok.cn/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
 
 Note that Organizations is currently only available to customers on our Enterprise and Startup subscription plans.
 
@@ -292,13 +292,13 @@ Log in to an organization by using `withOrganization()` when building the Author
 
 ```java
 AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
-String url = auth.authorizeUrl("https://me.authok.com/callback")
+String url = auth.authorizeUrl("https://me.authok.cn/callback")
     .withOrganization("{YOUR_ORGANIZATION_ID")
     .build();
 ```
 
 **Important!** When logging into an organization, it is important to ensure the `org_id` claim of the ID Token matches the expected organization value. The `IdTokenVerifier` can be configured with an expected `org_id` claim value, as the example below demonstrates.
-For more information, please read [Work with Tokens and Organizations](https://authok.com/docs/organizations/using-tokens) on Authok Docs.
+For more information, please read [Work with Tokens and Organizations](https://authok.cn/docs/organizations/using-tokens) on Authok Docs.
 ```java
 IdTokenVerifier.init("{ISSUER}", "{AUDIENCE}", signatureVerifier)
     .withOrganization("{ORG_ID}")
@@ -312,7 +312,7 @@ Accept a user invitation by using `withInvitation()` when building the Authoriza
 
 ```
 AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
-String url = auth.authorizeUrl("https://me.authok.com/callback")
+String url = auth.authorizeUrl("https://me.authok.cn/callback")
     .withOrganization("{YOUR_ORGANIZATION_ID")
     .withInvitation("{YOUR_INVITATION_ID}")
     .build();
@@ -320,9 +320,9 @@ String url = auth.authorizeUrl("https://me.authok.com/callback")
 
 ## Management API
 
-The implementation is based on the [Management API Docs](https://authok.com/docs/api/management/v2). 
+The implementation is based on the [Management API Docs](https://authok.cn/docs/api/management/v2). 
 
-Create a `ManagementAPI` instance by providing the domain from the [Application dashboard](https://manage.authok.com/#/applications) and a valid API Token. Read the [recommendations](#api-clients-recommendations) for keeping the resources usage low.
+Create a `ManagementAPI` instance by providing the domain from the [Application dashboard](https://manage.authok.cn/#/applications) and a valid API Token. Read the [recommendations](#api-clients-recommendations) for keeping the resources usage low.
 
 ```java
 ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", "{YOUR_API_TOKEN}");
@@ -341,31 +341,31 @@ ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", holder.getAccessToken())
 
 An expired token for an existing `ManagementAPI` instance can be replaced by calling the `setApiToken` method with the new token.
 
-Click [here](https://authok.com/docs/api/management/v2/tokens) for more information on how to obtain API Tokens.
+Click [here](https://authok.cn/docs/api/management/v2/tokens) for more information on how to obtain API Tokens.
 
 
 The Management API is divided into different entities. Each of them have the list, create, update, delete and update methods plus a few more if corresponds. The calls are authenticated using the API Token given in the `ManagementAPI` instance creation and must contain the `scope` required by each entity. See the javadoc for details on which `scope` is expected for each call.
 
-* **Blacklists:** See [Docs](https://authok.com/docs/api/management/v2#!/Blacklists/get_tokens). Access the methods by calling `mgmt.blacklists()`.
-* **Client Grants:** See [Docs](https://authok.com/docs/api/management/v2#!/Client_Grants/get_client_grants). Access the methods by calling `mgmt.clientGrants()`. This endpoint supports pagination.
-* **Clients:** See [Docs](https://authok.com/docs/api/management/v2#!/Clients/get_clients). Access the methods by calling `mgmt.clients()`. This endpoint supports pagination.
-* **Connections:** See [Docs](https://authok.com/docs/api/management/v2#!/Connections/get_connections). Access the methods by calling `mgmt.connections()`. This endpoint supports pagination.
-* **Device Credentials:** See [Docs](https://authok.com/docs/api/management/v2#!/Device_Credentials/get_device_credentials). Access the methods by calling `mgmt.deviceCredentials()`.
-* **Email Providers:** See [Docs](https://authok.com/docs/api/management/v2#!/Emails/get_provider). Access the methods by calling `mgmt.emailProvider()`.
-* **Email Templates:** See [Docs](https://authok.com/docs/api/management/v2#!/Email_Templates/get_email_templates_by_templateName). Access the methods by calling `mgmt.emailTemplates()`.
-* **Grants:** See [Docs](https://authok.com/docs/api/management/v2#!/Grants/get_grants). Access the methods by calling `mgmt.grants()`. This endpoint supports pagination.
-* **Guardian:** See [Docs](https://authok.com/docs/api/management/v2#!/Guardian/get_factors). Access the methods by calling `mgmt.guardian()`.
-* **Jobs:** See [Docs](https://authok.com/docs/api/management/v2#!/Jobs/get_jobs_by_id). Access the methods by calling `mgmt.jobs()`.
-* **Logs:** See [Docs](https://authok.com/docs/api/management/v2#!/Logs/get_logs). Access the methods by calling `mgmt.logEvents()`. This endpoint supports pagination.
-* **Log Streams:** See [Docs](https://authok.com/docs/api/management/v2#!/Log_Streams/get_log_streams). Access the methods by calling `mgmt.logStreams()`.
-* **Resource Servers:** See [Docs](https://authok.com/docs/api/management/v2#!/Resource_Servers/get_resource_servers). Access the methods by calling `mgmt.resourceServers()`. This endpoint supports pagination.
-* **Roles:** See [Docs](https://authok.com/docs/api/management/v2#!/Roles/get_roles). Access the methods by calling `mgmt.roles()`. This endpoint supports pagination.
-* **Rules:** See [Docs](https://authok.com/docs/api/management/v2#!/Rules/get_rules). Access the methods by calling `mgmt.rules()`. This endpoint supports pagination.
-* **Stats:** See [Docs](https://authok.com/docs/api/management/v2#!/Stats/get_active_users). Access the methods by calling `mgmt.stats()`.
-* **Tenants:** See [Docs](https://authok.com/docs/api/management/v2#!/Tenants/get_settings). Access the methods by calling `mgmt.tenants()`.
-* **Tickets:** See [Docs](https://authok.com/docs/api/management/v2#!/Tickets/post_email_verification). Access the methods by calling `mgmt.tickets()`.
-* **User Blocks:** See [Docs](https://authok.com/docs/api/management/v2#!/User_Blocks/get_user_blocks). Access the methods by calling `mgmt.userBlocks()`.
-* **Users:** See [this](https://authok.com/docs/api/management/v2#!/Users/get_users) and [this](https://authok.com/docs/api/management/v2#!/Users_By_Email) doc. Access the methods by calling `mgmt.users()`. This endpoint supports pagination.
+* **Blacklists:** See [Docs](https://authok.cn/docs/api/management/v2#!/Blacklists/get_tokens). Access the methods by calling `mgmt.blacklists()`.
+* **Client Grants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Client_Grants/get_client_grants). Access the methods by calling `mgmt.clientGrants()`. This endpoint supports pagination.
+* **Clients:** See [Docs](https://authok.cn/docs/api/management/v2#!/Clients/get_clients). Access the methods by calling `mgmt.clients()`. This endpoint supports pagination.
+* **Connections:** See [Docs](https://authok.cn/docs/api/management/v2#!/Connections/get_connections). Access the methods by calling `mgmt.connections()`. This endpoint supports pagination.
+* **Device Credentials:** See [Docs](https://authok.cn/docs/api/management/v2#!/Device_Credentials/get_device_credentials). Access the methods by calling `mgmt.deviceCredentials()`.
+* **Email Providers:** See [Docs](https://authok.cn/docs/api/management/v2#!/Emails/get_provider). Access the methods by calling `mgmt.emailProvider()`.
+* **Email Templates:** See [Docs](https://authok.cn/docs/api/management/v2#!/Email_Templates/get_email_templates_by_templateName). Access the methods by calling `mgmt.emailTemplates()`.
+* **Grants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Grants/get_grants). Access the methods by calling `mgmt.grants()`. This endpoint supports pagination.
+* **Guardian:** See [Docs](https://authok.cn/docs/api/management/v2#!/Guardian/get_factors). Access the methods by calling `mgmt.guardian()`.
+* **Jobs:** See [Docs](https://authok.cn/docs/api/management/v2#!/Jobs/get_jobs_by_id). Access the methods by calling `mgmt.jobs()`.
+* **Logs:** See [Docs](https://authok.cn/docs/api/management/v2#!/Logs/get_logs). Access the methods by calling `mgmt.logEvents()`. This endpoint supports pagination.
+* **Log Streams:** See [Docs](https://authok.cn/docs/api/management/v2#!/Log_Streams/get_log_streams). Access the methods by calling `mgmt.logStreams()`.
+* **Resource Servers:** See [Docs](https://authok.cn/docs/api/management/v2#!/Resource_Servers/get_resource_servers). Access the methods by calling `mgmt.resourceServers()`. This endpoint supports pagination.
+* **Roles:** See [Docs](https://authok.cn/docs/api/management/v2#!/Roles/get_roles). Access the methods by calling `mgmt.roles()`. This endpoint supports pagination.
+* **Rules:** See [Docs](https://authok.cn/docs/api/management/v2#!/Rules/get_rules). Access the methods by calling `mgmt.rules()`. This endpoint supports pagination.
+* **Stats:** See [Docs](https://authok.cn/docs/api/management/v2#!/Stats/get_active_users). Access the methods by calling `mgmt.stats()`.
+* **Tenants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Tenants/get_settings). Access the methods by calling `mgmt.tenants()`.
+* **Tickets:** See [Docs](https://authok.cn/docs/api/management/v2#!/Tickets/post_email_verification). Access the methods by calling `mgmt.tickets()`.
+* **User Blocks:** See [Docs](https://authok.cn/docs/api/management/v2#!/User_Blocks/get_user_blocks). Access the methods by calling `mgmt.userBlocks()`.
+* **Users:** See [this](https://authok.cn/docs/api/management/v2#!/Users/get_users) and [this](https://authok.cn/docs/api/management/v2#!/Users_By_Email) doc. Access the methods by calling `mgmt.users()`. This endpoint supports pagination.
 
 
 > Some of the endpoints above indicate they support paginated responses. You can request a page of items by passing in the filter instance the `page` and `per_page` parameters, and optionally `include_totals` to obtain a summary of the results. Refer to the "List Users" example below for details. 
@@ -384,7 +384,7 @@ Example:
 ```java
 FieldsFilter filter = new FieldsFilter();
 //...
-Request<List<User>> request = mgmt.users().listByEmail("johndoe@authok.com", filter);
+Request<List<User>> request = mgmt.users().listByEmail("johndoe@authok.cn", filter);
 try {
     List<User> response = request.execute();
 } catch (APIException exception) {
@@ -666,7 +666,7 @@ To verify an ID Token that is signed using the RS256 signing algorithm, you will
 `PublicKeyProvider` that will return the public key used to verify the token's signature. The example below demonstrates how to use the `JwkProvider` from the [jwks-rsa-java](https://github.com/authok/jwks-rsa-java) library:
 
 ```java
-JwkProvider provider = new JwkProviderBuilder("https://your-domain.authok.com").build();
+JwkProvider provider = new JwkProviderBuilder("https://your-domain.authok.cn").build();
 SignatureVerifier sigVerifier = SignatureVerifier.forRS256(new PublicKeyProvider() {
     @Override
     public RSAPublicKey getPublicKeyById(String keyId) throws PublicKeyProviderException {
@@ -678,7 +678,7 @@ SignatureVerifier sigVerifier = SignatureVerifier.forRS256(new PublicKeyProvider
     }
 }
 
-IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.com/","your-client-id", signatureVerifier).build();
+IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.cn/","your-client-id", signatureVerifier).build();
 
 try {
     idTokenVerifier.verify("token", "expected-nonce");
@@ -693,7 +693,7 @@ To verify an ID Token that is signed using the HS256 signing algorithm:
 
 ```java
 SignatureVerifier signatureVerifier = SignatureVerifier.forHS256("your-client-secret");
-IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.com/","your-client-id", signatureVerifier).build();
+IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.cn/","your-client-id", signatureVerifier).build();
 
 try {
     idTokenVerifier.verify("token", "expected-nonce");
@@ -708,7 +708,7 @@ By default, time-based claims such as the token expiration (`exp` claim) will al
 You can customize the leeway by using the `withLeeway` when building the `IdTokenVerifier`:
 
 ```java
-IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.com/","your-client-id", signatureVerifier)
+IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.cn/","your-client-id", signatureVerifier)
         .withLeeway(120) // two minutes
         .build();
 ``` 
@@ -731,31 +731,31 @@ idTokenVerifier.verify("token", "expected-nonce", 24 * 60 * 60); // maximum auth
 
 ## Documentation
 
-For more information about [Authok](http://authok.com) check our [documentation page](http://docs.authok.com/).
+For more information about [Authok](http://authok.cn) check our [documentation page](http://docs.authok.cn/).
 
 ## What is Authok?
 
 Authok helps you to:
 
-* Add authentication with [multiple authentication sources](https://docs.authok.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://docs.authok.com/mysql-connection-tutorial)**.
-* Add support for **[linking different user accounts](https://docs.authok.com/link-accounts)** with the same user.
-* Support for generating signed [Json Web Tokens](https://docs.authok.com/jwt) to call your APIs and **flow the user identity** securely.
+* Add authentication with [multiple authentication sources](https://docs.authok.cn/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
+* Add authentication through more traditional **[username/password databases](https://docs.authok.cn/mysql-connection-tutorial)**.
+* Add support for **[linking different user accounts](https://docs.authok.cn/link-accounts)** with the same user.
+* Support for generating signed [Json Web Tokens](https://docs.authok.cn/jwt) to call your APIs and **flow the user identity** securely.
 * Analytics of how, when and where users are logging in.
-* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.authok.com/rules).
+* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.authok.cn/rules).
 
 ## Create a free Authok Account
 
-1. Go to [Authok](https://authok.com) and click Sign Up.
+1. Go to [Authok](https://authok.cn) and click Sign Up.
 2. Use Google, GitHub or Microsoft Account to login.
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.com/whitehat) details the procedure for disclosing security issues.
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.cn/whitehat) details the procedure for disclosing security issues.
 
 ## Author
 
-[Authok](https://authok.com)
+[Authok](https://authok.cn)
 
 ## License
 

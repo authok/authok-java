@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 public class IdTokenVerifierTest {
 
-    private final static String DOMAIN = "tokens-test.authok.com";
+    private final static String DOMAIN = "tokens-test.authok.cn";
     private final static String AUDIENCE = "tokens-test-123";
 
     // Default clock time of September 2, 2019 5:00:00 AM GMT

@@ -12,7 +12,7 @@ import okhttp3.OkHttpClient;
 import java.util.List;
 
 /**
- * Class that provides an implementation of the Log Streams methods of the Management API as defined in https://authok.com/docs/api/management/v2#!/Log_Streams
+ * Class that provides an implementation of the Log Streams methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Log_Streams
  * <p>
  * This class is not thread-safe.
  *
@@ -29,7 +29,7 @@ public class LogStreamsEntity extends BaseManagementEntity {
 
     /**
      * Creates a request to get all Log Streams.
-     * See the <a href="https://authok.com/docs/api/management/v2#!/Log_Streams/get_log_streams">API Documentation for more information.</a>
+     * See the <a href="https://authok.cn/docs/api/management/v2#!/Log_Streams/get_log_streams">API Documentation for more information.</a>
      *
      * @return the request to execute.
      */
@@ -48,7 +48,7 @@ public class LogStreamsEntity extends BaseManagementEntity {
 
     /**
      * Creates a request to get a single Log Stream by its ID.
-     * See the <a href="https://authok.com/docs/api/management/v2#!/Log_Streams/get_log_streams_by_id">API Documentation for more information.</a>
+     * See the <a href="https://authok.cn/docs/api/management/v2#!/Log_Streams/get_log_streams_by_id">API Documentation for more information.</a>
      *
      * @param logStreamId The ID of the Log Stream to retrieve.
      * @return the request to execute.
@@ -71,7 +71,7 @@ public class LogStreamsEntity extends BaseManagementEntity {
 
     /**
      * Creates a request to create a Log Stream.
-     * See the <a href="https://authok.com/docs/api/management/v2#!/Log_Streams/post_log_streams">API Documentation for more information.</a>
+     * See the <a href="https://authok.cn/docs/api/management/v2#!/Log_Streams/post_log_streams">API Documentation for more information.</a>
      *
      * @param logStream The {@linkplain LogStream} to create.
      * @return the request to execute.
@@ -93,7 +93,7 @@ public class LogStreamsEntity extends BaseManagementEntity {
 
     /**
      * Creates a request to update a Log Stream.
-     * See the <a href="https://authok.com/docs/api/management/v2#!/Log_Streams/patch_log_streams_by_id">API Documentation for more information.</a>
+     * See the <a href="https://authok.cn/docs/api/management/v2#!/Log_Streams/patch_log_streams_by_id">API Documentation for more information.</a>
      *
      * @param logStreamId The ID of the Log Stream to update.
      * @param logStream   The {@linkplain LogStream} to update.
@@ -119,7 +119,7 @@ public class LogStreamsEntity extends BaseManagementEntity {
 
     /**
      * Creates a request to delete a Log Stream.
-     * See the <a href="https://authok.com/docs/api/management/v2#!/Log_Streams/delete_log_streams_by_id">API Documentation for more information.</a>
+     * See the <a href="https://authok.cn/docs/api/management/v2#!/Log_Streams/delete_log_streams_by_id">API Documentation for more information.</a>
      *
      * @param logStreamId The ID of the Log Stream to delete.
      * @return the request to execute.

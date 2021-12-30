@@ -43,7 +43,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AuthAPITest {
 
-    private static final String DOMAIN = "domain.authok.com";
+    private static final String DOMAIN = "domain.authok.cn";
     private static final String CLIENT_ID = "clientId";
     private static final String CLIENT_SECRET = "clientSecret";
     private static final String PASSWORD_STRENGTH_ERROR_RESPONSE_NONE = "src/test/resources/auth/password_strength_error_none.json";
@@ -372,19 +372,19 @@ public class AuthAPITest {
 
     @Test
     public void shouldGetAuthorizeUrlBuilder() {
-        AuthorizeUrlBuilder builder = api.authorizeUrl("https://domain.authok.com/callback");
+        AuthorizeUrlBuilder builder = api.authorizeUrl("https://domain.authok.cn/callback");
         assertThat(builder, is(notNullValue()));
     }
 
     @Test
     public void shouldSetAuthorizeUrlBuilderDefaultValues() {
-        AuthAPI api = new AuthAPI("domain.authok.com", CLIENT_ID, CLIENT_SECRET);
-        String url = api.authorizeUrl("https://domain.authok.com/callback").build();
+        AuthAPI api = new AuthAPI("domain.authok.cn", CLIENT_ID, CLIENT_SECRET);
+        String url = api.authorizeUrl("https://domain.authok.cn/callback").build();
 
-        assertThat(url, isUrl("https", "domain.authok.com", "/authorize"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/authorize"));
         assertThat(url, hasQueryParameter("response_type", "code"));
         assertThat(url, hasQueryParameter("client_id", CLIENT_ID));
-        assertThat(url, hasQueryParameter("redirect_uri", "https://domain.authok.com/callback"));
+        assertThat(url, hasQueryParameter("redirect_uri", "https://domain.authok.cn/callback"));
         assertThat(url, hasQueryParameter("connection", null));
     }
 
@@ -407,26 +407,26 @@ public class AuthAPITest {
 
     @Test
     public void shouldGetLogoutUrlBuilder() {
-        LogoutUrlBuilder builder = api.logoutUrl("https://domain.authok.com/callback", true);
+        LogoutUrlBuilder builder = api.logoutUrl("https://domain.authok.cn/callback", true);
         assertThat(builder, is(notNullValue()));
     }
 
     @Test
     public void shouldSetLogoutUrlBuilderDefaultValues() {
-        AuthAPI api = new AuthAPI("domain.authok.com", CLIENT_ID, CLIENT_SECRET);
+        AuthAPI api = new AuthAPI("domain.authok.cn", CLIENT_ID, CLIENT_SECRET);
         String url = api.logoutUrl("https://my.domain.com/welcome", false).build();
 
-        assertThat(url, isUrl("https", "domain.authok.com", "/v2/logout"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/v2/logout"));
         assertThat(url, hasQueryParameter("client_id", null));
         assertThat(url, hasQueryParameter("returnTo", "https://my.domain.com/welcome"));
     }
 
     @Test
     public void shouldSetLogoutUrlBuilderDefaultValuesAndClientId() {
-        AuthAPI api = new AuthAPI("domain.authok.com", CLIENT_ID, CLIENT_SECRET);
+        AuthAPI api = new AuthAPI("domain.authok.cn", CLIENT_ID, CLIENT_SECRET);
         String url = api.logoutUrl("https://my.domain.com/welcome", true).build();
 
-        assertThat(url, isUrl("https", "domain.authok.com", "/v2/logout"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/v2/logout"));
         assertThat(url, hasQueryParameter("client_id", CLIENT_ID));
         assertThat(url, hasQueryParameter("returnTo", "https://my.domain.com/welcome"));
     }
@@ -489,12 +489,12 @@ public class AuthAPITest {
     public void shouldThrowOnResetPasswordWithNullConnection() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'connection' cannot be null!");
-        api.resetPasswordByEmail("me@authok.com", null);
+        api.resetPasswordByEmail("me@authok.cn", null);
     }
 
     @Test
     public void shouldCreateResetPasswordRequest() throws Exception {
-        com.authok.net.Request<Void> request = api.resetPasswordByEmail("me@authok.com", "db-connection");
+        com.authok.net.Request<Void> request = api.resetPasswordByEmail("me@authok.cn", "db-connection");
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(AUTH_RESET_PASSWORD, 200);
@@ -505,7 +505,7 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("email", "me@authok.com"));
+        assertThat(body, hasEntry("email", "me@authok.cn"));
         assertThat(body, hasEntry("connection", "db-connection"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, not(hasKey("password")));
@@ -529,14 +529,14 @@ public class AuthAPITest {
     public void shouldThrowOnSignUpWithNullPasswordString() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'password' cannot be null!");
-        api.signUp("me@authok.com", (String) null, "my-connection");
+        api.signUp("me@authok.cn", (String) null, "my-connection");
     }
 
     @Test
     public void shouldThrowOnSignUpWithNullPasswordCharArray() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'password' cannot be null!");
-        api.signUp("me@authok.com", (char[]) null, "my-connection");
+        api.signUp("me@authok.cn", (char[]) null, "my-connection");
     }
 
     @SuppressWarnings("deprecation")
@@ -544,7 +544,7 @@ public class AuthAPITest {
     public void shouldThrowOnSignUpWithNullConnection() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'connection' cannot be null!");
-        api.signUp("me@authok.com", "p455w0rd", null);
+        api.signUp("me@authok.cn", "p455w0rd", null);
     }
 
     @SuppressWarnings("deprecation")
@@ -560,7 +560,7 @@ public class AuthAPITest {
     public void shouldThrowOnUsernameSignUpWithNullUsername() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'username' cannot be null!");
-        api.signUp("me@authok.com", null, "p455w0rd", "my-connection");
+        api.signUp("me@authok.cn", null, "p455w0rd", "my-connection");
     }
 
     @SuppressWarnings("deprecation")
@@ -568,14 +568,14 @@ public class AuthAPITest {
     public void shouldThrowOnUsernameSignUpWithNullPasswordString() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'password' cannot be null!");
-        api.signUp("me@authok.com", "me", (String) null, "my-connection");
+        api.signUp("me@authok.cn", "me", (String) null, "my-connection");
     }
 
     @Test
     public void shouldThrowOnUsernameSignUpWithNullPasswordCharArray() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'password' cannot be null!");
-        api.signUp("me@authok.com", "me", (char[]) null, "my-connection");
+        api.signUp("me@authok.cn", "me", (char[]) null, "my-connection");
     }
 
     @SuppressWarnings("deprecation")
@@ -583,7 +583,7 @@ public class AuthAPITest {
     public void shouldThrowOnUsernameSignUpWithNullConnection() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'connection' cannot be null!");
-        api.signUp("me@authok.com", "me", "p455w0rd", null);
+        api.signUp("me@authok.cn", "me", "p455w0rd", null);
     }
 
     @Test
@@ -613,7 +613,7 @@ public class AuthAPITest {
     @Test
     public void shouldCreateSignUpRequestWithUsername() throws Exception {
         @SuppressWarnings("deprecation")
-        SignUpRequest request = api.signUp("me@authok.com", "me", "p455w0rd", "db-connection");
+        SignUpRequest request = api.signUp("me@authok.cn", "me", "p455w0rd", "db-connection");
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(AUTH_SIGN_UP_USERNAME, 200);
@@ -624,7 +624,7 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("email", "me@authok.com"));
+        assertThat(body, hasEntry("email", "me@authok.cn"));
         assertThat(body, hasEntry("username", "me"));
         assertThat(body, hasEntry("password", "p455w0rd"));
         assertThat(body, hasEntry("connection", "db-connection"));
@@ -632,7 +632,7 @@ public class AuthAPITest {
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getUserId(), is("58457fe6b27"));
-        assertThat(response.getEmail(), is("me@authok.com"));
+        assertThat(response.getEmail(), is("me@authok.cn"));
         assertThat(response.isEmailVerified(), is(false));
         assertThat(response.getUsername(), is("me"));
     }
@@ -640,7 +640,7 @@ public class AuthAPITest {
     @Test
     public void shouldCreateSignUpRequest() throws Exception {
         @SuppressWarnings("deprecation")
-        SignUpRequest request = api.signUp("me@authok.com", "p455w0rd", "db-connection");
+        SignUpRequest request = api.signUp("me@authok.cn", "p455w0rd", "db-connection");
 
         assertThat(request, is(notNullValue()));
 
@@ -652,7 +652,7 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("email", "me@authok.com"));
+        assertThat(body, hasEntry("email", "me@authok.cn"));
         assertThat(body, hasEntry("password", "p455w0rd"));
         assertThat(body, hasEntry("connection", "db-connection"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
@@ -660,7 +660,7 @@ public class AuthAPITest {
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getUserId(), is("58457fe6b27"));
-        assertThat(response.getEmail(), is("me@authok.com"));
+        assertThat(response.getEmail(), is("me@authok.cn"));
         assertThat(response.isEmailVerified(), is(false));
         assertThat(response.getUsername(), is(nullValue()));
     }
@@ -668,7 +668,7 @@ public class AuthAPITest {
     @Test
     public void shouldCreateSignUpRequestWithCustomParameters() throws Exception {
         @SuppressWarnings("deprecation")
-        SignUpRequest request = api.signUp("me@authok.com", "p455w0rd", "db-connection");
+        SignUpRequest request = api.signUp("me@authok.cn", "p455w0rd", "db-connection");
         assertThat(request, is(notNullValue()));
         Map<String, String> customFields = new HashMap<>();
         customFields.put("age", "25");
@@ -683,7 +683,7 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("email", "me@authok.com"));
+        assertThat(body, hasEntry("email", "me@authok.cn"));
         assertThat(body, hasEntry("password", "p455w0rd"));
         assertThat(body, hasEntry("connection", "db-connection"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
@@ -695,7 +695,7 @@ public class AuthAPITest {
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getUserId(), is("58457fe6b27"));
-        assertThat(response.getEmail(), is("me@authok.com"));
+        assertThat(response.getEmail(), is("me@authok.cn"));
         assertThat(response.isEmailVerified(), is(false));
         assertThat(response.getUsername(), is(nullValue()));
     }
@@ -707,7 +707,7 @@ public class AuthAPITest {
     public void shouldThrowOnLogInWithAuthorizationCodeGrantAndRedirectUriWithNullCode() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'code' cannot be null!");
-        api.exchangeCode(null, "https://domain.authok.com/callback");
+        api.exchangeCode(null, "https://domain.authok.cn/callback");
     }
 
     @Test
@@ -719,7 +719,7 @@ public class AuthAPITest {
 
     @Test
     public void shouldCreateLogInWithAuthorizationCodeGrantRequest() throws Exception {
-        AuthRequest request = api.exchangeCode("code123", "https://domain.authok.com/callback");
+        AuthRequest request = api.exchangeCode("code123", "https://domain.authok.cn/callback");
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(AUTH_TOKENS, 200);
@@ -731,7 +731,7 @@ public class AuthAPITest {
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
         assertThat(body, hasEntry("code", "code123"));
-        assertThat(body, hasEntry("redirect_uri", "https://domain.authok.com/callback"));
+        assertThat(body, hasEntry("redirect_uri", "https://domain.authok.cn/callback"));
         assertThat(body, hasEntry("grant_type", "authorization_code"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
@@ -746,9 +746,9 @@ public class AuthAPITest {
 
     @Test
     public void shouldCreateLogInWithAuthorizationCodeGrantRequestWithCustomParameters() throws Exception {
-        AuthRequest request = api.exchangeCode("code123", "https://domain.authok.com/callback");
+        AuthRequest request = api.exchangeCode("code123", "https://domain.authok.cn/callback");
         assertThat(request, is(notNullValue()));
-        request.setAudience("https://myapi.authok.com/users");
+        request.setAudience("https://myapi.authok.cn/users");
         request.setRealm("dbconnection");
         request.setScope("profile photos contacts");
 
@@ -761,11 +761,11 @@ public class AuthAPITest {
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
         assertThat(body, hasEntry("code", "code123"));
-        assertThat(body, hasEntry("redirect_uri", "https://domain.authok.com/callback"));
+        assertThat(body, hasEntry("redirect_uri", "https://domain.authok.cn/callback"));
         assertThat(body, hasEntry("grant_type", "authorization_code"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
-        assertThat(body, hasEntry("audience", "https://myapi.authok.com/users"));
+        assertThat(body, hasEntry("audience", "https://myapi.authok.cn/users"));
         assertThat(body, hasEntry("realm", "dbconnection"));
         assertThat(body, hasEntry("scope", "profile photos contacts"));
 
@@ -838,7 +838,7 @@ public class AuthAPITest {
         assertThat(request, is(notNullValue()));
         request.setRealm("dbconnection");
         request.setScope("profile photos contacts");
-        request.setAudience("https://myapi.authok.com/users");
+        request.setAudience("https://myapi.authok.cn/users");
 
         server.jsonResponse(AUTH_TOKENS, 200);
         TokenHolder response = request.execute();
@@ -855,7 +855,7 @@ public class AuthAPITest {
         assertThat(body, hasEntry("password", "p455w0rd"));
         assertThat(body, hasEntry("realm", "dbconnection"));
         assertThat(body, hasEntry("scope", "profile photos contacts"));
-        assertThat(body, hasEntry("audience", "https://myapi.authok.com/users"));
+        assertThat(body, hasEntry("audience", "https://myapi.authok.cn/users"));
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getAccessToken(), not(emptyOrNullString()));
@@ -940,7 +940,7 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("grant_type", "http://authok.com/oauth/grant-type/password-realm"));
+        assertThat(body, hasEntry("grant_type", "http://authok.cn/oauth/grant-type/password-realm"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
         assertThat(body, hasEntry("username", "me"));
@@ -960,7 +960,7 @@ public class AuthAPITest {
         @SuppressWarnings("deprecation")
         AuthRequest request = api.login("me", "p455w0rd", "realm");
         assertThat(request, is(notNullValue()));
-        request.setAudience("https://myapi.authok.com/users");
+        request.setAudience("https://myapi.authok.cn/users");
         request.setRealm("dbconnection");
         request.setScope("profile photos contacts");
 
@@ -972,12 +972,12 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("grant_type", "http://authok.com/oauth/grant-type/password-realm"));
+        assertThat(body, hasEntry("grant_type", "http://authok.cn/oauth/grant-type/password-realm"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
         assertThat(body, hasEntry("username", "me"));
         assertThat(body, hasEntry("password", "p455w0rd"));
-        assertThat(body, hasEntry("audience", "https://myapi.authok.com/users"));
+        assertThat(body, hasEntry("audience", "https://myapi.authok.cn/users"));
         assertThat(body, hasEntry("realm", "dbconnection"));
         assertThat(body, hasEntry("scope", "profile photos contacts"));
 
@@ -1001,7 +1001,7 @@ public class AuthAPITest {
 
     @Test
     public void shouldCreateLogInWithClientCredentialsGrantRequest() throws Exception {
-        AuthRequest request = api.requestToken("https://myapi.authok.com/users");
+        AuthRequest request = api.requestToken("https://myapi.authok.cn/users");
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(AUTH_TOKENS, 200);
@@ -1015,7 +1015,7 @@ public class AuthAPITest {
         assertThat(body, hasEntry("grant_type", "client_credentials"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
-        assertThat(body, hasEntry("audience", "https://myapi.authok.com/users"));
+        assertThat(body, hasEntry("audience", "https://myapi.authok.cn/users"));
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getAccessToken(), not(emptyOrNullString()));
@@ -1180,7 +1180,7 @@ public class AuthAPITest {
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
         assertThat(body, hasEntry("realm", "email"));
-        assertThat(body, hasEntry("grant_type", "http://authok.com/oauth/grant-type/passwordless/otp"));
+        assertThat(body, hasEntry("grant_type", "http://authok.cn/oauth/grant-type/passwordless/otp"));
         assertThat(body, hasEntry("otp", "otp"));
 
         assertThat(response, is(notNullValue()));
@@ -1285,7 +1285,7 @@ public class AuthAPITest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
-        assertThat(body, hasEntry("grant_type", "http://authok.com/oauth/grant-type/mfa-otp"));
+        assertThat(body, hasEntry("grant_type", "http://authok.cn/oauth/grant-type/mfa-otp"));
         assertThat(body, hasEntry("client_id", CLIENT_ID));
         assertThat(body, hasEntry("client_secret", CLIENT_SECRET));
         assertThat(body, hasEntry("mfa_token", "mfaToken"));

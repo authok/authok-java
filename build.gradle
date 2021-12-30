@@ -21,11 +21,11 @@ oss {
     developers {
         authok {
             displayName = 'Authok'
-            email = 'oss@authok.com'
+            email = 'oss@authok.cn'
         }
         lbalmaceda {
             displayName = 'Luciano Balmaceda'
-            email = 'luciano.balmaceda@authok.com'
+            email = 'luciano.balmaceda@authok.cn'
         }
     }
 }

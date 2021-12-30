@@ -14,9 +14,9 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class AuthorizeUrlBuilderTest {
 
-    private static final HttpUrl DOMAIN = HttpUrl.parse("https://domain.authok.com");
+    private static final HttpUrl DOMAIN = HttpUrl.parse("https://domain.authok.cn");
     private static final String CLIENT_ID = "clientId";
-    private static final String REDIRECT_URI = "https://domain.authok.com/callback";
+    private static final String REDIRECT_URI = "https://domain.authok.cn/callback";
 
     @SuppressWarnings("deprecation")
     @Rule
@@ -51,16 +51,16 @@ public class AuthorizeUrlBuilderTest {
 
     @Test
     public void shouldBuildValidAuthorizeUrlWithHttp() {
-        HttpUrl httpBaseUrl = HttpUrl.parse("http://domain.authok.com");
+        HttpUrl httpBaseUrl = HttpUrl.parse("http://domain.authok.cn");
         String url = AuthorizeUrlBuilder.newInstance(httpBaseUrl, CLIENT_ID, REDIRECT_URI).build();
-        assertThat(url, isUrl("http", "domain.authok.com", "/authorize"));
+        assertThat(url, isUrl("http", "domain.authok.cn", "/authorize"));
     }
 
     @Test
     public void shouldBuildValidAuthorizeUrlWithHttps() {
-        HttpUrl httpsBaseUrl = HttpUrl.parse("https://domain.authok.com");
+        HttpUrl httpsBaseUrl = HttpUrl.parse("https://domain.authok.cn");
         String url = AuthorizeUrlBuilder.newInstance(httpsBaseUrl, CLIENT_ID, REDIRECT_URI).build();
-        assertThat(url, isUrl("https", "domain.authok.com", "/authorize"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/authorize"));
     }
 
     @Test
