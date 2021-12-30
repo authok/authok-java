@@ -2,6 +2,7 @@ package com.authok.client.mgmt;
 
 import com.authok.client.HttpOptions;
 import com.authok.client.ProxyOptions;
+import com.authok.client.SSLSocketClient;
 import com.authok.net.RateLimitInterceptor;
 import com.authok.net.Telemetry;
 import com.authok.net.TelemetryInterceptor;
@@ -101,12 +102,15 @@ public class ManagementAPI {
                 });
             }
         }
+
         return clientBuilder
                 .addInterceptor(logging)
                 .addInterceptor(telemetry)
                 .addInterceptor(new RateLimitInterceptor(options.getManagementAPIMaxRetries()))
                 .connectTimeout(options.getConnectTimeout(), TimeUnit.SECONDS)
                 .readTimeout(options.getReadTimeout(), TimeUnit.SECONDS)
+                .sslSocketFactory(SSLSocketClient.sslSocketFactory(), SSLSocketClient.x509TrustManager)
+                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
                 .build();
     }
 

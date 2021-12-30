@@ -2,13 +2,13 @@ package com.authok.client.auth;
 
 import com.authok.client.HttpOptions;
 import com.authok.client.ProxyOptions;
+import com.authok.client.SSLSocketClient;
 import com.authok.json.auth.PasswordlessEmailResponse;
 import com.authok.json.auth.PasswordlessSmsResponse;
 import com.authok.json.auth.UserInfo;
 import com.authok.net.CreateUserRequest;
 import com.authok.net.CustomRequest;
 import com.authok.net.Request;
-import com.authok.net.*;
 import com.authok.net.SignUpRequest;
 import com.authok.net.Telemetry;
 import com.authok.net.TelemetryInterceptor;
@@ -41,6 +41,7 @@ public class AuthAPI {
     private static final String KEY_PASSWORD = "password";
     private static final String KEY_AUDIENCE = "audience";
     private static final String KEY_EMAIL = "email";
+    private static final String KEY_PHONE_NUMBER = "phone_number";
     private static final String KEY_CONNECTION = "connection";
     private static final String KEY_TOKEN = "token";
     private static final String KEY_REFRESH_TOKEN = "refresh_token";
@@ -141,6 +142,8 @@ public class AuthAPI {
                 .addInterceptor(telemetry)
                 .connectTimeout(options.getConnectTimeout(), TimeUnit.SECONDS)
                 .readTimeout(options.getReadTimeout(), TimeUnit.SECONDS)
+                .sslSocketFactory(SSLSocketClient.sslSocketFactory(), SSLSocketClient.x509TrustManager)
+                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
                 .build();
     }
 
@@ -284,7 +287,7 @@ public class AuthAPI {
      * @param connection the database connection where the user was created.
      * @return a Request to execute.
      */
-    public Request resetPassword(String email, String connection) {
+    public Request resetPasswordByEmail(String email, String connection) {
         Asserts.assertNotNull(email, "email");
         Asserts.assertNotNull(connection, "connection");
 
@@ -297,6 +300,23 @@ public class AuthAPI {
         VoidRequest request = new VoidRequest(client, url, "POST");
         request.addParameter(KEY_CLIENT_ID, clientId);
         request.addParameter(KEY_EMAIL, email);
+        request.addParameter(KEY_CONNECTION, connection);
+        return request;
+    }
+
+    public Request resetPasswordBySms(String phoneNumber, String connection) {
+        Asserts.assertNotNull(phoneNumber, "phoneNumber");
+        Asserts.assertNotNull(connection, "connection");
+
+        String url = baseUrl
+            .newBuilder()
+            .addPathSegment(PATH_DBCONNECTIONS)
+            .addPathSegment("change_password")
+            .build()
+            .toString();
+        VoidRequest request = new VoidRequest(client, url, "POST");
+        request.addParameter(KEY_CLIENT_ID, clientId);
+        request.addParameter(KEY_PHONE_NUMBER, phoneNumber);
         request.addParameter(KEY_CONNECTION, connection);
         return request;
     }

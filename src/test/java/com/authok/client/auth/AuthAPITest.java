@@ -4,8 +4,6 @@ import com.authok.client.HttpOptions;
 import com.authok.client.MockServer;
 import com.authok.client.ProxyOptions;
 import com.authok.exception.APIException;
-import com.authok.json.auth.*;
-import com.authok.net.*;
 import com.authok.json.auth.CreatedUser;
 import com.authok.json.auth.PasswordlessEmailResponse;
 import com.authok.json.auth.PasswordlessSmsResponse;
@@ -484,19 +482,19 @@ public class AuthAPITest {
     public void shouldThrowOnResetPasswordWithNullEmail() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'email' cannot be null!");
-        api.resetPassword(null, "my-connection");
+        api.resetPasswordByEmail(null, "my-connection");
     }
 
     @Test
     public void shouldThrowOnResetPasswordWithNullConnection() {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("'connection' cannot be null!");
-        api.resetPassword("me@authok.com", null);
+        api.resetPasswordByEmail("me@authok.com", null);
     }
 
     @Test
     public void shouldCreateResetPasswordRequest() throws Exception {
-        com.authok.net.Request<Void> request = api.resetPassword("me@authok.com", "db-connection");
+        com.authok.net.Request<Void> request = api.resetPasswordByEmail("me@authok.com", "db-connection");
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(AUTH_RESET_PASSWORD, 200);
