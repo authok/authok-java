@@ -109,8 +109,8 @@ public class ManagementAPI {
                 .addInterceptor(new RateLimitInterceptor(options.getManagementAPIMaxRetries()))
                 .connectTimeout(options.getConnectTimeout(), TimeUnit.SECONDS)
                 .readTimeout(options.getReadTimeout(), TimeUnit.SECONDS)
-                .sslSocketFactory(SSLSocketClient.sslSocketFactory(), SSLSocketClient.x509TrustManager)
-                .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
+                // .sslSocketFactory(SSLSocketClient.sslSocketFactory(), SSLSocketClient.x509TrustManager)
+                // .hostnameVerifier(SSLSocketClient.getHostnameVerifier())
                 .build();
     }
 

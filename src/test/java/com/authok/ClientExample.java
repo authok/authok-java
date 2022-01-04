@@ -54,12 +54,12 @@ public class ClientExample {
     }
 
     private void authenticate() throws Exception {
-        this.authAPI = new AuthAPI("https://brucke.authok.cn", "v9Nre01S1mN9ovRKcMW8GJSY5cyJKhEc", "jU0oMu-LIxaJ7wWBcEEw4sFg12bBE8IlWunWsaIGusXpBHpjLwDeGXIb6BeeDebO");
+        this.authAPI = new AuthAPI("https://wsz.cn.authok.cn", "_f8riekVm23IjMsIsqEFjdhKH6i7tilr", "gJXi9XSC5AsXu4FAJLi5R1W__TisCIlzDNGhN-P6zA65WPRcvNqdqUuRtkRQdQ5E");
 
-        TokenRequest req = authAPI.requestToken("https://brucke.authok.cn/api/v2/");//.setScope("openid contacts");
+        TokenRequest req = authAPI.requestToken("https://wsz.com/api/v1/");//.setScope("openid contacts");
         TokenHolder holder = req.execute();
 
-        Request<Void> req1 = authAPI.resetPasswordByEmail("52388483@qq.com", "c1");
+        Request<Void> req1 = authAPI.resetPasswordByEmail("1@126.com", "c1");
         Void r = req1.execute();
 
         this.managementAPI = new ManagementAPI("https://brucke.authok.cn", holder.getAccessToken());
