@@ -56,7 +56,7 @@ public abstract class PageDeserializer<T, U> extends StdDeserializer<T> {
     protected abstract T createPage(Integer start, Integer length, Integer total, Integer limit, List<U> items);
 
     /**
-     * Creates a new page result.<br/>
+f     * Creates a new page result.
      * <strong>By default, this method delegates to {@linkplain PageDeserializer#createPage(Integer, Integer, Integer, Integer, List)},
      * to preserve backwards-compatibility for implementors. If an API supports checkpoint pagination, the specific
      * deserializer implementation must override this method and construct the Page to populate the "next" field</strong>.

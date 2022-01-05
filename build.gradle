@@ -1,33 +1,95 @@
 plugins {
     id 'java'
     id 'jacoco'
-    id 'com.auth0.gradle.oss-library.java'
+    id 'maven-publish'
+    id 'signing'
 }
 
 repositories {
     mavenCentral()
 }
 
-group = 'com.authok'
+group = 'cn.authok'
+version = '1.35.0'
 logger.lifecycle("Using version ${version} for ${name} group $group")
 
-oss {
-    name 'authok'
-    repository 'authok-java'
-    organization 'authok'
-    description 'Java client library for the Authok platform.'
-    // baselineCompareVersion '1.27.0'
+task sourceJar(type: Jar, dependsOn: classes) {
+  classifier 'sources'
+  from sourceSets.main.allSource
+}
 
-    developers {
-        authok {
-            displayName = 'Authok'
-            email = 'oss@authok.cn'
-        }
-        lbalmaceda {
-            displayName = 'Luciano Balmaceda'
-            email = 'luciano.balmaceda@authok.cn'
-        }
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
+
+publishing {
+  repositories {
+    maven {
+      // url = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+      // Note: New non-existing packages uploaded since Feb 2021 use a different URL. See https://central.sonatype.org/pages/ossrh-guide.html
+      url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+      credentials {
+        // Attempts to find the Sonatype credentials.
+        // Fallback values are required so the plugin can still be applied.
+        username = project.findProperty('ossrhUsername') ?: "Missing ossrhUsername"
+        password = project.findProperty('ossrhPassword') ?: "Missing ossrhPassword"
+      }
     }
+  }
+}
+
+afterEvaluate { project ->
+  publishing.publications {
+    mavenJava(MavenPublication) {
+      from components.java
+
+      groupId = project.group
+      artifactId = project.name
+      version = project.version
+
+      artifact sourceJar
+      artifact javadocJar
+
+      pom {
+        name = project.name
+        packaging = 'jar'
+        description = 'Java client library for the Authok platform.'
+        url = "https://github.com/authok/authok-java"
+
+        licenses {
+          license {
+            name = 'The MIT License (MIT)'
+            url = "https://raw.githubusercontent.com/authok/authok/master/LICENSE"
+            distribution = 'repo'
+          }
+        }
+
+        developers {
+          developer {
+            id = 'authok'
+            name = 'Authok'
+            email = 'developer@authok.cn'
+          }
+        }
+
+        scm {
+          url = "https://github.com/authok/authok-java"
+          connection = "scm:git:https://github.com/authok/authok-java.git"
+          developerConnection = "scm:git:https://github.com/authok/authok-java.git"
+        }
+      }
+    }
+  }
+
+  signing {
+    sign project.publishing.publications.mavenJava
+    '''publishing.publications.all { publication ->
+      sign publication
+
+      required { !gradle.taskGraph.allTasks.findAll { it.name ==~ /.*Sonatype.*/ }.isEmpty() }
+    }'''
+  }
 }
 
 jacocoTestReport {
