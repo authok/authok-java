@@ -8,7 +8,7 @@
 
 [Authok](https://authok.cn) 平台的 Java 客户端库.
 
-## Download
+## 下载
 
 通过 Maven 下载 Authok Java:
 
@@ -29,52 +29,52 @@ implementation 'com.authok:authok:1.35.0'
 
 ### Android
 
-The Authok Authentication API and User's Management API are available for Android in the `authok.android` library. Check https://github.com/authok/authok.android for more information.
+Authok 认证API 和 用户管理API 对应的库为 `authok.android`. 了解更多可访问 https://github.com/authok/authok.android.
 
 ## Auth API
 
-The implementation is based on the [Authentication API Docs](https://authok.cn/docs/api/authentication).
+参考 [认证API文档](https://docs.authok.cn/api/authentication) 实现.
 
-Create an `AuthAPI` instance by providing the Application details from the [dashboard](https://manage.authok.cn/#/applications). Read the [recommendations](#api-clients-recommendations) for keeping the resources usage low. 
+创建 `AuthAPI` 实例 [dashboard](https://mgmt.authok.cn/#/applications). 
 
 ```java
 AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
 ```
 
-### Authorize - /authorize
+### 授权 - /authorize
 
-Creates an `AuthorizeUrlBuilder` to authenticate the user with an OAuth provider. The `redirectUri` must be white-listed in the "Allowed Callback URLs" section of the Applications Settings. Parameters can be added to the final URL by using the builder methods. When ready, call `build()` and obtain the URL.
+创建一个 `AuthorizeUrlBuilder` 实例通过OAuth提供者进行用户认证. `redirectUri` 必须在 应用的 "回调链接" 中预先设置. 参数可以被追加到 URL 后面. 调用 `build()` 方法获得完整URL.
 
 ```AuthorizeUrlBuilder authorizeUrl(String redirectUri)```
 
-Example:
+例子:
 ```java
-String url = auth.authorizeUrl("https://me.authok.cn/callback")
-    .withConnection("facebook")
-    .withAudience("https://api.me.authok.cn/users")
+String url = auth.authorizeUrl("https://me.cn.authok.cn/callback")
+    .withConnection("wechat:pc")
+    .withAudience("https://api.me.cn.authok.cn/users")
     .withScope("openid contacts")
     .withState("state123")
     .build();
 ```
 
-### Logout - /logout
-Creates a `LogoutUrlBuilder` to log out the user. The `returnToUrl` must be white-listed in the "Allowed Logout URLs" section of the Dashboard, depending on the value of `setClientId` this configuration should be set in the Application or in the Tenant Settings. Parameters can be added to the final URL by using the builder methods. When ready, call `build()` and obtain the URL.
+### 退出登录 - /logout
+创建一个 `LogoutUrlBuilder` 实例来退登用户. `returnToUrl` 需要在 应用的 "允许的退登链接" 中预先设置, 参数可以被添加到URL后面. 调用 `build()` 方法获得完整URL.
 
 `LogoutUrlBuilder logoutUrl(String returnToUrl, boolean setClientId)`
 
-Example:
+例子:
 ```java
 String url = auth.logoutUrl("https://me.authok.cn/home", true)
     .useFederated(true)
     .build();
 ```
 
-### UserInfo - /userinfo
-Creates a request to get the user information associated to a given access token. This will only work if the token has been granted the `openid` scope.
+### 用户信息 - /userinfo
+请求用户信息. 令牌需要有 `openid` 作用域.
 
 `Request<UserInfo> userInfo(String accessToken)`
 
-Example:
+例子:
 ```java
 Request<UserInfo> request = auth.userInfo("nisd1h9dk.....s1doWJOsaf");
 try {
@@ -87,14 +87,14 @@ try {
 }
 ```
 
-### Reset Password - /dbconnections/change_password
-Creates a request to reset the user's password. This will only work for db connections.
+### 重置密码 - /dbconnections/change_password
+请求重置用户密码. 只可用于数据库身份源.
 
 `Request resetPassword(String email, String connection)`
 
-Example:
+例子:
 ```java
-Request request = auth.resetPassword("user@domain.com", "Username-Password-Authentication");
+Request request = auth.resetPassword("user@domain.com", "Username-Password-Auth");
 try {
     request.execute();
 } catch (APIException exception) {
@@ -105,14 +105,14 @@ try {
 ```
 
 
-### Sign Up - /dbconnections/signup
-Creates a request to create a user. Up to 10 additional Sign Up fields can be added to the request. This will only work for db connections.
+### 注册 - /dbconnections/signup
+创建一个注册请求. 可以最多添加10个额外注册字段. 仅仅能用于数据库身份源.
 
 `SignUpRequest signUp(String email, String username, String password, String connection)`
 
 `SignUpRequest signUp(String email, String password, String connection)`
 
-Example:
+例子:
 ```java
 Map<String, String> fields = new HashMap<>();
 fields.put("age", "25");
@@ -128,13 +128,13 @@ try {
 }
 ```
 
-### Exchange the Authorization Code - /oauth/token
+### 交换授权码 - /oauth/token
 
-Creates a request to exchange the `code` previously obtained by calling the /authorize endpoint. The redirect URI must be the one sent in the /authorize call.
+用调用 /authorize 端点获取的 `code` 来请求令牌. 必须设置重定向链接.
 
 `AuthRequest exchangeCode(String code, String redirectUri)`
 
-Example:
+例子:
 ```java
 AuthRequest request = auth.exchangeCode("asdfgh", "https://me.authok.cn/callback")
     .setAudience("https://api.me.authok.cn/users")
@@ -148,13 +148,13 @@ try {
 }
 ```
 
-### Log In with Password - /oauth/token
+### 密码登录 - /oauth/token
 
-Creates a request to log in the user with `username` and `password`. The connection used is the one defined as "Default Directory" in the account settings.
+通过 `username` 和 `password` 登录. 会通过租户的 "默认数据源" 进行登录.
 
 `AuthRequest login(String emailOrUsername, String password)`
 
-Example:
+例子:
 ```java
 AuthRequest request = auth.login("me@domain.com", "password123")
     .setAudience("https://api.me.authok.cn/users")
@@ -168,13 +168,13 @@ try {
 }
 ```
 
-### Log In with Password Realm - /oauth/token
+### 通过密码域登录 Realm - /oauth/token
 
-Creates a request to log in the user with `username` and `password` using the Password Realm.
+通过进行 `username` 和 `password` 进行 Password Realm 登录.
 
 `AuthRequest login(String emailOrUsername, String password, String realm)`
 
-Example:
+例子:
 ```java
 AuthRequest request = auth.login("me@domain.com", "password123", "Username-Password-Authentication")
     .setAudience("https://api.me.authok.cn/users")
@@ -188,13 +188,13 @@ try {
 }
 ```
 
-### Request Token for Audience - /oauth/token
+### 请求 Audience 对应的令牌 - /oauth/token
 
-Creates a request to get a Token for the given Audience.
+请求指定Audience的令牌.
 
 `AuthRequest requestToken(String audience)`
 
-Example:
+例子:
 ```java
 AuthRequest request = auth.requestToken("https://api.me.authok.cn/users")
     .setScope("openid contacts");
@@ -207,13 +207,13 @@ try {
 }
 ```
 
-### Revoke Refresh Token
+### 撤销刷新令牌
 
-Creates a request to revoke an existing Refresh Token.
+撤销已经存在的刷新令牌.
 
 `Request<Void> revokeToken(String refreshToken)`
 
-Example:
+例子:
 ```java
 Request<Void> request = auth.revokeToken("nisd1h9dks1doWJOsaf");
 try {
@@ -225,13 +225,13 @@ try {
 }
 ```
 
-### Renew Authentication
+### 认证续期
 
-Creates a request to renew the authentication and get fresh new credentials using a valid Refresh Token.
+通过一个有效的刷新令牌来进行认证续期.
 
 `AuthRequest renewAuth(String refreshToken)`
 
-Example:
+例子:
 ```java
 AuthRequest request = auth.renewAuth("nisd1h9dks1doWJOsaf");
 try {
@@ -243,11 +243,11 @@ try {
 }
 ```
 
-### Passwordless Authentication
+### 免密认证
 
-This library supports [Passwordless Authentication](https://authok.cn/docs/connections/passwordless) to allow users to log in without the need to remember a password.
+本SDK支持 [免密认证](https://docs.authok.cn/connections/passwordless).
 
-The email flow supports sending both a code or link to initiate login:
+邮箱流程同时支持用 验证码 和 链接 两种模式发起登录:
 
 ```java
 try {
@@ -258,7 +258,7 @@ try {
 }
 ```
 
-You can also initiate the passwordless flow by sending a code via SMS:
+也可以发起短信验证码形式的免密登录:
 
 ```java
 try {
@@ -269,7 +269,7 @@ try {
 }
 ```
 
-Using the verification code sent to the user, you can complete the passwordless authentication flow and obtain the tokens:
+通过验证码完成免密认证后将会获得令牌:
 
 ```java
 AuthRequest request = auth.exchangePasswordlessOtp("emailOrPhone", PasswordlessRealmType.EMAIL, new char[]{'c','o','d','e'});
@@ -280,15 +280,13 @@ try {
 }
 ```
 
-### Organizations
+### 组织(租户)
 
-[Organizations](https://authok.cn/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
+[组织](https://docs.authok.cn/organizations) 主要用于 SaaS 系统和 Business-to-Business (B2B) 应用.
 
-Note that Organizations is currently only available to customers on our Enterprise and Startup subscription plans.
+#### 登录组织
 
-#### Log in to an organization
-
-Log in to an organization by using `withOrganization()` when building the Authorization URL:
+在构建授权链接时通过设置 `withOrganization()` 来登录组织:
 
 ```java
 AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
@@ -297,8 +295,8 @@ String url = auth.authorizeUrl("https://me.authok.cn/callback")
     .build();
 ```
 
-**Important!** When logging into an organization, it is important to ensure the `org_id` claim of the ID Token matches the expected organization value. The `IdTokenVerifier` can be configured with an expected `org_id` claim value, as the example below demonstrates.
-For more information, please read [Work with Tokens and Organizations](https://authok.cn/docs/organizations/using-tokens) on Authok Docs.
+**重要!** 当登录组织时, 要确保 ID Token 的 `org_id` 声明匹配预期的组织. 可配置 `IdTokenVerifier` 进行 `org_id` 校验.
+更多信息, 请参考 [令牌和组织](https://docs.authok.cn/organizations/using-tokens).
 ```java
 IdTokenVerifier.init("{ISSUER}", "{AUDIENCE}", signatureVerifier)
     .withOrganization("{ORG_ID}")
@@ -306,9 +304,9 @@ IdTokenVerifier.init("{ISSUER}", "{AUDIENCE}", signatureVerifier)
     .verify(jwt);
 ```
 
-### Accept user invitations
+### 接受用户邀请
 
-Accept a user invitation by using `withInvitation()` when building the Authorization URL:
+在构建授权链接时通过设置 `withInvitation()` 来接受用户邀请:
 
 ```
 AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
@@ -318,11 +316,11 @@ String url = auth.authorizeUrl("https://me.authok.cn/callback")
     .build();
 ```
 
-## Management API
+## 管理 API
 
-The implementation is based on the [Management API Docs](https://authok.cn/docs/api/management/v2). 
+实现基于 [管理 API 文档](https://docs.authok.cn/api/management/v1). 
 
-Create a `ManagementAPI` instance by providing the domain from the [Application dashboard](https://manage.authok.cn/#/applications) and a valid API Token. Read the [recommendations](#api-clients-recommendations) for keeping the resources usage low.
+创建 `ManagementAPI` 实例, 第一个参数 domain 可在 [应用](https://mgmt.authok.cn/#/applications) 中获取, 第二个参数需提供一个有效令牌.
 
 ```java
 ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", "{YOUR_API_TOKEN}");
@@ -337,50 +335,49 @@ TokenHolder holder = authRequest.execute();
 ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", holder.getAccessToken());
 ```
 
-(Note that the snippet above should have error handling, and ideally cache the obtained token until it expires instead of requesting one access token for each Management API v2 invocation). 
+(注意上面的代码需要进行错误处理, 并且最好缓存令牌直到过期，而不要每次 Management API 调用都去请求令牌). 
 
-An expired token for an existing `ManagementAPI` instance can be replaced by calling the `setApiToken` method with the new token.
+可以调用 `ManagementAPI` 实例的 `setApiToken` 方法来替换过期令牌.
 
-Click [here](https://authok.cn/docs/api/management/v2/tokens) for more information on how to obtain API Tokens.
+点击 [这里](https://docs.authok.cn/api/management/v2/tokens) 获取更多关于获取令牌的信息.
+
+管理 API 被划分为不同实体. 每个实体都有 list, create, update, delete 和 update 方法 和一些特定于实体的方法. 所有调用都通过传入 `ManagementAPI` 实例的令牌进行验证，并且每个方法都要携带对应的 `scope` . 参考 javadoc 来了解每个调用对应的 `scope` .
+
+* **Blacklists:**  参考 [文档](https://docs.authok.cn/api/management/v2#!/Blacklists/get_tokens). 调用 `mgmt.blacklists()`.
+* **Client Grants:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Client_Grants/get_client_grants). 调用 `mgmt.clientGrants()`. 支持分页.
+* **Clients:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Clients/get_clients). 调用 `mgmt.clients()`. 支持分页.
+* **Connections:** 参考 [文档](https://docs.authok.cn//api/management/v2#!/Connections/get_connections). 调用 `mgmt.connections()`. 支持分页.
+* **Device Credentials:** 参考 [文档](https://docs.authok.cn//api/management/v2#!/Device_Credentials/get_device_credentials). 调用 `mgmt.deviceCredentials()`.
+* **Email Providers:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Emails/get_provider). 调用 `mgmt.emailProvider()`.
+* **Email Templates:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Email_Templates/get_email_templates_by_templateName). 调用 `mgmt.emailTemplates()`.
+* **Grants:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Grants/get_grants). 调用 `mgmt.grants()`. 支持分页.
+* **Guardian:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Guardian/get_factors). 调用 `mgmt.guardian()`.
+* **Jobs:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Jobs/get_jobs_by_id). 调用 `mgmt.jobs()`.
+* **Logs:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Logs/get_logs). 调用 `mgmt.logEvents()`. 支持分页.
+* **Log Streams:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Log_Streams/get_log_streams). 调用 `mgmt.logStreams()`.
+* **Resource Servers:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Resource_Servers/get_resource_servers). 调用 `mgmt.resourceServers()`. 支持分页.
+* **Roles:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Roles/get_roles). 调用 `mgmt.roles()`. 支持分页.
+* **Rules:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Rules/get_rules). 调用 `mgmt.rules()`. 支持分页.
+* **Stats:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Stats/get_active_users). 调用 `mgmt.stats()`.
+* **Tenants:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Tenants/get_settings). 调用 `mgmt.tenants()`.
+* **Tickets:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Tickets/post_email_verification). 调用 `mgmt.tickets()`.
+* **User Blocks:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/User_Blocks/get_user_blocks). 调用 `mgmt.userBlocks()`.
+* **Users:** 参考 [这里](https://docs.authok.cn/api/management/v2#!/Users/get_users) 和 [这里](https://docs.authok.cn/api/management/v2#!/Users_By_Email) doc. 调用 `mgmt.users()`. 支持分页.
 
 
-The Management API is divided into different entities. Each of them have the list, create, update, delete and update methods plus a few more if corresponds. The calls are authenticated using the API Token given in the `ManagementAPI` instance creation and must contain the `scope` required by each entity. See the javadoc for details on which `scope` is expected for each call.
-
-* **Blacklists:** See [Docs](https://authok.cn/docs/api/management/v2#!/Blacklists/get_tokens). Access the methods by calling `mgmt.blacklists()`.
-* **Client Grants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Client_Grants/get_client_grants). Access the methods by calling `mgmt.clientGrants()`. This endpoint supports pagination.
-* **Clients:** See [Docs](https://authok.cn/docs/api/management/v2#!/Clients/get_clients). Access the methods by calling `mgmt.clients()`. This endpoint supports pagination.
-* **Connections:** See [Docs](https://authok.cn/docs/api/management/v2#!/Connections/get_connections). Access the methods by calling `mgmt.connections()`. This endpoint supports pagination.
-* **Device Credentials:** See [Docs](https://authok.cn/docs/api/management/v2#!/Device_Credentials/get_device_credentials). Access the methods by calling `mgmt.deviceCredentials()`.
-* **Email Providers:** See [Docs](https://authok.cn/docs/api/management/v2#!/Emails/get_provider). Access the methods by calling `mgmt.emailProvider()`.
-* **Email Templates:** See [Docs](https://authok.cn/docs/api/management/v2#!/Email_Templates/get_email_templates_by_templateName). Access the methods by calling `mgmt.emailTemplates()`.
-* **Grants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Grants/get_grants). Access the methods by calling `mgmt.grants()`. This endpoint supports pagination.
-* **Guardian:** See [Docs](https://authok.cn/docs/api/management/v2#!/Guardian/get_factors). Access the methods by calling `mgmt.guardian()`.
-* **Jobs:** See [Docs](https://authok.cn/docs/api/management/v2#!/Jobs/get_jobs_by_id). Access the methods by calling `mgmt.jobs()`.
-* **Logs:** See [Docs](https://authok.cn/docs/api/management/v2#!/Logs/get_logs). Access the methods by calling `mgmt.logEvents()`. This endpoint supports pagination.
-* **Log Streams:** See [Docs](https://authok.cn/docs/api/management/v2#!/Log_Streams/get_log_streams). Access the methods by calling `mgmt.logStreams()`.
-* **Resource Servers:** See [Docs](https://authok.cn/docs/api/management/v2#!/Resource_Servers/get_resource_servers). Access the methods by calling `mgmt.resourceServers()`. This endpoint supports pagination.
-* **Roles:** See [Docs](https://authok.cn/docs/api/management/v2#!/Roles/get_roles). Access the methods by calling `mgmt.roles()`. This endpoint supports pagination.
-* **Rules:** See [Docs](https://authok.cn/docs/api/management/v2#!/Rules/get_rules). Access the methods by calling `mgmt.rules()`. This endpoint supports pagination.
-* **Stats:** See [Docs](https://authok.cn/docs/api/management/v2#!/Stats/get_active_users). Access the methods by calling `mgmt.stats()`.
-* **Tenants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Tenants/get_settings). Access the methods by calling `mgmt.tenants()`.
-* **Tickets:** See [Docs](https://authok.cn/docs/api/management/v2#!/Tickets/post_email_verification). Access the methods by calling `mgmt.tickets()`.
-* **User Blocks:** See [Docs](https://authok.cn/docs/api/management/v2#!/User_Blocks/get_user_blocks). Access the methods by calling `mgmt.userBlocks()`.
-* **Users:** See [this](https://authok.cn/docs/api/management/v2#!/Users/get_users) and [this](https://authok.cn/docs/api/management/v2#!/Users_By_Email) doc. Access the methods by calling `mgmt.users()`. This endpoint supports pagination.
-
-
-> Some of the endpoints above indicate they support paginated responses. You can request a page of items by passing in the filter instance the `page` and `per_page` parameters, and optionally `include_totals` to obtain a summary of the results. Refer to the "List Users" example below for details. 
+> 部分端点支持分页请求. 你可以在 给过滤实例传入 `page` 和 `page_size` 参数, 可选参数 `include_totals` 用于获取结果总数. 详情可参考下面 "分页查找Users" 的例子. 
 
 
 ### Users
 
 #### List by Email
 
-Creates a request to list the Users by Email. This is the preferred and fastest way to query Users by Email, and should be used instead of calling the generic list method with an email query. An API Token with scope `read:users` is needed. If you want the identities.access_token property to be included, you will also need the scope `read:user_idp_tokens`.
-You can pass an optional Filter to narrow the results in the response.
+通过邮件来分页查询用户. API令牌中需要 `read:users` scope. 如果你想获取到 identities.access_token 属性, 那么你对应需要 `read:user_idp_tokens` 的 scope.
+你可以传递跟多过滤参数进行更精确结果的筛选.
 
 `Request<List<User>> listByEmail(String email, UserFilter filter)`
 
-Example:
+例子:
 ```java
 FieldsFilter filter = new FieldsFilter();
 //...
@@ -394,14 +391,14 @@ try {
 }
 ```
 
-#### List
+#### 列表
 
-Creates a request to list the Users. An API Token with scope `read:users` is needed. If you want the identities.access_token property to be included, you will also need the scope `read:user_idp_tokens`.
-You can pass an optional Filter to narrow the results in the response.
+获取用户列表. 需要scope `read:users` . 如果需要返回 identities.access_token 属性, 则还需要 `read:user_idp_tokens` scope.
+你可以传递跟多过滤参数进行更精确结果的筛选.
 
 `Request<UsersPage> list(UserFilter filter)`
 
-Example:
+例子:
 ```java
 UserFilter filter = new UserFilter()
     .withPage(0, 20);
@@ -418,12 +415,12 @@ try {
 
 #### Get
 
-Creates a request to get a User. An API Token with scope `read:users` is needed. If you want the identities.access_token property to be included, you will also need the scope `read:user_idp_tokens`.
-You can pass an optional Filter to specify the fields you want to include or exclude from the response.
+请求单个用户. API 令牌中需要包含 `read:users` scope. 需要需要包含 identities.access_token 属性, 还需要 `read:user_idp_tokens` scope.
+你可以传递跟多过滤参数来指定 包含 与 不包含的字段.
 
 `Request<User> get(String userId, UserFilter filter)`
 
-Example:
+例子:
 ```java
 UserFilter filter = new UserFilter();
 //...
@@ -439,11 +436,11 @@ try {
 
 #### Create
 
-Creates a request to create a User. An API Token with scope `create:users` is needed.
+创建一个用户. API令牌中需要 `create:users` scope.
 
 `Request<User> create(User user)`
 
-Example:
+例子:
 ```java
 User data = new User("my-connection");
 //...
@@ -459,11 +456,11 @@ try {
 
 #### Delete
 
-Creates a request to delete a User. An API Token with scope `delete:users` is needed.
+删除一个用户. API令牌中需要 `delete:users` scope.
 
 `Request delete(String userId)`
 
-Example:
+例子:
 ```java
 Request request = mgmt.users().delete("authok|123");
 try {
@@ -477,11 +474,11 @@ try {
 
 #### Update
 
-Creates a request to update a User. An API Token with scope `update:users` is needed. If you're updating app_metadata you'll also need `update:users_app_metadata` scope.
+更新一个用户. API令牌中需要 `update:users` scope. 如果要更新 app_metadata 则还需要 `update:users_app_metadata` scope.
 
 `Request<User> update(String userId, User user)`
 
-Example:
+例子:
 ```java
 User data = new User();
 //...
@@ -497,11 +494,11 @@ try {
 
 #### Get Guardian Enrollments
 
-Creates a request to list the User's Guardian Enrollments. An API Token with scope `read:users` is needed.
+列出用户的 Guardian Enrollments. API令牌中需要 `read:users` scope.
 
 `Request<List<Enrollment>> getEnrollments(String userId)`
 
-Example:
+例子:
 ```java
 Request<List<Enrollment>> request = mgmt.users().getEnrollments("authok|123");
 try {
@@ -513,14 +510,14 @@ try {
 }
 ```
 
-#### Get Log Events
+#### 获取日志事件
 
-Creates a request to list the User's Log Events. An API Token with scope `read:logs` is needed.
-You can pass an optional Filter to narrow the results in the response.
+获取用户日志列表. API令牌中需要 `read:logs` scope.
+你可以传递跟多过滤参数进行更精确结果的筛选.
 
 `Request<LogEventsPage> getLogEvents(String userId, LogEventFilter filter)`
 
-Example:
+例子:
 ```java
 LogEventFilter filter = new LogEventFilter();
 //...
@@ -534,14 +531,13 @@ try {
 }
 ```
 
+#### 删除多因素提供者
 
-#### Delete Multifactor Provider
-
-Creates a request to delete the User's Multifactor Provider. An API Token with scope `update:users` is needed.
+删除用户的 多因素提供者. API令牌中需要 `update:users` scope.
 
 `Request deleteMultifactorProvider(String userId, String provider)`
 
-Example:
+例子:
 ```java
 Request request = mgmt.users().deleteMultifactorProvider("authok|123", "duo");
 try {
@@ -555,11 +551,11 @@ try {
 
 #### Rotate Recovery Code
 
-Creates a request to rotate the User's Recovery Code. An API Token with scope `update:users` is needed.
+轮换用户的 Recovery Code. API令牌需要 `update:users` scope.
 
 `Request<RecoveryCode> rotateRecoveryCode(String userId)`
 
-Example:
+例子:
 ```java
 Request<RecoveryCode> request = mgmt.users().rotateRecoveryCode("authok|123");
 try {
@@ -571,13 +567,13 @@ try {
 }
 ```
 
-#### Link Identities
+#### 关联身份
 
-Creates a request to link two User identities. An API Token with scope `update:users` is needed.
+关联两个用户身份. API令牌中需要 `update:users` scope.
 
 `Request<List<Identity>> linkIdentity(String primaryUserId, String secondaryUserId, String provider, String connectionId)`
 
-Example:
+例子:
 ```java
 Request<List<Identities>> request = mgmt.users().linkIdentity("authok|123", "124", "facebook", "c90");
 try {
@@ -589,13 +585,13 @@ try {
 }
 ```
 
-#### Un-Link Identities
+#### 解除身份关联
 
-Creates a request to un-link two User identities. An API Token with scope `update:users` is needed.
+解除两个用户之间的身份关联. API令牌中需要 `update:users` scope.
 
 `Request<List<Identity>> unlinkIdentity(String primaryUserId, String secondaryUserId, String provider)`
 
-Example:
+例子:
 ```java
 Request<List<Identities>> request = mgmt.users().unlinkIdentity("authok|123", "124", "facebook");
 try {
@@ -607,23 +603,23 @@ try {
 }
 ```
 
-## Asynchronous requests
+## 异步请求
 
-Requests can be executed asynchronously, using the `executeAsync()` method, which returns a `CompletableFuture<T>`. 
+可通过  `executeAsync()` 方法异步执行请求, 会返回一个 `CompletableFuture<T>`. 
 
 ## API Clients Recommendations
-The SDK implements a custom networking stack on top of the **OkHttp** library. The [official recommendation](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/#okhttpclients-should-be-shared) from Square is to re-use as much as possible these clients. However, it's not possible to pass an existing `OkHttpClient` instance to our `AuthAPI` and `ManagementAPI` clients. 
+SDK 基于 **OkHttp** 库实现. [官方推荐](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/#okhttpclients-should-be-shared) 建议尽可能重用 clients. 但是, 当前不允许传递一个已经存在的 `OkHttpClient` 实例到我们的 `AuthAPI` 和 `ManagementAPI` 客户端. 
 
-The networking client used by both the `AuthAPI` and `ManagementAPI` clients can be configured through the `HttpOptions`, which enables custom timeout configuration and proxy support:
+`AuthAPI` 和 `ManagementAPI` 的网络客户端可通过 `HttpOptions` 进行设置, 这样便于自定义超时 和 代理设置等:
 
 ```java
 HttpOptions options = new HttpOptions();
 
-// configure timeouts; default is ten seconds for both connect and read timeouts:
+// 配置超时; 默认为10秒钟, 连接超时 和 读取超时都一样:
 options.setConnectTimeout(5);
 options.setReadTimeout(15);
 
-// configure proxy:
+// 配置代理:
 Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("{IP-ADDRESS}", {PORT}));
 ProxyOptions proxyOptions = new ProxyOptions(proxy);
 options.setProxyOptions(proxyOptions);
@@ -632,23 +628,23 @@ options.setProxyOptions(proxyOptions);
 AuthAPI authAPI = new AuthAPI("{CLIENT_ID}", "{CLIENT_SECRET}", options);
 ```
 
-Whenever you instantiate a client, a new `OkHttpClient` instance is created internally to handle the network requests. This instance is not directly exposed for customization. In order to reduce resource consumption, make use of the _singleton pattern_ to keep a single instance of this SDK's API client during the lifecycle of your application.
+一旦初始化了 client, 对应会创建一个新的 `OkHttpClient` 实例用于处理请求. This instance is not directly exposed for customization. In order to reduce resource consumption, make use of the _singleton pattern_ to keep a single instance of this SDK's API client during the lifecycle of your application.
 
 For the particular case of the `ManagementAPI` client, if the token you've originally set has expired or you require to change its scopes, you can update the client's token with the `setApiToken(String)` method.    
 
-## Error Handling
+## 错误处理
 
-The API Clients throw `AuthokException` when an unexpected error happens on a request execution, i.e. Connectivity or Timeout error.
+如果请求出错，API Clients 会抛出 `AuthokException`, 例如: 网络不可连或者超时.
 
-If you need to handle different error scenarios you need to catch first `APIException`, which provides methods to get a clue of what went wrong.
+如果你要处理不同的错误场景，你需要首先捕获 `APIException`, 它包含了出错线索.
 
-The APIExplorer includes a list of response messages for each endpoint. You can get a clue of what went wrong by asking the Http status code: `exception.getStatusCode()`. i.e. a `status_code=403` would mean that the token has an insufficient scope.
+APIExplorer 为每个端点保留一个 响应消息列表. 可以读取 Http 状态码: `exception.getStatusCode()` 来获得错误线索. 例如. `status_code=403` 表示令牌没有足够的权限.
 
-An error code will be included to categorize the type of error, you can get it by calling `exception.getError()`. If you want to see a user friendly description of what happened and why the request is failing check the `exception.getDescription()`. Finally, if the error response includes additional properties they can be obtained by calling `exception.getValue("{THE_KEY}")`.
+错误码用于区分错误类型, 你可以调用 `exception.getError()` 来获得错误码. 如果你想要查看用户可读的描述 `exception.getDescription()`. Finally, if the error response includes additional properties they can be obtained by calling `exception.getValue("{THE_KEY}")`.
 
 
 ```
-Example exception data
+示范异常数据
 {
   statusCode: 400,
   description: "Query validation error: 'String 'users' does not match pattern. Must be a comma separated list of the following values: name,strategy,options,enabled_clients,id,provisioning_ticket_url' on property fields (A comma separated list of fields to include or exclude (depending on include_fields) from the result, empty to retrieve all fields).",
@@ -656,14 +652,14 @@ Example exception data
 }
 ```
 
-## ID Token Validation
+## ID Token 验证
 
-This library also provides the ability to validate an OIDC-compliant ID Token, according to the [OIDC Specification](https://openid.net/specs/openid-connect-core-1_0-final.html#IDTokenValidation).
+此SDK也提供了针对 OIDC-compliant ID Token的验证机制, 参考 [OIDC规范](https://openid.net/specs/openid-connect-core-1_0-final.html#IDTokenValidation).
 
-### Verifying an ID Token signed with the RS256 signing algorithm
+### 验证通过 RS256 签名算法 签名的 ID Token
 
-To verify an ID Token that is signed using the RS256 signing algorithm, you will need to provide an implementation of 
-`PublicKeyProvider` that will return the public key used to verify the token's signature. The example below demonstrates how to use the `JwkProvider` from the [jwks-rsa-java](https://github.com/authok/jwks-rsa-java) library:
+为了验证采用 RS256 签名算法签名的 ID Token, 你需要提供一个 
+`PublicKeyProvider` 的实现, 返回 用于令牌签名验证的公钥. 下面的例子描述了如何使用 `JwkProvider`  [jwks-rsa-java](https://github.com/authok/jwks-rsa-java):
 
 ```java
 JwkProvider provider = new JwkProviderBuilder("https://your-domain.authok.cn").build();
@@ -687,9 +683,9 @@ try {
 }
 ```
 
-### Verifying an ID Token signed with the HS256 signing algorithm
+### 验证通过 HS256 签名算法签名的 ID Token
 
-To verify an ID Token that is signed using the HS256 signing algorithm:
+验证通过 HS256 签名算法签名的 ID Token:
 
 ```java
 SignatureVerifier signatureVerifier = SignatureVerifier.forHS256("your-client-secret");
@@ -702,10 +698,10 @@ try {
 }
 ```
 
-### Additional configuration options
+### 额外的配置选项
 
-By default, time-based claims such as the token expiration (`exp` claim) will allow for a leeway of **60 seconds**.
-You can customize the leeway by using the `withLeeway` when building the `IdTokenVerifier`:
+默认情况下, 基于时间的声明如令牌超时 (`exp` 声明) 会允许一个 **60 秒** 的滑动窗口.
+你可以在构建 `IdTokenVerifier` 时通过调用 `withLeeway` 来进行自定义:
 
 ```java
 IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.authok.cn/","your-client-id", signatureVerifier)
@@ -713,53 +709,53 @@ IdTokenVerifier idTokenVerifier = IdTokenVerifier.init("https://your-domain.auth
         .build();
 ``` 
 
-When verifying the token, the following methods are available to support different scenarios:
+当进行令牌校验时, 以下方法可用于不同的场景:
 
 ```java
-// Verify the token's signature and claims, excluding the nonce and auth_time claims
+// 验证令牌的签名和声明, 不包括 nonce 和 auth_time 声明
 idTokenVerifier.verify("token");
 
-// Verify the token's signature and claims, including the nonce.
-// The expected nonce should be the nonce sent on the authorization request.
+// 验证令牌的 签名 和 声明, 包含 nonce.
+// expected nonce 需要和授权请求发出的 nonce 一致.
 idTokenVerifier.verify("token", "expected-nonce");
 
-// Verify the token's signature and claims, including the nonce and the auth_time claim.
-// The maxAuthenticationAge parameter specifies the maximum amount of time since the end-user last actively authenticated,
-// and it should match the max_age parameter sent on the authorization request.
+// 验证令牌的 签名 和 声明, 包含 nonce 和 auth_time 声明.
+// maxAuthenticationAge 参数表示 IDToken 在 用户最后一次认证后的有效时间,
+// 这个值和授权请求的 max_age 参数一致.
 idTokenVerifier.verify("token", "expected-nonce", 24 * 60 * 60); // maximum authentication age of 24 hours
 ```
 
-## Documentation
+## 文档
 
-For more information about [Authok](http://authok.cn) check our [documentation page](http://docs.authok.cn/).
+更多信息可参考 [Authok](http://authok.cn) 的 [文档](http://docs.authok.cn/).
 
-## What is Authok?
+## Authok 是什么?
 
-Authok helps you to:
+Authok 帮助您:
 
-* Add authentication with [multiple authentication sources](https://docs.authok.cn/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://docs.authok.cn/mysql-connection-tutorial)**.
-* Add support for **[linking different user accounts](https://docs.authok.cn/link-accounts)** with the same user.
-* Support for generating signed [Json Web Tokens](https://docs.authok.cn/jwt) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when and where users are logging in.
-* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.authok.cn/rules).
+* 使用多个认证身份源进行认证 [多认证身份源](https://docs.authok.cn/identityproviders), 社交身份源如 **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, 或企业身份系统例如 **Windows Azure AD, Google Apps, Active Directory, ADFS 或任何 SAML 身份提供者**.
+* 通过传统 **[username/password databases](https://docs.authok.cn/mysql-connection-tutorial)** 进行认证.
+*  **[关联不同账号](https://docs.authok.cn/link-accounts)**.
+* 支持生成签名的 [Json Web Tokens](https://docs.authok.cn/jwt) 用于调用API, 以及安全的 **传递身份**.
+* 分析用户活跃数据.
+* 通过其它身份源获取数据并加入用户档案, 通过 [JavaScript rules](https://docs.authok.cn/rules).
 
-## Create a free Authok Account
+## 创建一个免费的 Authok 账户
 
-1. Go to [Authok](https://authok.cn) and click Sign Up.
-2. Use Google, GitHub or Microsoft Account to login.
+1. 跳转到 [Authok](https://authok.cn) 并点击注册.
+2. 采用 Google, GitHub  或者 Microsoft Account, 微信, 企业微信，抖音, 微博 等 登录.
 
-## Issue Reporting
+## 问题baogao
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.cn/whitehat) details the procedure for disclosing security issues.
+如果您找到bug 或者新功能请求, 请在本仓库的issues 部分剔除. 不要在公开的 issue tracker 中暴露安全漏洞.
 
-## Author
+## 作者
 
 [Authok](https://authok.cn)
 
-## License
+## 许可
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+本项目基于 MIT 许可. 更多请参考 [LICENSE](LICENSE).
 
 
 <!-- Vars -->
