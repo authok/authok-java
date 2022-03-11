@@ -16,7 +16,7 @@ import java.util.List;
 class GrantsPageDeserializer extends PageDeserializer<GrantsPage, Grant> {
 
     GrantsPageDeserializer() {
-        super(Grant.class, "grants");
+        super(Grant.class, "items");
     }
 
     @Override

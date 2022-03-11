@@ -16,7 +16,7 @@ import java.util.List;
 class RolesPageDeserializer extends PageDeserializer<RolesPage, Role> {
 
     RolesPageDeserializer() {
-        super(Role.class, "roles");
+        super(Role.class, "items");
     }
 
     @Override

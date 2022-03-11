@@ -16,7 +16,7 @@ import java.util.List;
 class RulesPageDeserializer extends PageDeserializer<RulesPage, Rule> {
 
     RulesPageDeserializer() {
-        super(Rule.class, "rules");
+        super(Rule.class, "items");
     }
 
     @Override

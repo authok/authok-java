@@ -16,7 +16,7 @@ import java.util.List;
 class PermissionsPageDeserializer extends PageDeserializer<PermissionsPage, Permission> {
 
     PermissionsPageDeserializer() {
-        super(Permission.class, "permissions");
+        super(Permission.class, "items");
     }
 
     @Override

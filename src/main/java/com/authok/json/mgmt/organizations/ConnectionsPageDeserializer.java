@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class ConnectionsPageDeserializer  extends PageDeserializer<EnabledConnectionsPage, EnabledConnection> {
     protected ConnectionsPageDeserializer() {
-        super(EnabledConnection.class, "enabled_connections");
+        super(EnabledConnection.class, "items");
     }
 
     @Override

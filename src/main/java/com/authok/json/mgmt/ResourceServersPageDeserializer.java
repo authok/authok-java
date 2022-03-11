@@ -16,7 +16,7 @@ import java.util.List;
 class ResourceServersPageDeserializer extends PageDeserializer<ResourceServersPage, ResourceServer> {
 
     ResourceServersPageDeserializer() {
-        super(ResourceServer.class, "resource_servers");
+        super(ResourceServer.class, "items");
     }
 
     @Override

@@ -16,7 +16,7 @@ import java.util.List;
 class ConnectionsPageDeserializer extends PageDeserializer<ConnectionsPage, Connection> {
 
     ConnectionsPageDeserializer() {
-        super(Connection.class, "connections");
+        super(Connection.class, "items");
     }
 
     @Override

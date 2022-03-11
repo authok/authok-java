@@ -10,7 +10,7 @@ import java.util.List;
 public class ActionsPageDeserializer extends PageDeserializer<ActionsPage, Action> {
 
     protected ActionsPageDeserializer() {
-        super(Action.class, "actions");
+        super(Action.class, "items");
     }
 
     @Override

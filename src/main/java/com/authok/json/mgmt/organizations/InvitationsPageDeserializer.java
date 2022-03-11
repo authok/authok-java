@@ -10,7 +10,7 @@ import java.util.List;
 public class InvitationsPageDeserializer extends PageDeserializer<InvitationsPage, Invitation> {
 
     protected InvitationsPageDeserializer() {
-        super(Invitation.class, "invitations");
+        super(Invitation.class, "items");
     }
 
     @Override

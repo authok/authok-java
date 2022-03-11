@@ -10,7 +10,7 @@ import java.util.List;
 public class BindingsPageDeserializer extends PageDeserializer<BindingsPage, Binding> {
 
     protected BindingsPageDeserializer() {
-        super(Binding.class, "bindings");
+        super(Binding.class, "items");
     }
 
     @Override

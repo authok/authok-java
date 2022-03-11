@@ -17,7 +17,7 @@ import java.util.List;
 class LogEventsPageDeserializer extends PageDeserializer<LogEventsPage, LogEvent> {
 
     protected LogEventsPageDeserializer() {
-        super(LogEvent.class, "logs");
+        super(LogEvent.class, "items");
     }
 
     @Override

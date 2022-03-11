@@ -10,7 +10,7 @@ import java.util.List;
 public class VersionsPageDeserializer extends PageDeserializer<VersionsPage, Version> {
 
     protected VersionsPageDeserializer() {
-        super(Version.class, "versions");
+        super(Version.class, "items");
     }
 
     @Override

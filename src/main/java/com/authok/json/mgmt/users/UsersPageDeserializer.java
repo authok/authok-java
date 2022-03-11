@@ -17,7 +17,7 @@ import java.util.List;
 class UsersPageDeserializer extends PageDeserializer<UsersPage, User> {
 
     UsersPageDeserializer() {
-        super(User.class, "users");
+        super(User.class, "items");
     }
 
     @Override
