@@ -150,7 +150,7 @@ try {
 
 ### 密码登录 - /oauth/token
 
-通过 `username` 和 `password` 登录. 会通过租户的 "默认数据源" 进行登录.
+通过 `username` 和 `password` 登录. 会通过租户的 "默认身份源" 进行登录.
 
 `AuthRequest login(String emailOrUsername, String password)`
 
