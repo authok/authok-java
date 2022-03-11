@@ -373,7 +373,7 @@
 [Full Changelog](https://github.com/authok/authok-java/compare/1.2.0...1.3.0)
 
 **Added**
-- implemented /api/v2/grants endpoint of authok management api [\#74](https://github.com/authok/authok-java/pull/74) ([neshanjo](https://github.com/neshanjo))
+- implemented /api/v1/grants endpoint of authok management api [\#74](https://github.com/authok/authok-java/pull/74) ([neshanjo](https://github.com/neshanjo))
 
 **Changed**
 - removed unmotivated throwing of UnsupportedEncodingException [\#75](https://github.com/authok/authok-java/pull/75) ([neshanjo](https://github.com/neshanjo))

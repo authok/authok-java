@@ -26,7 +26,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         GrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
@@ -52,7 +52,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         GrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
@@ -73,7 +73,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         GrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
@@ -99,7 +99,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         GrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
@@ -121,7 +121,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         List<Grant> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/grants"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
@@ -175,7 +175,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/grants/1"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/grants/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }
@@ -196,7 +196,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/grants"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/grants"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));

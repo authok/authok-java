@@ -41,7 +41,7 @@ public class ClientsEntity extends BaseManagementEntity {
     public Request<List<Client>> list() {
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients")
+                .addPathSegments("api/v1/clients")
                 .build()
                 .toString();
         CustomRequest<List<Client>> request = new CustomRequest<>(client, url, "GET", new TypeReference<List<Client>>() {
@@ -60,7 +60,7 @@ public class ClientsEntity extends BaseManagementEntity {
     public Request<ClientsPage> list(ClientFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients");
+                .addPathSegments("api/v1/clients");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -85,7 +85,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients")
+                .addPathSegments("api/v1/clients")
                 .addPathSegment(clientId)
                 .build()
                 .toString();
@@ -107,7 +107,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients")
+                .addPathSegments("api/v1/clients")
                 .build()
                 .toString();
         CustomRequest<Client> request = new CustomRequest<>(this.client, url, "POST", new TypeReference<Client>() {
@@ -129,7 +129,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients")
+                .addPathSegments("api/v1/clients")
                 .addPathSegment(clientId)
                 .build()
                 .toString();
@@ -152,7 +152,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients")
+                .addPathSegments("api/v1/clients")
                 .addPathSegment(clientId)
                 .build()
                 .toString();
@@ -176,7 +176,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/clients")
+                .addPathSegments("api/v1/clients")
                 .addPathSegment(clientId)
                 .addPathSegment("rotate-secret")
                 .build()

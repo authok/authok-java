@@ -25,7 +25,7 @@ public class EmailProviderEntityTest extends BaseMgmtEntityTest {
         EmailProvider response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/emails/provider"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/emails/provider"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -42,7 +42,7 @@ public class EmailProviderEntityTest extends BaseMgmtEntityTest {
         EmailProvider response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/emails/provider"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/emails/provider"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("fields", "some,random,fields"));
@@ -67,7 +67,7 @@ public class EmailProviderEntityTest extends BaseMgmtEntityTest {
         EmailProvider response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/emails/provider"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/emails/provider"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -87,7 +87,7 @@ public class EmailProviderEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/emails/provider"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/emails/provider"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }
@@ -108,7 +108,7 @@ public class EmailProviderEntityTest extends BaseMgmtEntityTest {
         EmailProvider response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v2/emails/provider"));
+        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v1/emails/provider"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

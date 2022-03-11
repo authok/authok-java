@@ -46,7 +46,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         OrganizationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -64,7 +64,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         OrganizationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "2"));
@@ -84,7 +84,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         OrganizationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("take", "10"));
@@ -104,7 +104,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         OrganizationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -129,7 +129,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Organization response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -152,7 +152,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Organization response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/name/org-1"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/name/org-1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -190,7 +190,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Organization response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/organizations"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/organizations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -242,7 +242,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Organization response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v2/organizations/org_abc"));
+        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v1/organizations/org_abc"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -272,7 +272,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/organizations/org_abc"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/organizations/org_abc"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }
@@ -295,7 +295,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         MembersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -313,7 +313,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         MembersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "0"));
@@ -333,7 +333,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         MembersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -352,7 +352,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         MembersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("take", "3"));
@@ -387,7 +387,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/organizations/org_abc/members"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/organizations/org_abc/members"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -421,7 +421,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/organizations/org_abc/members"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/organizations/org_abc/members"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -448,7 +448,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         EnabledConnectionsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/enabled_connections"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/enabled_connections"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -466,7 +466,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         EnabledConnectionsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/enabled_connections"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/enabled_connections"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "2"));
@@ -486,7 +486,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         EnabledConnectionsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/enabled_connections"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/enabled_connections"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -518,7 +518,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         EnabledConnection response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/enabled_connections/con_abc"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/enabled_connections/con_abc"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -552,7 +552,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/organizations/org_abc/enabled_connections"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/organizations/org_abc/enabled_connections"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -585,7 +585,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/organizations/org_abc/enabled_connections/con_123"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/organizations/org_abc/enabled_connections/con_123"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }
@@ -623,7 +623,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v2/organizations/org_abc/enabled_connections/con_123"));
+        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v1/organizations/org_abc/enabled_connections/con_123"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -657,7 +657,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         RolesPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members/user_123/roles"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members/user_123/roles"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -674,7 +674,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         RolesPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members/user_123/roles"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members/user_123/roles"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "0"));
@@ -693,7 +693,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         RolesPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_abc/members/user_123/roles"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_abc/members/user_123/roles"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -733,7 +733,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/organizations/org_abc/members/user_123/roles"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/organizations/org_abc/members/user_123/roles"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -773,7 +773,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/organizations/org_abc/members/user_123/roles"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/organizations/org_abc/members/user_123/roles"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -807,7 +807,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Invitation response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/invitations/invitation_id"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/invitations/invitation_id"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -824,7 +824,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Invitation response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/invitations/invitation_id"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/invitations/invitation_id"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("fields", "id,invitation_url,invitee"));
@@ -849,7 +849,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         InvitationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/invitations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/invitations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -869,7 +869,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         InvitationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/invitations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/invitations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("fields", "invitee,inviter,created_at"));
@@ -890,7 +890,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         InvitationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/invitations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/invitations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("per_page", "20"));
@@ -910,7 +910,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         InvitationsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/organizations/org_123/invitations"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/organizations/org_123/invitations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -947,7 +947,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         Invitation response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/organizations/org_123/invitations"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/organizations/org_123/invitations"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -985,7 +985,7 @@ public class OrganizationEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/organizations/org_abc/invitations/inv_123"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/organizations/org_abc/invitations/inv_123"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }

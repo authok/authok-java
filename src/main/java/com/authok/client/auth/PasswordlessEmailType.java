@@ -1,7 +1,7 @@
 package com.authok.client.auth;
 
 /**
- * Represents the type of the Passwordless email request.
+ * email免密登录请求.
  */
 public enum PasswordlessEmailType {
 

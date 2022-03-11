@@ -35,7 +35,7 @@ public class TicketsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/tickets/email-verification")
+                .addPathSegments("api/v1/tickets/email-verification")
                 .build()
                 .toString();
 
@@ -58,7 +58,7 @@ public class TicketsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/tickets/password-change")
+                .addPathSegments("api/v1/tickets/password-change")
                 .build()
                 .toString();
 

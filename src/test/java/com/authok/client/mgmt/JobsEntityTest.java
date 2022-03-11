@@ -50,7 +50,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/jobs/1"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/jobs/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -73,7 +73,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         List<JobErrorDetails> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/jobs/1/errors"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/jobs/1/errors"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -91,7 +91,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         List<JobErrorDetails> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/jobs/1/errors"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/jobs/1/errors"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -120,7 +120,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/users-exports"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/users-exports"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -142,7 +142,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/users-exports"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/users-exports"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -165,7 +165,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/users-exports"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/users-exports"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -191,7 +191,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/users-exports"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/users-exports"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -218,7 +218,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/verification-email"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/verification-email"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -238,7 +238,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/verification-email"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/verification-email"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -260,7 +260,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/verification-email"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/verification-email"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -286,7 +286,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/verification-email"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/verification-email"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -355,7 +355,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/users-imports"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/users-imports"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         String ctHeader = recordedRequest.getHeader("Content-Type");
         assertThat(ctHeader, startsWith("multipart/form-data"));
@@ -396,7 +396,7 @@ public class JobsEntityTest extends BaseMgmtEntityTest {
         Job response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/jobs/users-imports"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/jobs/users-imports"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         String ctHeader = recordedRequest.getHeader("Content-Type");
         assertThat(ctHeader, startsWith("multipart/form-data"));

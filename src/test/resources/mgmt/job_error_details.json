@@ -15,7 +15,7 @@
           "provider": "facebook",
           "user_id": "5457edea1b8f2289",
           "connection": "facebook",
-          "isSocial": true
+          "is_social": true
         },
         {
           "profileData": {
@@ -32,7 +32,7 @@
           "provider": "twitter",
           "user_id": "5457ed",
           "connection": "twitter",
-          "isSocial": true
+          "is_social": true
         }
       ],
       "app_metadata": {},

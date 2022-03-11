@@ -35,7 +35,7 @@ public class StatsEntity extends BaseManagementEntity {
     public Request<Integer> getActiveUsersCount() {
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/stats/active-users")
+                .addPathSegments("api/v1/stats/active-users")
                 .build()
                 .toString();
 
@@ -61,7 +61,7 @@ public class StatsEntity extends BaseManagementEntity {
         String dateTo = formatDate(to);
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/stats/daily")
+                .addPathSegments("api/v1/stats/daily")
                 .addQueryParameter("from", dateFrom)
                 .addQueryParameter("to", dateTo)
                 .build()

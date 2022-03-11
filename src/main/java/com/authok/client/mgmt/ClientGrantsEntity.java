@@ -38,7 +38,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
     public Request<ClientGrantsPage> list(ClientGrantsFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/client-grants");
+                .addPathSegments("api/v1/client-grants");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -64,7 +64,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
     public Request<List<ClientGrant>> list() {
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/client-grants")
+                .addPathSegments("api/v1/client-grants")
                 .build()
                 .toString();
         CustomRequest<List<ClientGrant>> request = new CustomRequest<>(client, url, "GET", new TypeReference<List<ClientGrant>>() {
@@ -89,7 +89,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/client-grants")
+                .addPathSegments("api/v1/client-grants")
                 .build()
                 .toString();
         CustomRequest<ClientGrant> request = new CustomRequest<>(client, url, "POST", new TypeReference<ClientGrant>() {
@@ -114,7 +114,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/client-grants")
+                .addPathSegments("api/v1/client-grants")
                 .addPathSegment(clientGrantId)
                 .build()
                 .toString();
@@ -137,7 +137,7 @@ public class ClientGrantsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/client-grants")
+                .addPathSegments("api/v1/client-grants")
                 .addPathSegment(clientGrantId)
                 .build()
                 .toString();

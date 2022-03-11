@@ -36,7 +36,7 @@ public class RulesConfigsEntity extends BaseManagementEntity {
     public Request<List<RulesConfig>> list() {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules-configs");
+                .addPathSegments("api/v1/rules-configs");
         String url = builder.build().toString();
         CustomRequest<List<RulesConfig>> request = new CustomRequest<>(client, url, "GET", new TypeReference<List<RulesConfig>>() {
         });
@@ -56,7 +56,7 @@ public class RulesConfigsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules-configs")
+                .addPathSegments("api/v1/rules-configs")
                 .addPathSegment(rulesConfigKey)
                 .build()
                 .toString();
@@ -79,7 +79,7 @@ public class RulesConfigsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules-configs")
+                .addPathSegments("api/v1/rules-configs")
                 .addPathSegment(rulesConfigKey)
                 .build()
                 .toString();

@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class LogStreamsEntity extends BaseManagementEntity {
 
-    private final static String LOG_STREAMS_PATH = "api/v2/log-streams";
+    private final static String LOG_STREAMS_PATH = "api/v1/log-streams";
     private final static String AUTHORIZATION_HEADER = "Authorization";
 
     LogStreamsEntity(OkHttpClient client, HttpUrl baseUrl, String apiToken) {

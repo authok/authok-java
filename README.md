@@ -57,7 +57,7 @@ String url = auth.authorizeUrl("https://me.authok.cn/callback")
     .build();
 ```
 
-### Logout - /v2/logout
+### Logout - /logout
 Creates a `LogoutUrlBuilder` to log out the user. The `returnToUrl` must be white-listed in the "Allowed Logout URLs" section of the Dashboard, depending on the value of `setClientId` this configuration should be set in the Application or in the Tenant Settings. Parameters can be added to the final URL by using the builder methods. When ready, call `build()` and obtain the URL.
 
 `LogoutUrlBuilder logoutUrl(String returnToUrl, boolean setClientId)`
@@ -332,7 +332,7 @@ You can use the Authentication API to obtain a token for a previously authorized
 
 ```java
 AuthAPI authAPI = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SECRET}");
-AuthRequest authRequest = authAPI.requestToken("https://{YOUR_DOMAIN}/api/v2/");
+AuthRequest authRequest = authAPI.requestToken("https://{YOUR_DOMAIN}/api/v1/");
 TokenHolder holder = authRequest.execute();
 ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", holder.getAccessToken());
 ```

@@ -17,7 +17,7 @@ public class Identity implements Serializable {
     private String userId;
     @JsonProperty("provider")
     private String provider;
-    @JsonProperty("isSocial")
+    @JsonProperty("is_social")
     private Boolean isSocial;
     @JsonProperty("access_token")
     private String accessToken;
@@ -54,7 +54,7 @@ public class Identity implements Serializable {
         return provider;
     }
 
-    @JsonProperty("isSocial")
+    @JsonProperty("is_social")
     public Boolean isSocial() {
         return isSocial;
     }

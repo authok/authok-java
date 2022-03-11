@@ -37,7 +37,7 @@ public class TicketsEntityTest extends BaseMgmtEntityTest {
         EmailVerificationTicket response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/tickets/email-verification"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/tickets/email-verification"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -66,7 +66,7 @@ public class TicketsEntityTest extends BaseMgmtEntityTest {
         PasswordChangeTicket response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/tickets/password-change"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/tickets/password-change"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

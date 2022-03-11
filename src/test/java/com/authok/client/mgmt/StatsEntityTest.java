@@ -26,7 +26,7 @@ public class StatsEntityTest extends BaseMgmtEntityTest {
         Integer response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/stats/active-users"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/stats/active-users"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -64,7 +64,7 @@ public class StatsEntityTest extends BaseMgmtEntityTest {
         List<DailyStats> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/stats/daily"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/stats/daily"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("from", "20161011"));

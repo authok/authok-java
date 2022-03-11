@@ -416,7 +416,7 @@ public class AuthAPITest {
         AuthAPI api = new AuthAPI("domain.authok.cn", CLIENT_ID, CLIENT_SECRET);
         String url = api.logoutUrl("https://my.domain.com/welcome", false).build();
 
-        assertThat(url, isUrl("https", "domain.authok.cn", "/v2/logout"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/logout"));
         assertThat(url, hasQueryParameter("client_id", null));
         assertThat(url, hasQueryParameter("returnTo", "https://my.domain.com/welcome"));
     }
@@ -426,7 +426,7 @@ public class AuthAPITest {
         AuthAPI api = new AuthAPI("domain.authok.cn", CLIENT_ID, CLIENT_SECRET);
         String url = api.logoutUrl("https://my.domain.com/welcome", true).build();
 
-        assertThat(url, isUrl("https", "domain.authok.cn", "/v2/logout"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/logout"));
         assertThat(url, hasQueryParameter("client_id", CLIENT_ID));
         assertThat(url, hasQueryParameter("returnTo", "https://my.domain.com/welcome"));
     }
@@ -472,7 +472,7 @@ public class AuthAPITest {
         assertThat(identities.get(0), hasEntry("user_id", "58454..."));
         assertThat(identities.get(0), hasEntry("provider", "authok"));
         assertThat(identities.get(0), hasEntry("connection", "Username-Password-Authentication"));
-        assertThat(identities.get(0), hasEntry("isSocial", false));
+        assertThat(identities.get(0), hasEntry("is_social", false));
     }
 
 

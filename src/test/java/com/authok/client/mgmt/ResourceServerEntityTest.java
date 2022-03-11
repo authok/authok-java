@@ -30,7 +30,7 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         ResourceServersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/resource-servers"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/resource-servers"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -48,7 +48,7 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         ResourceServersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/resource-servers"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/resource-servers"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "23"));
@@ -68,7 +68,7 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         ResourceServersPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/resource-servers"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/resource-servers"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -92,7 +92,7 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         List<ResourceServer> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/resource-servers"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/resource-servers"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -102,7 +102,7 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
 
     @Test
     public void shouldUpdateResourceServer() throws Exception {
-        ResourceServer resourceServer = new ResourceServer("https://api.my-company.com/api/v2/");
+        ResourceServer resourceServer = new ResourceServer("https://api.my-company.com/api/v1");
         resourceServer.setId("23445566abab");
         resourceServer.setName("Some API");
         resourceServer.setScopes(Collections.singletonList(new Scope("update:something")));
@@ -122,15 +122,15 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         ResourceServer response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v2/resource-servers/23445566abab"));
+        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v1/resource-servers/23445566abab"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
         assertThat(body.size(), is(12));
-        assertThat(body, hasEntry("identifier", "https://api.my-company.com/api/v2/"));
+        assertThat(body, hasEntry("identifier", "https://api.my-company.com/api/v1"));
 
-        assertThat(response.getIdentifier(), is("https://api.my-company.com/api/v2/"));
+        assertThat(response.getIdentifier(), is("https://api.my-company.com/api/v1"));
     }
 
     @Test
@@ -143,32 +143,32 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         ResourceServer response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/resource-servers/23445566abab"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/resource-servers/23445566abab"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
-        assertThat(response.getIdentifier(), is("https://api.my-company.com/api/v2/"));
+        assertThat(response.getIdentifier(), is("https://api.my-company.com/api/v1"));
     }
 
     @Test
     public void shouldCreateResourceServer() throws Exception {
         Request<ResourceServer> request = api.resourceServers()
-                .create(new ResourceServer("https://api.my-company.com/api/v2/"));
+                .create(new ResourceServer("https://api.my-company.com/api/v1"));
         assertThat(request, is(notNullValue()));
 
         server.jsonResponse(MGMT_RESOURCE_SERVER, 200);
         ResourceServer response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/resource-servers"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/resource-servers"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
         Map<String, Object> body = bodyFromRequest(recordedRequest);
         assertThat(body.size(), is(1));
-        assertThat(body, hasEntry("identifier", "https://api.my-company.com/api/v2/"));
+        assertThat(body, hasEntry("identifier", "https://api.my-company.com/api/v1"));
 
-        assertThat(response.getIdentifier(), is("https://api.my-company.com/api/v2/"));
+        assertThat(response.getIdentifier(), is("https://api.my-company.com/api/v1"));
     }
 
     @Test
@@ -181,7 +181,7 @@ public class ResourceServerEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/resource-servers/23445566abab"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/resource-servers/23445566abab"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }

@@ -32,7 +32,7 @@ public class BlacklistsEntityTest extends BaseMgmtEntityTest {
         List<Token> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/blacklists/tokens"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/blacklists/tokens"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("aud", "myapi"));
@@ -69,7 +69,7 @@ public class BlacklistsEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/blacklists/tokens"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/blacklists/tokens"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

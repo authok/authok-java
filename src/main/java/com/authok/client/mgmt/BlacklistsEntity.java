@@ -37,7 +37,7 @@ public class BlacklistsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/blacklists/tokens")
+                .addPathSegments("api/v1/blacklists/tokens")
                 .addQueryParameter("aud", audience)
                 .build()
                 .toString();
@@ -59,7 +59,7 @@ public class BlacklistsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/blacklists/tokens")
+                .addPathSegments("api/v1/blacklists/tokens")
                 .build()
                 .toString();
         VoidRequest request = new VoidRequest(client, url, "POST");

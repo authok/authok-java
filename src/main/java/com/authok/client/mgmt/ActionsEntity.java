@@ -33,7 +33,7 @@ import okhttp3.RequestBody;
  */
 public class ActionsEntity extends BaseManagementEntity {
 
-    private final static String ACTIONS_BASE_PATH = "api/v2/actions";
+    private final static String ACTIONS_BASE_PATH = "api/v1/actions";
     private final static String ACTIONS_PATH = "actions";
     private final static String TRIGGERS_PATH = "triggers";
     private final static String DEPLOY_PATH = "deploy";

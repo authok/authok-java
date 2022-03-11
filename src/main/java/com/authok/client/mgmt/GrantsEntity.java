@@ -41,7 +41,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/grants")
+                .addPathSegments("api/v1/grants")
                 .addQueryParameter("user_id", userId);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
@@ -71,7 +71,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/grants")
+                .addPathSegments("api/v1/grants")
                 .addQueryParameter("user_id", userId)
                 .build()
                 .toString();
@@ -93,7 +93,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
         final String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/grants")
+                .addPathSegments("api/v1/grants")
                 .addPathSegment(grantId)
                 .build()
                 .toString();
@@ -114,7 +114,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
         final String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/grants")
+                .addPathSegments("api/v1/grants")
                 .addQueryParameter("user_id", userId)
                 .build()
                 .toString();

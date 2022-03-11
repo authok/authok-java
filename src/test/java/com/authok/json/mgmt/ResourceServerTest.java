@@ -20,7 +20,7 @@ public class ResourceServerTest extends JsonTest<ResourceServer> {
 
         assertThat(deserialized.getId(), is("23445566abab"));
         assertThat(deserialized.getName(), is("Some API"));
-        assertThat(deserialized.getIdentifier(), is("https://api.my-company.com/api/v2/"));
+        assertThat(deserialized.getIdentifier(), is("https://api.my-company.com/api/v1/"));
         assertThat(deserialized.getScopes(), hasSize(2));
         assertThat(deserialized.getSigningAlgorithm(), is("RS256"));
         assertThat(deserialized.getSigningSecret(), is("secret"));
@@ -34,7 +34,7 @@ public class ResourceServerTest extends JsonTest<ResourceServer> {
 
     @Test
     public void serialize() throws Exception {
-        ResourceServer entity = new ResourceServer("https://api.my-company.com/api/v2/");
+        ResourceServer entity = new ResourceServer("https://api.my-company.com/api/v1/");
         Scope scope1 = new Scope("read:client_grants");
         scope1.setDescription("Read Client Grants");
         Scope scope2 = new Scope("create:client_grants");
@@ -59,7 +59,7 @@ public class ResourceServerTest extends JsonTest<ResourceServer> {
 
         assertThat(json, hasEntry("id", "23445566abab"));
         assertThat(json, hasEntry("name", "Some API"));
-        assertThat(json, hasEntry("identifier", "https://api.my-company.com/api/v2/"));
+        assertThat(json, hasEntry("identifier", "https://api.my-company.com/api/v1/"));
         assertThat(json, hasEntry("signing_alg", "RS256"));
         assertThat(json, hasEntry("signing_secret", "secret"));
         assertThat(json, hasEntry("enforce_policies", true));

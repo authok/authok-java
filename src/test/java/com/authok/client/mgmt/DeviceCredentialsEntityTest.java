@@ -25,7 +25,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         List<DeviceCredentials> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/device-credentials"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/device-credentials"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -43,7 +43,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         List<DeviceCredentials> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/device-credentials"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/device-credentials"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("client_id", "client_23"));
@@ -62,7 +62,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         List<DeviceCredentials> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/device-credentials"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/device-credentials"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "user_23"));
@@ -82,7 +82,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         List<DeviceCredentials> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/device-credentials"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/device-credentials"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("type", "public_key"));
@@ -102,7 +102,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         List<DeviceCredentials> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/device-credentials"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/device-credentials"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("fields", "some,random,fields"));
@@ -140,7 +140,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         DeviceCredentials response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/device-credentials"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/device-credentials"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -171,7 +171,7 @@ public class DeviceCredentialsEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/device-credentials/1"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/device-credentials/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }

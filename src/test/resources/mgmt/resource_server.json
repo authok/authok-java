@@ -1,7 +1,7 @@
 {
   "id": "23445566abab",
   "name": "Some API",
-  "identifier": "https://api.my-company.com/api/v2/",
+  "identifier": "https://api.my-company.com/api/v1/",
   "signing_alg": "RS256",
   "token_dialect": "access_token",
   "token_lifetime": 86400,

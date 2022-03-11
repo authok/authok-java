@@ -1,6 +1,10 @@
 package com.authok.client.mgmt;
 
 import com.authok.client.MockServer;
+import com.authok.client.auth.AuthAPI;
+import com.authok.json.auth.TokenHolder;
+import com.authok.net.TokenRequest;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;

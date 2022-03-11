@@ -27,7 +27,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -45,7 +45,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "23"));
@@ -65,7 +65,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -88,7 +88,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("sort", "date:1"));
@@ -107,7 +107,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("q", "email:\\*@gmail.com"));
@@ -126,7 +126,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("from", "id3"));
@@ -146,7 +146,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEventsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("fields", "some,random,fields"));
@@ -184,7 +184,7 @@ public class LogEventsEntityTest extends BaseMgmtEntityTest {
         LogEvent response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/logs/1"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/logs/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

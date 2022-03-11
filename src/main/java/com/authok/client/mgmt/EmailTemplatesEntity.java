@@ -43,7 +43,7 @@ public class EmailTemplatesEntity extends BaseManagementEntity {
         Asserts.assertNotNull(templateName, "template name");
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/email-templates")
+                .addPathSegments("api/v1/email-templates")
                 .addPathSegment(templateName);
         String url = builder.build().toString();
         CustomRequest<EmailTemplate> request = new CustomRequest<>(client, url, "GET", new TypeReference<EmailTemplate>() {
@@ -64,7 +64,7 @@ public class EmailTemplatesEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/email-templates")
+                .addPathSegments("api/v1/email-templates")
                 .build()
                 .toString();
         CustomRequest<EmailTemplate> request = new CustomRequest<>(this.client, url, "POST", new TypeReference<EmailTemplate>() {
@@ -88,7 +88,7 @@ public class EmailTemplatesEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/email-templates")
+                .addPathSegments("api/v1/email-templates")
                 .addPathSegment(templateName)
                 .build()
                 .toString();

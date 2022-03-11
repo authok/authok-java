@@ -28,7 +28,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         ClientGrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/client-grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -46,7 +46,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         ClientGrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/client-grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "23"));
@@ -66,7 +66,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         ClientGrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/client-grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("include_totals", "true"));
@@ -91,7 +91,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         ClientGrantsPage response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/client-grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("audience", "https://myapi.authok.cn"));
@@ -112,7 +112,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         List<ClientGrant> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/client-grants"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -163,7 +163,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         ClientGrant response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v2/client-grants"));
+        assertThat(recordedRequest, hasMethodAndPath("POST", "/api/v1/client-grants"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -193,7 +193,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/client-grants/1"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/client-grants/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }
@@ -221,7 +221,7 @@ public class ClientGrantsEntityTest extends BaseMgmtEntityTest {
         ClientGrant response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v2/client-grants/1"));
+        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v1/client-grants/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

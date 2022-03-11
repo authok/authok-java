@@ -39,7 +39,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
     public Request<ConnectionsPage> listAll(ConnectionFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections");
+                .addPathSegments("api/v1/connections");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -66,7 +66,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
     public Request<List<Connection>> list(ConnectionFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections");
+                .addPathSegments("api/v1/connections");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 //This check below is to prevent JSON parsing errors
@@ -95,7 +95,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections")
+                .addPathSegments("api/v1/connections")
                 .addPathSegment(connectionId);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
@@ -121,7 +121,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections")
+                .addPathSegments("api/v1/connections")
                 .build()
                 .toString();
         CustomRequest<Connection> request = new CustomRequest<>(this.client, url, "POST", new TypeReference<Connection>() {
@@ -143,7 +143,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections")
+                .addPathSegments("api/v1/connections")
                 .addPathSegment(connectionId)
                 .build()
                 .toString();
@@ -166,7 +166,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections")
+                .addPathSegments("api/v1/connections")
                 .addPathSegment(connectionId)
                 .build()
                 .toString();
@@ -191,7 +191,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/connections")
+                .addPathSegments("api/v1/connections")
                 .addPathSegment(connectionId)
                 .addPathSegment("users")
                 .addQueryParameter("email", email)

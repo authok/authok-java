@@ -38,7 +38,7 @@ public class RulesEntity extends BaseManagementEntity {
     public Request<RulesPage> listAll(RulesFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules");
+                .addPathSegments("api/v1/rules");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -64,7 +64,7 @@ public class RulesEntity extends BaseManagementEntity {
     public Request<List<Rule>> list(RulesFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules");
+                .addPathSegments("api/v1/rules");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 //This check below is to prevent JSON parsing errors
@@ -93,7 +93,7 @@ public class RulesEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules")
+                .addPathSegments("api/v1/rules")
                 .addPathSegment(ruleId);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
@@ -119,7 +119,7 @@ public class RulesEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules")
+                .addPathSegments("api/v1/rules")
                 .build()
                 .toString();
         CustomRequest<Rule> request = new CustomRequest<>(this.client, url, "POST", new TypeReference<Rule>() {
@@ -141,7 +141,7 @@ public class RulesEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules")
+                .addPathSegments("api/v1/rules")
                 .addPathSegment(ruleId)
                 .build()
                 .toString();
@@ -164,7 +164,7 @@ public class RulesEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/rules")
+                .addPathSegments("api/v1/rules")
                 .addPathSegment(ruleId)
                 .build()
                 .toString();

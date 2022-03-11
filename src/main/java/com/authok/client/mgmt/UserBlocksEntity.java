@@ -35,7 +35,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/user-blocks")
+                .addPathSegments("api/v1/user-blocks")
                 .addQueryParameter("identifier", identifier)
                 .build()
                 .toString();
@@ -57,7 +57,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/user-blocks")
+                .addPathSegments("api/v1/user-blocks")
                 .addQueryParameter("identifier", identifier)
                 .build()
                 .toString();
@@ -78,7 +78,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/user-blocks")
+                .addPathSegments("api/v1/user-blocks")
                 .addPathSegment(userId)
                 .build()
                 .toString();
@@ -100,7 +100,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/user-blocks")
+                .addPathSegments("api/v1/user-blocks")
                 .addPathSegment(userId)
                 .build()
                 .toString();

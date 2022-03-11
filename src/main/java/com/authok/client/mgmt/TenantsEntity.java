@@ -12,9 +12,9 @@ import okhttp3.OkHttpClient;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Tenant Settings methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Tenants
+ * 管理API: 租户设置 https://docs.authok.cn/api/management/v2#!/Tenants
  * <p>
- * This class is not thread-safe.
+ * 不是线程安全的.
  *
  * @see ManagementAPI
  */
@@ -26,16 +26,16 @@ public class TenantsEntity extends BaseManagementEntity {
     }
 
     /**
-     * Request the Tenant Settings. A token with scope read:tenant_settings is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Tenants/get_settings
+     * 请求租户设置. 需要包含 read:tenant_settings 作用域的令牌.
+     * 参考 https://docs.authok.cn/api/management/v2#!/Tenants/get_settings
      *
-     * @param filter the filter to use. Can be null.
-     * @return a Request to execute.
+     * @param filter 过滤条件. 可为空.
+     * @return 待执行的请求.
      */
     public Request<Tenant> get(FieldsFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/tenants/settings");
+                .addPathSegments("api/v1/tenants/settings");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -49,18 +49,18 @@ public class TenantsEntity extends BaseManagementEntity {
     }
 
     /**
-     * Update the Tenant Settings. A token with scope update:tenant_settings is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Tenants/patch_settings
+     * 更新租户设置. 需要有 update:tenant_settings 作用域的令牌.
+     * 参考 https://docs.authok.cn/api/management/v2#!/Tenants/patch_settings
      *
-     * @param tenant the tenant data to set.
-     * @return a Request to execute.
+     * @param tenant 待更新的租户数据.
+     * @return 返回可执行的请求.
      */
     public Request<Tenant> update(Tenant tenant) {
         Asserts.assertNotNull(tenant, "tenant");
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/tenants/settings")
+                .addPathSegments("api/v1/tenants/settings")
                 .build()
                 .toString();
 

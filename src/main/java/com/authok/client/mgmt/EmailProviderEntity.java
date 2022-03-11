@@ -35,7 +35,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
     public Request<EmailProvider> get(FieldsFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/emails/provider");
+                .addPathSegments("api/v1/emails/provider");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -60,7 +60,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/emails/provider")
+                .addPathSegments("api/v1/emails/provider")
                 .build()
                 .toString();
         CustomRequest<EmailProvider> request = new CustomRequest<>(this.client, url, "POST", new TypeReference<EmailProvider>() {
@@ -79,7 +79,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
     public Request<Void> delete() {
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/emails/provider")
+                .addPathSegments("api/v1/emails/provider")
                 .build()
                 .toString();
         VoidRequest request = new VoidRequest(client, url, "DELETE");
@@ -99,7 +99,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/emails/provider")
+                .addPathSegments("api/v1/emails/provider")
                 .build()
                 .toString();
         CustomRequest<EmailProvider> request = new CustomRequest<>(this.client, url, "PATCH", new TypeReference<EmailProvider>() {

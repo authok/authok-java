@@ -37,7 +37,7 @@ public class DeviceCredentialsEntity extends BaseManagementEntity {
     public Request<List<DeviceCredentials>> list(DeviceCredentialsFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/device-credentials");
+                .addPathSegments("api/v1/device-credentials");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -62,7 +62,7 @@ public class DeviceCredentialsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/device-credentials")
+                .addPathSegments("api/v1/device-credentials")
                 .build()
                 .toString();
         CustomRequest<DeviceCredentials> request = new CustomRequest<>(this.client, url, "POST", new TypeReference<DeviceCredentials>() {
@@ -84,7 +84,7 @@ public class DeviceCredentialsEntity extends BaseManagementEntity {
 
         String url = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/device-credentials")
+                .addPathSegments("api/v1/device-credentials")
                 .addPathSegment(deviceCredentialsId)
                 .build()
                 .toString();

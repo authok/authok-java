@@ -26,7 +26,7 @@ public class RulesConfigsEntityTest extends BaseMgmtEntityTest {
         List<RulesConfig> response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/rules-configs"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/rules-configs"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -62,7 +62,7 @@ public class RulesConfigsEntityTest extends BaseMgmtEntityTest {
         request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v2/rules-configs/1"));
+        assertThat(recordedRequest, hasMethodAndPath("DELETE", "/api/v1/rules-configs/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
     }
@@ -90,7 +90,7 @@ public class RulesConfigsEntityTest extends BaseMgmtEntityTest {
         RulesConfig response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PUT", "/api/v2/rules-configs/1"));
+        assertThat(recordedRequest, hasMethodAndPath("PUT", "/api/v1/rules-configs/1"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

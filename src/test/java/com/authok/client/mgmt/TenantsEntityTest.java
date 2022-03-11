@@ -24,7 +24,7 @@ public class TenantsEntityTest extends BaseMgmtEntityTest {
         Tenant response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/tenants/settings"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/tenants/settings"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -41,7 +41,7 @@ public class TenantsEntityTest extends BaseMgmtEntityTest {
         Tenant response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v2/tenants/settings"));
+        assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/tenants/settings"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("fields", "some,random,fields"));
@@ -66,7 +66,7 @@ public class TenantsEntityTest extends BaseMgmtEntityTest {
         Tenant response = request.execute();
         RecordedRequest recordedRequest = server.takeRequest();
 
-        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v2/tenants/settings"));
+        assertThat(recordedRequest, hasMethodAndPath("PATCH", "/api/v1/tenants/settings"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

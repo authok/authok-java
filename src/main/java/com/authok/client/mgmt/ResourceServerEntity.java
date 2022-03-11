@@ -37,7 +37,7 @@ public class ResourceServerEntity extends BaseManagementEntity {
     public Request<ResourceServersPage> list(ResourceServersFilter filter) {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/resource-servers");
+                .addPathSegments("api/v1/resource-servers");
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -64,7 +64,7 @@ public class ResourceServerEntity extends BaseManagementEntity {
     public Request<List<ResourceServer>> list() {
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/resource-servers");
+                .addPathSegments("api/v1/resource-servers");
 
         String url = builder.build().toString();
         CustomRequest<List<ResourceServer>> request = new CustomRequest<>(client, url, "GET",
@@ -86,7 +86,7 @@ public class ResourceServerEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/resource-servers")
+                .addPathSegments("api/v1/resource-servers")
                 .addPathSegment(resourceServerIdOrIdentifier);
 
         String url = builder.build().toString();
@@ -109,7 +109,7 @@ public class ResourceServerEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/resource-servers");
+                .addPathSegments("api/v1/resource-servers");
 
         String url = builder.build().toString();
         CustomRequest<ResourceServer> request = new CustomRequest<>(client, url, "POST",
@@ -132,7 +132,7 @@ public class ResourceServerEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/resource-servers")
+                .addPathSegments("api/v1/resource-servers")
                 .addPathSegment(resourceServerId);
 
         String url = builder.build().toString();
@@ -155,7 +155,7 @@ public class ResourceServerEntity extends BaseManagementEntity {
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments("api/v2/resource-servers")
+                .addPathSegments("api/v1/resource-servers")
                 .addPathSegment(resourceServerId);
 
         String url = builder.build().toString();

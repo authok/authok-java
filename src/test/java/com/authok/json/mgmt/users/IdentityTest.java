@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.*;
 
 public class IdentityTest extends JsonTest<Identity> {
 
-    private static final String json = "{\"connection\":\"authok\",\"user_id\":\"user|123\",\"isSocial\":true,\"provider\":\"oauth\",\"access_token\":\"aTokEn\",\"profileData\":{},\"access_token_secret\":\"s3cr3t\"}";
+    private static final String json = "{\"connection\":\"authok\",\"user_id\":\"user|123\",\"is_social\":true,\"provider\":\"oauth\",\"access_token\":\"aTokEn\",\"profileData\":{},\"access_token_secret\":\"s3cr3t\"}";
 
     @Test
     public void shouldDeserialize() throws Exception {

@@ -34,7 +34,7 @@ import java.util.Map;
  */
 public class OrganizationsEntity extends BaseManagementEntity {
 
-    private final static String ORGS_PATH = "api/v2/organizations";
+    private final static String ORGS_PATH = "api/v1/organizations";
     private final static String AUTHORIZATION_HEADER = "Authorization";
 
     OrganizationsEntity(OkHttpClient client, HttpUrl baseUrl, String apiToken) {
