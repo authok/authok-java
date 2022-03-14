@@ -339,30 +339,30 @@ ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", holder.getAccessToken())
 
 可以调用 `ManagementAPI` 实例的 `setApiToken` 方法来替换过期令牌.
 
-点击 [这里](https://docs.authok.cn/api/management/v2/tokens) 获取更多关于获取令牌的信息.
+点击 [这里](https://docs.authok.cn/api/management/v1/tokens) 获取更多关于获取令牌的信息.
 
 管理 API 被划分为不同实体. 每个实体都有 list, create, update, delete 和 update 方法 和一些特定于实体的方法. 所有调用都通过传入 `ManagementAPI` 实例的令牌进行验证，并且每个方法都要携带对应的 `scope` . 参考 javadoc 来了解每个调用对应的 `scope` .
 
-* **Blacklists:**  参考 [文档](https://docs.authok.cn/api/management/v2#!/Blacklists/get_tokens). 调用 `mgmt.blacklists()`.
-* **Client Grants:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Client_Grants/get_client_grants). 调用 `mgmt.clientGrants()`. 支持分页.
-* **Clients:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Clients/get_clients). 调用 `mgmt.clients()`. 支持分页.
-* **Connections:** 参考 [文档](https://docs.authok.cn//api/management/v2#!/Connections/get_connections). 调用 `mgmt.connections()`. 支持分页.
-* **Device Credentials:** 参考 [文档](https://docs.authok.cn//api/management/v2#!/Device_Credentials/get_device_credentials). 调用 `mgmt.deviceCredentials()`.
-* **Email Providers:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Emails/get_provider). 调用 `mgmt.emailProvider()`.
-* **Email Templates:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Email_Templates/get_email_templates_by_templateName). 调用 `mgmt.emailTemplates()`.
-* **Grants:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Grants/get_grants). 调用 `mgmt.grants()`. 支持分页.
-* **Guardian:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Guardian/get_factors). 调用 `mgmt.guardian()`.
-* **Jobs:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Jobs/get_jobs_by_id). 调用 `mgmt.jobs()`.
-* **Logs:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Logs/get_logs). 调用 `mgmt.logEvents()`. 支持分页.
-* **Log Streams:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Log_Streams/get_log_streams). 调用 `mgmt.logStreams()`.
-* **Resource Servers:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Resource_Servers/get_resource_servers). 调用 `mgmt.resourceServers()`. 支持分页.
-* **Roles:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Roles/get_roles). 调用 `mgmt.roles()`. 支持分页.
-* **Rules:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Rules/get_rules). 调用 `mgmt.rules()`. 支持分页.
-* **Stats:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Stats/get_active_users). 调用 `mgmt.stats()`.
-* **Tenants:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Tenants/get_settings). 调用 `mgmt.tenants()`.
-* **Tickets:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/Tickets/post_email_verification). 调用 `mgmt.tickets()`.
-* **User Blocks:** 参考 [文档](https://docs.authok.cn/api/management/v2#!/User_Blocks/get_user_blocks). 调用 `mgmt.userBlocks()`.
-* **Users:** 参考 [这里](https://docs.authok.cn/api/management/v2#!/Users/get_users) 和 [这里](https://docs.authok.cn/api/management/v2#!/Users_By_Email) doc. 调用 `mgmt.users()`. 支持分页.
+* **Blacklists:**  参考 [文档](https://docs.authok.cn/api/management/v1#!/Blacklists/get_tokens). 调用 `mgmt.blacklists()`.
+* **Client Grants:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Client_Grants/get_client_grants). 调用 `mgmt.clientGrants()`. 支持分页.
+* **Clients:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Clients/get_clients). 调用 `mgmt.clients()`. 支持分页.
+* **Connections:** 参考 [文档](https://docs.authok.cn//api/management/v1#!/Connections/get_connections). 调用 `mgmt.connections()`. 支持分页.
+* **Device Credentials:** 参考 [文档](https://docs.authok.cn//api/management/v1#!/Device_Credentials/get_device_credentials). 调用 `mgmt.deviceCredentials()`.
+* **Email Providers:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Emails/get_provider). 调用 `mgmt.emailProvider()`.
+* **Email Templates:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Email_Templates/get_email_templates_by_templateName). 调用 `mgmt.emailTemplates()`.
+* **Grants:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Grants/get_grants). 调用 `mgmt.grants()`. 支持分页.
+* **Guardian:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Guardian/get_factors). 调用 `mgmt.guardian()`.
+* **Jobs:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Jobs/get_jobs_by_id). 调用 `mgmt.jobs()`.
+* **Logs:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Logs/get_logs). 调用 `mgmt.logEvents()`. 支持分页.
+* **Log Streams:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Log_Streams/get_log_streams). 调用 `mgmt.logStreams()`.
+* **Resource Servers:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Resource_Servers/get_resource_servers). 调用 `mgmt.resourceServers()`. 支持分页.
+* **Roles:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Roles/get_roles). 调用 `mgmt.roles()`. 支持分页.
+* **Rules:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Rules/get_rules). 调用 `mgmt.rules()`. 支持分页.
+* **Stats:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Stats/get_active_users). 调用 `mgmt.stats()`.
+* **Tenants:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Tenants/get_settings). 调用 `mgmt.tenants()`.
+* **Tickets:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/Tickets/post_email_verification). 调用 `mgmt.tickets()`.
+* **User Blocks:** 参考 [文档](https://docs.authok.cn/api/management/v1#!/User_Blocks/get_user_blocks). 调用 `mgmt.userBlocks()`.
+* **Users:** 参考 [这里](https://docs.authok.cn/api/management/v1#!/Users/get_users) 和 [这里](https://docs.authok.cn/api/management/v1#!/Users_By_Email) doc. 调用 `mgmt.users()`. 支持分页.
 
 
 > 部分端点支持分页请求. 你可以在 给过滤实例传入 `page` 和 `page_size` 参数, 可选参数 `include_totals` 用于获取结果总数. 详情可参考下面 "分页查找Users" 的例子. 

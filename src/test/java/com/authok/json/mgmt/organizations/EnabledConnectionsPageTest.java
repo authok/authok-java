@@ -30,7 +30,7 @@ public class EnabledConnectionsPageTest extends JsonTest<EnabledConnectionsPage>
         "]";
 
     private static String jsonWithTotals = "{\n" +
-        "    \"enabled_connections\": [\n" +
+        "    \"items\": [\n" +
         "        {\n" +
         "            \"connection_id\": \"con_1\",\n" +
         "            \"assign_membership_on_login\": false,\n" +

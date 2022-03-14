@@ -3,7 +3,7 @@
   "length": 14,
   "total": 14,
   "limit": 50,
-  "permissions": [
+  "items": [
     {
       "resource_server_identifier": "resourceServerIdentifier1",
       "permission_name": "permission1",

@@ -131,7 +131,7 @@ public class RulesEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("page", "23"));
-        assertThat(recordedRequest, hasQueryParameter("per_page", "5"));
+        assertThat(recordedRequest, hasQueryParameter("page_size", "5"));
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getItems(), hasSize(2));

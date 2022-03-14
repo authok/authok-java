@@ -11,7 +11,7 @@
     },
     {
       "id": "post-login",
-      "version": "v2",
+      "version": "v1",
       "status": "CURRENT",
       "runtimes": [
         "node12",
@@ -30,7 +30,7 @@
     },
     {
       "id": "credentials-exchange",
-      "version": "v2",
+      "version": "v1",
       "status": "CURRENT",
       "runtimes": [
         "node12",
@@ -49,7 +49,7 @@
     },
     {
       "id": "pre-user-registration",
-      "version": "v2",
+      "version": "v1",
       "status": "CURRENT",
       "runtimes": [
         "node12",
@@ -68,7 +68,7 @@
     },
     {
       "id": "post-user-registration",
-      "version": "v2",
+      "version": "v1",
       "status": "CURRENT",
       "runtimes": [
         "node12",
@@ -87,7 +87,7 @@
     },
     {
       "id": "post-change-password",
-      "version": "v2",
+      "version": "v1",
       "status": "CURRENT",
       "runtimes": [
         "node12",
@@ -105,7 +105,7 @@
     },
     {
       "id": "send-phone-message",
-      "version": "v2",
+      "version": "v1",
       "status": "CURRENT",
       "runtimes": [
         "node12",

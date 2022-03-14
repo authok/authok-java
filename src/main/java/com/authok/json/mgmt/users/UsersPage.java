@@ -16,7 +16,6 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(using = UsersPageDeserializer.class)
 public class UsersPage extends Page<User> {
-
     public UsersPage(List<User> items) {
         super(items);
     }

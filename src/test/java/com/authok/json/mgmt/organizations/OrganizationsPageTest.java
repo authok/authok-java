@@ -36,7 +36,7 @@ public class OrganizationsPageTest extends JsonTest<OrganizationsPage> {
         "]";
 
     private static final String jsonWithTotals = "{\n" +
-        "    \"organizations\": [\n" +
+        "    \"items\": [\n" +
         "        {\n" +
         "            \"id\": \"org_2\",\n" +
         "            \"name\": \"org-1\",\n" +
@@ -64,7 +64,7 @@ public class OrganizationsPageTest extends JsonTest<OrganizationsPage> {
         "}";
 
     private static final String jsonWithCheckpointPageResponse = "{\n" +
-        "    \"organizations\": [\n" +
+        "    \"items\": [\n" +
         "        {\n" +
         "            \"id\": \"org_2\",\n" +
         "            \"name\": \"org-1\",\n" +
@@ -90,7 +90,7 @@ public class OrganizationsPageTest extends JsonTest<OrganizationsPage> {
         "}";
 
     private static final String jsonWithNulls = "{\n" +
-        "    \"organizations\": [\n" +
+        "    \"items\": [\n" +
         "        {\n" +
         "            \"id\": \"org_2\",\n" +
         "            \"name\": \"org-1\",\n" +

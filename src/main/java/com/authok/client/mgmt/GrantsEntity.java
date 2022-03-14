@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Grants methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Grants/
+ * Class that provides an implementation of the Grants methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Grants/
  * <p>
  * This class is not thread-safe.
  *
@@ -30,7 +30,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
     /**
      * Request all Grants. A token with scope read:grants is needed
-     * See https://authok.cn/docs/api/management/v2#!/Grants/get_grants
+     * See https://authok.cn/docs/api/management/v1#!/Grants/get_grants
      *
      * @param userId The user id of the grants to retrieve
      * @param filter the filter to use. Can be null.
@@ -58,7 +58,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
     /**
      * Request all Grants. A token with scope read:grants is needed
-     * See https://authok.cn/docs/api/management/v2#!/Grants/get_grants
+     * See https://authok.cn/docs/api/management/v1#!/Grants/get_grants
      *
      * @param userId The user id of the grants to retrieve
      * @return a Request to execute.
@@ -83,7 +83,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Grant. A token with scope delete:grants is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Grants/delete_grants_by_id<br>
+     * See https://authok.cn/docs/api/management/v1#!/Grants/delete_grants_by_id<br>
      *
      * @param grantId The id of the grant to delete.
      * @return a Request to execute.
@@ -104,7 +104,7 @@ public class GrantsEntity extends BaseManagementEntity {
 
     /**
      * Deletes all Grants of a given user. A token with scope delete:grants is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Grants/delete_grants_by_id<br>
+     * See https://authok.cn/docs/api/management/v1#!/Grants/delete_grants_by_id<br>
      *
      * @param userId The id of the user whose grants are deleted.
      * @return a Request to execute.

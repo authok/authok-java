@@ -28,7 +28,7 @@ public class ActionsFilterTest {
         assertThat(params, hasEntry("actionName", "name"));
         assertThat(params, hasEntry("deployed", true));
         assertThat(params, hasEntry("installed", false));
-        assertThat(params, hasEntry("per_page", 2));
+        assertThat(params, hasEntry("page_size", 2));
         assertThat(params, hasEntry("page", 1));
         assertThat(params, hasEntry("triggerId", "trigger"));
     }

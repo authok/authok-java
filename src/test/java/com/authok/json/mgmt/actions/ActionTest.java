@@ -22,7 +22,7 @@ public class ActionTest extends JsonTest<Action> {
             "  \"supported_triggers\": [\n" +
             "    {\n" +
             "      \"id\": \"post-login\",\n" +
-            "      \"version\": \"v2\"\n" +
+            "      \"version\": \"v1\"\n" +
             "    }\n" +
             "  ],\n" +
             "  \"created_at\": \"2021-08-11T15:44:05.330221459Z\",\n" +
@@ -86,7 +86,7 @@ public class ActionTest extends JsonTest<Action> {
         assertThat(action.getSupportedTriggers(), is(notNullValue()));
         assertThat(action.getSupportedTriggers().size(), is(1));
         assertThat(action.getSupportedTriggers().get(0).getId(), is("post-login"));
-        assertThat(action.getSupportedTriggers().get(0).getVersion(), is("v2"));
+        assertThat(action.getSupportedTriggers().get(0).getVersion(), is("v1"));
         assertThat(action.getCreatedAt(), is(parseJSONDate("2021-08-11T15:44:05.330221459Z")));
         assertThat(action.getUpdatedAt(), is(parseJSONDate("2021-08-16T20:24:57.108759345Z")));
         assertThat(action.getCode(), is("some code"));

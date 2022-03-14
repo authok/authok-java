@@ -1,5 +1,5 @@
 {
-  "bindings": [
+  "items": [
     {
       "id": "f6a992d9-d5f4-4e99-a869-6f1b43ed1955",
       "trigger_id": "post-login",
@@ -9,7 +9,7 @@
         "supported_triggers": [
           {
             "id": "post-login",
-            "version": "v2"
+            "version": "v1"
           }
         ],
         "created_at": "2021-08-11T15:44:05.330221459Z",
@@ -55,5 +55,5 @@
     }
   ],
   "total": 1,
-  "per_page": 20
+  "page_size": 20
 }

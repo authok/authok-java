@@ -57,7 +57,7 @@ public class GrantsEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
         assertThat(recordedRequest, hasQueryParameter("user_id", "userId"));
         assertThat(recordedRequest, hasQueryParameter("page", "23"));
-        assertThat(recordedRequest, hasQueryParameter("per_page", "5"));
+        assertThat(recordedRequest, hasQueryParameter("page_size", "5"));
 
         assertThat(response, is(notNullValue()));
         assertThat(response.getItems(), hasSize(2));

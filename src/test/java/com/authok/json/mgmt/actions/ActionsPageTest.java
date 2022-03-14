@@ -15,14 +15,14 @@ public class ActionsPageTest extends JsonTest<ActionsPage> {
     @Test
     public void shouldDeserialize() throws Exception {
         String json = "{\n" +
-            "  \"actions\": [\n" +
+            "  \"items\": [\n" +
             "    {\n" +
             "      \"id\": \"action-id\",\n" +
             "      \"name\": \"my action\",\n" +
             "      \"supported_triggers\": [\n" +
             "        {\n" +
             "          \"id\": \"post-login\",\n" +
-            "          \"version\": \"v2\"\n" +
+            "          \"version\": \"v1\"\n" +
             "        }\n" +
             "      ],\n" +
             "      \"created_at\": \"2021-08-16T19:38:33.018980733Z\",\n" +
@@ -53,7 +53,7 @@ public class ActionsPageTest extends JsonTest<ActionsPage> {
             "      \"supported_triggers\": [\n" +
             "        {\n" +
             "          \"id\": \"post-login\",\n" +
-            "          \"version\": \"v2\"\n" +
+            "          \"version\": \"v1\"\n" +
             "        }\n" +
             "      ],\n" +
             "      \"created_at\": \"2021-08-17T19:06:56.702356177Z\",\n" +
@@ -78,7 +78,7 @@ public class ActionsPageTest extends JsonTest<ActionsPage> {
             "  ],\n" +
             "  \"total\": 4,\n" +
             "  \"page\": 1,\n" +
-            "  \"per_page\": 2\n" +
+            "  \"page_size\": 2\n" +
             "}\n";
 
         ActionsPage page = fromJSON(json, ActionsPage.class);

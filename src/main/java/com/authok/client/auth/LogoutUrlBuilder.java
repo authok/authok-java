@@ -40,7 +40,7 @@ public class LogoutUrlBuilder {
 
         parameters = new HashMap<>();
         builder = url.newBuilder()
-                .addPathSegment("v2")
+                .addPathSegment("v1")
                 .addPathSegment("logout")
                 .addEncodedQueryParameter("returnTo", returnToUrl);
         if (clientId != null) {

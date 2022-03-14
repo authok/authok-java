@@ -32,7 +32,7 @@ public class RoleFilterTest {
 
         assertThat(filter, is(instance));
         assertThat(filter.getAsMap(), is(notNullValue()));
-        assertThat(filter.getAsMap(), Matchers.hasEntry("per_page", 10));
+        assertThat(filter.getAsMap(), Matchers.hasEntry("page_size", 10));
         assertThat(filter.getAsMap(), Matchers.hasEntry("page", 5));
     }
 

@@ -356,7 +356,7 @@
 
 **Added**
 - Add user_id setter [\#93](https://github.com/authok/authok-java/pull/93) ([lbalmaceda](https://github.com/lbalmaceda))
-- Add /v2/users-by-email endpoint [\#87](https://github.com/authok/authok-java/pull/87) ([lbalmaceda](https://github.com/lbalmaceda))
+- Add /v1/users-by-email endpoint [\#87](https://github.com/authok/authok-java/pull/87) ([lbalmaceda](https://github.com/lbalmaceda))
 
 **Breaking changes**
 - Include a proper SignUp response [\#92](https://github.com/authok/authok-java/pull/92) ([lbalmaceda](https://github.com/lbalmaceda))
@@ -431,9 +431,9 @@ AuthAPI auth = new AuthAPI("{YOUR_DOMAIN}", "{YOUR_CLIENT_ID}", "{YOUR_CLIENT_SE
 
 ### Management API
 
-The implementation is based on the [Management API Docs](https://authok.cn/docs/api/management/v2).
+The implementation is based on the [Management API Docs](https://authok.cn/docs/api/management/v1).
 
-Create a new `ManagementAPI` instance by providing the domain from the [client dashboard](https://manage.authok.cn/#/clients) and the API Token. Click [here](https://authok.cn/docs/api/management/v2#!/Introduction/Getting_an_API_token) for more information on how to obtain a valid API Token.
+Create a new `ManagementAPI` instance by providing the domain from the [client dashboard](https://manage.authok.cn/#/clients) and the API Token. Click [here](https://authok.cn/docs/api/management/v1#!/Introduction/Getting_an_API_token) for more information on how to obtain a valid API Token.
 
 ```java
 ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", "{YOUR_API_TOKEN}");
@@ -441,18 +441,18 @@ ManagementAPI mgmt = new ManagementAPI("{YOUR_DOMAIN}", "{YOUR_API_TOKEN}");
 
 The Management API is divided into different entities. Each of them have the list, create, update, delete and update methods plus a few more if corresponds. The calls are authenticated using the API Token given in the `ManagementAPI` instance creation and must contain the `scope` required by each entity. See the javadoc for details on which `scope` is expected for each call.
 
-* **Client Grants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Client_Grants/get_client_grants). Access the methods by calling `mgmt.clientGrants()`. 
-* **Clients:** See [Docs](https://authok.cn/docs/api/management/v2#!/Clients/get_clients). Access the methods by calling `mgmt.clients()`. 
-* **Connections:** See [Docs](https://authok.cn/docs/api/management/v2#!/Connections/get_connections). Access the methods by calling `mgmt.connections()`. 
-* **Device Credentials:** See [Docs](https://authok.cn/docs/api/management/v2#!/Device_Credentials/get_device_credentials). Access the methods by calling `mgmt.deviceCredentials()`. 
-* **Logs:** See [Docs](https://authok.cn/docs/api/management/v2#!/Logs/get_logs). Access the methods by calling `mgmt.logEvents()`. 
-* **Rules:** See [Docs](https://authok.cn/docs/api/management/v2#!/Rules/get_rules). Access the methods by calling `mgmt.rules()`. 
-* **User Blocks:** See [Docs](https://authok.cn/docs/api/management/v2#!/User_Blocks/get_user_blocks). Access the methods by calling `mgmt.userBlocks()`. 
-* **Users:** See [Docs](https://authok.cn/docs/api/management/v2#!/Users/get_users). Access the methods by calling `mgmt.users()`. 
-* **Blacklists:** See [Docs](https://authok.cn/docs/api/management/v2#!/Blacklists/get_tokens). Access the methods by calling `mgmt.blacklists()`. 
-* **Emails:** See [Docs](https://authok.cn/docs/api/management/v2#!/Emails/get_provider). Access the methods by calling `mgmt.emailProvider()`. 
-* **Guardian:** See [Docs](https://authok.cn/docs/api/management/v2#!/Guardian/get_factors). Access the methods by calling `mgmt.guardian()`. 
-* **Stats:** See [Docs](https://authok.cn/docs/api/management/v2#!/Stats/get_active_users). Access the methods by calling `mgmt.stats()`. 
-* **Tenants:** See [Docs](https://authok.cn/docs/api/management/v2#!/Tenants/get_settings). Access the methods by calling `mgmt.tenants()`. 
-* **Tickets:** See [Docs](https://authok.cn/docs/api/management/v2#!/Tickets/post_email_verification). Access the methods by calling `mgmt.tickets()`. 
+* **Client Grants:** See [Docs](https://authok.cn/docs/api/management/v1#!/Client_Grants/get_client_grants). Access the methods by calling `mgmt.clientGrants()`. 
+* **Clients:** See [Docs](https://authok.cn/docs/api/management/v1#!/Clients/get_clients). Access the methods by calling `mgmt.clients()`. 
+* **Connections:** See [Docs](https://authok.cn/docs/api/management/v1#!/Connections/get_connections). Access the methods by calling `mgmt.connections()`. 
+* **Device Credentials:** See [Docs](https://authok.cn/docs/api/management/v1#!/Device_Credentials/get_device_credentials). Access the methods by calling `mgmt.deviceCredentials()`. 
+* **Logs:** See [Docs](https://authok.cn/docs/api/management/v1#!/Logs/get_logs). Access the methods by calling `mgmt.logEvents()`. 
+* **Rules:** See [Docs](https://authok.cn/docs/api/management/v1#!/Rules/get_rules). Access the methods by calling `mgmt.rules()`. 
+* **User Blocks:** See [Docs](https://authok.cn/docs/api/management/v1#!/User_Blocks/get_user_blocks). Access the methods by calling `mgmt.userBlocks()`. 
+* **Users:** See [Docs](https://authok.cn/docs/api/management/v1#!/Users/get_users). Access the methods by calling `mgmt.users()`. 
+* **Blacklists:** See [Docs](https://authok.cn/docs/api/management/v1#!/Blacklists/get_tokens). Access the methods by calling `mgmt.blacklists()`. 
+* **Emails:** See [Docs](https://authok.cn/docs/api/management/v1#!/Emails/get_provider). Access the methods by calling `mgmt.emailProvider()`. 
+* **Guardian:** See [Docs](https://authok.cn/docs/api/management/v1#!/Guardian/get_factors). Access the methods by calling `mgmt.guardian()`. 
+* **Stats:** See [Docs](https://authok.cn/docs/api/management/v1#!/Stats/get_active_users). Access the methods by calling `mgmt.stats()`. 
+* **Tenants:** See [Docs](https://authok.cn/docs/api/management/v1#!/Tenants/get_settings). Access the methods by calling `mgmt.tenants()`. 
+* **Tickets:** See [Docs](https://authok.cn/docs/api/management/v1#!/Tickets/post_email_verification). Access the methods by calling `mgmt.tickets()`. 
 

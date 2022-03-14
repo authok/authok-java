@@ -18,7 +18,7 @@ public class TelemetryTest {
         Telemetry telemetry = new Telemetry("authok-java", "1.0.0");
         String value = telemetry.getValue();
         assertThat(value, is(notNullValue()));
-        assertThat(value, is("eyJuYW1lIjoiYXV0aDAtamF2YSIsImVudiI6eyJqYXZhIjoiMS44In0sInZlcnNpb24iOiIxLjAuMCJ9"));
+        assertThat(value, is("eyJuYW1lIjoiYXV0aG9rLWphdmEiLCJlbnYiOnsiamF2YSI6IjEuOCJ9LCJ2ZXJzaW9uIjoiMS4wLjAifQ=="));
 
         String completeString = new String(Base64.getUrlDecoder().decode(value), StandardCharsets.UTF_8);
         TypeReference<Map<String, Object>> mapType = new TypeReference<Map<String, Object>>() {
@@ -36,7 +36,7 @@ public class TelemetryTest {
         Telemetry telemetry = new Telemetry("lock", "1.0.0", "2.1.3");
         String value = telemetry.getValue();
         assertThat(value, is(notNullValue()));
-        assertThat(value, is("eyJuYW1lIjoibG9jayIsImVudiI6eyJqYXZhIjoiMS44IiwiYXV0aDAtamF2YSI6IjIuMS4zIn0sInZlcnNpb24iOiIxLjAuMCJ9"));
+        assertThat(value, is("eyJuYW1lIjoibG9jayIsImVudiI6eyJhdXRob2stamF2YSI6IjIuMS4zIiwiamF2YSI6IjEuOCJ9LCJ2ZXJzaW9uIjoiMS4wLjAifQ=="));
 
         String completeString = new String(Base64.getUrlDecoder().decode(value), StandardCharsets.UTF_8);
         TypeReference<Map<String, Object>> mapType = new TypeReference<Map<String, Object>>() {

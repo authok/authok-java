@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Application methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Clients
+ * Class that provides an implementation of the Application methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Clients
  * <p>
  * This class is not thread-safe.
  *
@@ -31,7 +31,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Applications. A token with scope read:clients is needed. If you also need the client_secret and encryption_key attributes the token must have read:client_keys scope.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/get_clients
+     * See https://authok.cn/docs/api/management/v1#!/Clients/get_clients
      *
      * @return a Request to execute.
      * @deprecated Calling this method will soon stop returning the complete list of clients and instead, limit to the first page of results.
@@ -52,7 +52,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Applications. A token with scope read:clients is needed. If you also need the client_secret and encryption_key attributes the token must have read:client_keys scope.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/get_clients
+     * See https://authok.cn/docs/api/management/v1#!/Clients/get_clients
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -75,7 +75,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * Request an Application. A token with scope read:clients is needed. If you also need the client_secret and encryption_key attributes the token must have read:client_keys scope.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/get_clients_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Clients/get_clients_by_id
      *
      * @param clientId the application's client id.
      * @return a Request to execute.
@@ -97,7 +97,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * Create a new Application. A token with scope create:clients is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/post_clients
+     * See https://authok.cn/docs/api/management/v1#!/Clients/post_clients
      *
      * @param client the application data to set.
      * @return a Request to execute.
@@ -119,7 +119,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Application. A token with scope delete:clients is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/delete_clients_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Clients/delete_clients_by_id
      *
      * @param clientId the application's client id.
      * @return a Request to execute.
@@ -140,7 +140,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * 更新一个已经存在的 应用. 需要一个带 update:clients scope的令牌. If you also need to update the client_secret and encryption_key attributes the token must have update:client_keys scope.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/patch_clients_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Clients/patch_clients_by_id
      *
      * @param clientId the application's client id.
      * @param client   the application data to set.
@@ -165,7 +165,7 @@ public class ClientsEntity extends BaseManagementEntity {
 
     /**
      * Rotates an Application's client secret. A token with scope update:client_keys is needed. Note that the generated secret is NOT base64 encoded.
-     * See https://authok.cn/docs/api/management/v2#!/Clients/post_rotate_secret
+     * See https://authok.cn/docs/api/management/v1#!/Clients/post_rotate_secret
      *
      * @param clientId the application's client id.
      * @return a Request to execute.

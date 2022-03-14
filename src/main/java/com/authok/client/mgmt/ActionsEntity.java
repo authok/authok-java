@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 
 /**
- * Class that provides an implementation of the Actions methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Actions
+ * Class that provides an implementation of the Actions methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Actions
  *
  * <p>
  * This class is not thread-safe.
@@ -53,7 +53,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param action the action to create
      * @return a request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/post_action">https://authok.cn/docs/api/management/v2#!/Actions/post_action</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/post_action">https://authok.cn/docs/api/management/v1#!/Actions/post_action</a>
      */
     public Request<Action> create(Action action) {
         Asserts.assertNotNull(action, "action");
@@ -79,7 +79,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param actionId the ID of the action to retrieve
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_action">https://authok.cn/docs/api/management/v2#!/Actions/get_action</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_action">https://authok.cn/docs/api/management/v1#!/Actions/get_action</a>
      */
     public Request<Action> get(String actionId) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -106,7 +106,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param actionId the ID of the action to delete.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/delete_action">https://authok.cn/docs/api/management/v2#!/Actions/delete_action</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/delete_action">https://authok.cn/docs/api/management/v1#!/Actions/delete_action</a>
      */
     public Request delete(String actionId) {
         return delete(actionId, false);
@@ -119,7 +119,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param force whether to force the action deletion even if it is bound to triggers.
      * @return a request to execute.
      *
-     * <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_triggers">https://authok.cn/docs/api/management/v2#!/Actions/get_triggers</a>
+     * <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_triggers">https://authok.cn/docs/api/management/v1#!/Actions/get_triggers</a>
      */
     public Request delete(String actionId, boolean force) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -167,7 +167,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param action the updated action.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/patch_action">https://authok.cn/docs/api/management/v2#!/Actions/patch_action</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/patch_action">https://authok.cn/docs/api/management/v1#!/Actions/patch_action</a>
      */
     public Request<Action> update(String actionId, Action action) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -198,7 +198,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param actionId the ID of the action to deploy.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/post_deploy_action">https://authok.cn/docs/api/management/v2#!/Actions/post_deploy_action</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/post_deploy_action">https://authok.cn/docs/api/management/v1#!/Actions/post_deploy_action</a>
      */
     public Request<Version> deploy(String actionId) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -227,7 +227,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param actionVersionId the ID of the specific version to retrieve.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_action_version">https://authok.cn/docs/api/management/v2#!/Actions/get_action_version</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_action_version">https://authok.cn/docs/api/management/v1#!/Actions/get_action_version</a>
      */
     public Request<Version> getVersion(String actionId, String actionVersionId) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -259,7 +259,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param actionVersionId the ID of the action version to roll-back to
      * @return a request to be executed
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/post_deploy_draft_version">https://authok.cn/docs/api/management/v2#!/Actions/post_deploy_draft_version</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/post_deploy_draft_version">https://authok.cn/docs/api/management/v1#!/Actions/post_deploy_draft_version</a>
      */
     public Request<Version> rollBackToVersion(String actionId, String actionVersionId) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -292,7 +292,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param executionId The ID of the execution to retrieve.
      * @return a request to be executed.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_execution">https://authok.cn/docs/api/management/v2#!/Actions/get_execution</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_execution">https://authok.cn/docs/api/management/v1#!/Actions/get_execution</a>
      */
     public Request<Execution> getExecution(String executionId) {
         Asserts.assertNotNull(executionId, "execution ID");
@@ -318,7 +318,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param filter an optional filter to apply to the request.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_actions">https://authok.cn/docs/api/management/v2#!/Actions/get_actions</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_actions">https://authok.cn/docs/api/management/v1#!/Actions/get_actions</a>
      */
     public Request<ActionsPage> list(ActionsFilter filter) {
         HttpUrl.Builder builder = baseUrl
@@ -346,7 +346,7 @@ public class ActionsEntity extends BaseManagementEntity {
      *               this endpoint. See the referenced API documentation for supported parameters.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_action_versions">https://authok.cn/docs/api/management/v2#!/Actions/get_action_versions</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_action_versions">https://authok.cn/docs/api/management/v1#!/Actions/get_action_versions</a>
      */
     public Request<VersionsPage> getVersions(String actionId, PageFilter filter) {
         Asserts.assertNotNull(actionId, "action ID");
@@ -379,7 +379,7 @@ public class ActionsEntity extends BaseManagementEntity {
      *               this endpoint. See the referenced API documentation for supported parameters.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/get_bindings">https://authok.cn/docs/api/management/v2#!/Actions/get_bindings</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/get_bindings">https://authok.cn/docs/api/management/v1#!/Actions/get_bindings</a>
      */
     public Request<BindingsPage> getTriggerBindings(String triggerId, PageFilter filter) {
         Asserts.assertNotNull(triggerId, "trigger ID");
@@ -411,7 +411,7 @@ public class ActionsEntity extends BaseManagementEntity {
      * @param bindingsUpdateRequest the bindings update request body.
      * @return a request to execute.
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Actions/patch_bindings">https://authok.cn/docs/api/management/v2#!/Actions/patch_bindings</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Actions/patch_bindings">https://authok.cn/docs/api/management/v1#!/Actions/patch_bindings</a>
      */
     public Request<BindingsPage> updateTriggerBindings(String triggerId, BindingsUpdateRequest bindingsUpdateRequest) {
         Asserts.assertNotNull(triggerId, "trigger ID");

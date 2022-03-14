@@ -67,10 +67,10 @@ public class ActionsEntityTest extends BaseMgmtEntityTest {
     public void shouldCreateAction() throws Exception {
         Trigger trigger = new Trigger();
         trigger.setId("post-login");
-        trigger.setVersion("v2");
+        trigger.setVersion("v1");
 
         Dependency dependency = new Dependency();
-        dependency.setVersion("v2");
+        dependency.setVersion("v1");
         dependency.setName("some-dep");
         dependency.setRegistryUrl("some-registry-url");
 
@@ -385,7 +385,7 @@ public class ActionsEntityTest extends BaseMgmtEntityTest {
         assertThat(recordedRequest, hasQueryParameter("installed", "false"));
         assertThat(recordedRequest, hasQueryParameter("triggerId", "post-login"));
         assertThat(recordedRequest, hasQueryParameter("page", "1"));
-        assertThat(recordedRequest, hasQueryParameter("per_page", "10"));
+        assertThat(recordedRequest, hasQueryParameter("page_size", "10"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -429,7 +429,7 @@ public class ActionsEntityTest extends BaseMgmtEntityTest {
 
         assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/actions/actions/action-id/versions"));
         assertThat(recordedRequest, hasQueryParameter("page", "1"));
-        assertThat(recordedRequest, hasQueryParameter("per_page", "10"));
+        assertThat(recordedRequest, hasQueryParameter("page_size", "10"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 
@@ -473,7 +473,7 @@ public class ActionsEntityTest extends BaseMgmtEntityTest {
 
         assertThat(recordedRequest, hasMethodAndPath("GET", "/api/v1/actions/triggers/trigger-id/bindings"));
         assertThat(recordedRequest, hasQueryParameter("page", "1"));
-        assertThat(recordedRequest, hasQueryParameter("per_page", "10"));
+        assertThat(recordedRequest, hasQueryParameter("page_size", "10"));
         assertThat(recordedRequest, hasHeader("Content-Type", "application/json"));
         assertThat(recordedRequest, hasHeader("Authorization", "Bearer apiToken"));
 

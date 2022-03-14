@@ -47,7 +47,7 @@ public class InvitationsPageTest extends JsonTest<InvitationsPage> {
         "]\n";
 
     private static final String jsonWithTotals = "{\n" +
-        "  \"invitations\": [\n" +
+        "  \"items\": [\n" +
         "    {\n" +
         "      \"id\": \"uinv_Q3lgZ0a99aY7Rqs3\",\n" +
         "      \"client_id\": \"klCnbSD1U1Yd0333dvEAFMwDoOX5bfsb\",\n" +

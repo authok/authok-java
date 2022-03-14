@@ -51,14 +51,14 @@ public class LogoutUrlBuilderTest {
     public void shouldBuildValidLogoutUrlWithHttp() {
         HttpUrl httpBaseUrl = HttpUrl.parse("http://domain.authok.cn");
         String url = LogoutUrlBuilder.newInstance(httpBaseUrl, CLIENT_ID, RETURN_TO_URL, true).build();
-        assertThat(url, isUrl("http", "domain.authok.cn", "/v2/logout"));
+        assertThat(url, isUrl("http", "domain.authok.cn", "/v1/logout"));
     }
 
     @Test
     public void shouldBuildValidLogoutUrlWithHttps() {
         HttpUrl httpsBaseUrl = HttpUrl.parse("https://domain.authok.cn");
         String url = LogoutUrlBuilder.newInstance(httpsBaseUrl, CLIENT_ID, RETURN_TO_URL, true).build();
-        assertThat(url, isUrl("https", "domain.authok.cn", "/v2/logout"));
+        assertThat(url, isUrl("https", "domain.authok.cn", "/v1/logout"));
     }
 
     @Test

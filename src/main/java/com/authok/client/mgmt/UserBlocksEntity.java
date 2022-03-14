@@ -10,7 +10,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 /**
- * Class that provides an implementation of the User Blocks methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/User_Blocks
+ * Class that provides an implementation of the User Blocks methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/User_Blocks
  * <p>
  * This class is not thread-safe.
  *
@@ -25,7 +25,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
     /**
      * Request all the User Blocks for a given identifier. A token with scope read:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/User_Blocks/get_user_blocks
+     * See https://authok.cn/docs/api/management/v1#!/User_Blocks/get_user_blocks
      *
      * @param identifier the identifier. Either a username, phone_number, or email.
      * @return a Request to execute.
@@ -47,7 +47,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
     /**
      * Delete any existing User Blocks for a given identifier. A token with scope update:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/User_Blocks/delete_user_blocks
+     * See https://authok.cn/docs/api/management/v1#!/User_Blocks/delete_user_blocks
      *
      * @param identifier the identifier. Either a username, phone_number, or email.
      * @return a Request to execute.
@@ -68,7 +68,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
     /**
      * Request all the User Blocks. A token with scope read:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/User_Blocks/get_user_blocks_by_id
+     * See https://authok.cn/docs/api/management/v1#!/User_Blocks/get_user_blocks_by_id
      *
      * @param userId the user id.
      * @return a Request to execute.
@@ -90,7 +90,7 @@ public class UserBlocksEntity extends BaseManagementEntity {
 
     /**
      * Delete any existing User Blocks. A token with scope update:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/User_Blocks/delete_user_blocks_by_id
+     * See https://authok.cn/docs/api/management/v1#!/User_Blocks/delete_user_blocks_by_id
      *
      * @param userId the user id.
      * @return a Request to execute.

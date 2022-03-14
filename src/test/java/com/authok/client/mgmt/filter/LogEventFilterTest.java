@@ -61,7 +61,7 @@ public class LogEventFilterTest {
         assertThat(filter, is(instance));
         assertThat(filter.getAsMap(), is(notNullValue()));
         assertThat(filter.getAsMap(), Matchers.hasEntry("page", 15));
-        assertThat(filter.getAsMap(), Matchers.hasEntry("per_page", 50));
+        assertThat(filter.getAsMap(), Matchers.hasEntry("page_size", 50));
     }
 
     @Test

@@ -12,7 +12,7 @@ import okhttp3.OkHttpClient;
 import java.util.Map;
 
 /**
- * 管理API: 租户设置 https://docs.authok.cn/api/management/v2#!/Tenants
+ * 管理API: 租户设置 https://docs.authok.cn/api/management/v1#!/Tenants
  * <p>
  * 不是线程安全的.
  *
@@ -27,7 +27,7 @@ public class TenantsEntity extends BaseManagementEntity {
 
     /**
      * 请求租户设置. 需要包含 read:tenant_settings 作用域的令牌.
-     * 参考 https://docs.authok.cn/api/management/v2#!/Tenants/get_settings
+     * 参考 https://docs.authok.cn/api/management/v1#!/Tenants/get_settings
      *
      * @param filter 过滤条件. 可为空.
      * @return 待执行的请求.
@@ -50,7 +50,7 @@ public class TenantsEntity extends BaseManagementEntity {
 
     /**
      * 更新租户设置. 需要有 update:tenant_settings 作用域的令牌.
-     * 参考 https://docs.authok.cn/api/management/v2#!/Tenants/patch_settings
+     * 参考 https://docs.authok.cn/api/management/v1#!/Tenants/patch_settings
      *
      * @param tenant 待更新的租户数据.
      * @return 返回可执行的请求.

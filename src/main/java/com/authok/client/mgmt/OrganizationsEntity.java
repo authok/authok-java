@@ -49,7 +49,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param filter an optional pagination filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_organizations">https://authok.cn/docs/api/management/v2#!/Organizations/get_organizations</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_organizations">https://authok.cn/docs/api/management/v1#!/Organizations/get_organizations</a>
      */
     public Request<OrganizationsPage> list(PageFilter filter) {
         HttpUrl.Builder builder = baseUrl
@@ -72,7 +72,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param orgId the ID of the organization to retrieve
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_organizations_by_id">https://authok.cn/docs/api/management/v2#!/Organizations/get_organizations_by_id</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_organizations_by_id">https://authok.cn/docs/api/management/v1#!/Organizations/get_organizations_by_id</a>
      */
     public Request<Organization> get(String orgId) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -97,7 +97,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param orgName the name of the organization to retrieve
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_name_by_name">https://authok.cn/docs/api/management/v2#!/Organizations/get_name_by_name</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_name_by_name">https://authok.cn/docs/api/management/v1#!/Organizations/get_name_by_name</a>
      */
     public Request<Organization> getByName(String orgName) {
         Asserts.assertNotNull(orgName, "organization name");
@@ -123,7 +123,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param organization the organization to create
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/post_organizations">https://authok.cn/docs/api/management/v2#!/Organizations/post_organizations</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/post_organizations">https://authok.cn/docs/api/management/v1#!/Organizations/post_organizations</a>
      */
     public Request<Organization> create(Organization organization) {
         Asserts.assertNotNull(organization, "organization");
@@ -149,7 +149,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param organization the updated organization
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/patch_organizations_by_id">https://authok.cn/docs/api/management/v2#!/Organizations/patch_organizations_by_id</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/patch_organizations_by_id">https://authok.cn/docs/api/management/v1#!/Organizations/patch_organizations_by_id</a>
      */
     public Request<Organization> update(String orgId, Organization organization) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -176,7 +176,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param orgId the ID of the organization to delete
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/delete_organizations_by_id">https://authok.cn/docs/api/management/v2#!/Organizations/delete_organizations_by_id</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/delete_organizations_by_id">https://authok.cn/docs/api/management/v1#!/Organizations/delete_organizations_by_id</a>
      */
     public Request<Void> delete(String orgId) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -202,7 +202,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param filter an optional pagination filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_members">https://authok.cn/docs/api/management/v2#!/Organizations/get_members</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_members">https://authok.cn/docs/api/management/v1#!/Organizations/get_members</a>
      */
     public Request<MembersPage> getMembers(String orgId, PageFilter filter) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -229,7 +229,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param members The members to add
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/post_members">https://authok.cn/docs/api/management/v2#!/Organizations/post_members</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/post_members">https://authok.cn/docs/api/management/v1#!/Organizations/post_members</a>
      */
     public Request<Void> addMembers(String orgId, Members members) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -256,7 +256,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param members The members to remove
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/delete_members">https://authok.cn/docs/api/management/v2#!/Organizations/delete_members</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/delete_members">https://authok.cn/docs/api/management/v1#!/Organizations/delete_members</a>
      */
     public Request<Void> deleteMembers(String orgId, Members members) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -285,7 +285,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param filter an optional pagination filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_enabled_connections">https://authok.cn/docs/api/management/v2#!/Organizations/get_enabled_connections</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_enabled_connections">https://authok.cn/docs/api/management/v1#!/Organizations/get_enabled_connections</a>
      */
     public Request<EnabledConnectionsPage> getConnections(String orgId, PageFilter filter) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -312,7 +312,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param connectionId the ID of the connection
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_enabled_connections_by_connectionId">https://authok.cn/docs/api/management/v2#!/Organizations/get_enabled_connections_by_connectionId</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_enabled_connections_by_connectionId">https://authok.cn/docs/api/management/v1#!/Organizations/get_enabled_connections_by_connectionId</a>
      */
     public Request<EnabledConnection> getConnection(String orgId, String connectionId) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -340,7 +340,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param connection The connection to add
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/post_enabled_connections">https://authok.cn/docs/api/management/v2#!/Organizations/post_enabled_connections</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/post_enabled_connections">https://authok.cn/docs/api/management/v1#!/Organizations/post_enabled_connections</a>
      */
     public Request<EnabledConnection> addConnection(String  orgId, EnabledConnection connection) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -368,7 +368,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param connectionId the ID of the connection to delete
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/delete_enabled_connections_by_connectionId">https://authok.cn/docs/api/management/v2#!/Organizations/delete_enabled_connections_by_connectionId</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/delete_enabled_connections_by_connectionId">https://authok.cn/docs/api/management/v1#!/Organizations/delete_enabled_connections_by_connectionId</a>
      */
     public Request<Void> deleteConnection(String  orgId, String connectionId) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -396,7 +396,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param connection the connection to update
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/patch_enabled_connections_by_connectionId">https://authok.cn/docs/api/management/v2#!/Organizations/patch_enabled_connections_by_connectionId</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/patch_enabled_connections_by_connectionId">https://authok.cn/docs/api/management/v1#!/Organizations/patch_enabled_connections_by_connectionId</a>
      */
     public Request<EnabledConnection> updateConnection(String orgId, String connectionId, EnabledConnection connection) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -429,7 +429,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param filter an optional pagination filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_organization_member_roles">https://authok.cn/docs/api/management/v2#!/Organizations/get_organization_member_roles</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_organization_member_roles">https://authok.cn/docs/api/management/v1#!/Organizations/get_organization_member_roles</a>
      */
     public Request<RolesPage> getRoles(String orgId, String userId, PageFilter filter) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -460,7 +460,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param roles the roles to add
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/post_organization_member_roles">https://authok.cn/docs/api/management/v2#!/Organizations/post_organization_member_roles</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/post_organization_member_roles">https://authok.cn/docs/api/management/v1#!/Organizations/post_organization_member_roles</a>
      */
     public Request<Void> addRoles(String orgId, String userId, Roles roles) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -491,7 +491,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param roles the roles to delete
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/delete_organization_member_roles">https://authok.cn/docs/api/management/v2#!/Organizations/delete_organization_member_roles</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/delete_organization_member_roles">https://authok.cn/docs/api/management/v1#!/Organizations/delete_organization_member_roles</a>
      */
     public Request<Void> deleteRoles(String orgId, String userId, Roles roles) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -523,7 +523,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param invitation the invitation to create
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/post_invitations">https://authok.cn/docs/api/management/v2#!/Organizations/post_invitations</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/post_invitations">https://authok.cn/docs/api/management/v1#!/Organizations/post_invitations</a>
      */
     public Request<Invitation> createInvitation(String orgId, Invitation invitation) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -553,7 +553,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param filter an optional result filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_invitations_by_invitation_id">https://authok.cn/docs/api/management/v2#!/Organizations/get_invitations_by_invitation_id</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_invitations_by_invitation_id">https://authok.cn/docs/api/management/v1#!/Organizations/get_invitations_by_invitation_id</a>
      */
     public Request<Invitation> getInvitation(String orgId, String invitationId, FieldsFilter filter) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -582,7 +582,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param filter an optional result filter
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/get_invitations">https://authok.cn/docs/api/management/v2#!/Organizations/get_invitations</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/get_invitations">https://authok.cn/docs/api/management/v1#!/Organizations/get_invitations</a>
      */
     public Request<InvitationsPage> getInvitations(String orgId, InvitationsFilter filter) {
         Asserts.assertNotNull(orgId, "organization ID");
@@ -609,7 +609,7 @@ public class OrganizationsEntity extends BaseManagementEntity {
      * @param invitationId the ID of the invitation to delete
      * @return a Request to execute
      *
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Organizations/delete_invitations_by_invitation_id">https://authok.cn/docs/api/management/v2#!/Organizations/delete_invitations_by_invitation_id</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Organizations/delete_invitations_by_invitation_id">https://authok.cn/docs/api/management/v1#!/Organizations/delete_invitations_by_invitation_id</a>
      */
     public Request<Void> deleteInvitation(String orgId, String invitationId) {
         Asserts.assertNotNull(orgId, "organization ID");

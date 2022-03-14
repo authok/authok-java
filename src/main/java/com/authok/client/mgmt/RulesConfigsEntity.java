@@ -12,7 +12,7 @@ import okhttp3.OkHttpClient;
 import java.util.List;
 
 /**
- * Class that provides an implementation of the Rules Configs methods of the Management API as defined in See https://authok.cn/docs/api/management/v2#!/Rules_Configs/
+ * Class that provides an implementation of the Rules Configs methods of the Management API as defined in See https://authok.cn/docs/api/management/v1#!/Rules_Configs/
  * <p>
  * This class is not thread-safe.
  *
@@ -27,7 +27,7 @@ public class RulesConfigsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Rules Configs. A token with scope read:rules_configs is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Rules_Configs/get_rules_configs
+     * See https://authok.cn/docs/api/management/v1#!/Rules_Configs/get_rules_configs
      * <p>
      * Note: For security, config variable values cannot be retrieved outside rule execution.
      *
@@ -46,7 +46,7 @@ public class RulesConfigsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Rules Config. A token with scope delete:rules_configs is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Rules_Configs/delete_rules_configs_by_key
+     * See https://authok.cn/docs/api/management/v1#!/Rules_Configs/delete_rules_configs_by_key
      *
      * @param rulesConfigKey the rules config key
      * @return a Request to execute.
@@ -67,7 +67,7 @@ public class RulesConfigsEntity extends BaseManagementEntity {
 
     /**
      * Update an existing Rules Config. A token with scope update:rules_configs is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Rules_Configs/put_rules_configs_by_key
+     * See https://authok.cn/docs/api/management/v1#!/Rules_Configs/put_rules_configs_by_key
      *
      * @param rulesConfigKey the rules config key
      * @param rulesConfig    the rules config data to set. It can't include key.

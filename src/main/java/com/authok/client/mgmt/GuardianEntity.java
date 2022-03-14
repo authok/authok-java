@@ -16,7 +16,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 /**
- * Class that provides an implementation of the Guardian methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Guardian
+ * Class that provides an implementation of the Guardian methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Guardian
  * <p>
  * This class is not thread-safe.
  *
@@ -34,7 +34,7 @@ public class GuardianEntity extends BaseManagementEntity {
      *
      * @param enrollmentTicket the enrollment ticket data to set.
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/post_ticket">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/post_ticket">Management API2 docs</a>
      */
     public Request<EnrollmentTicket> createEnrollmentTicket(EnrollmentTicket enrollmentTicket) {
         Asserts.assertNotNull(enrollmentTicket, "enrollment ticket");
@@ -57,7 +57,7 @@ public class GuardianEntity extends BaseManagementEntity {
      *
      * @param enrollmentId the id of the enrollment to retrieve.
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/delete_enrollments_by_id">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/delete_enrollments_by_id">Management API2 docs</a>
      */
     public Request<Void> deleteEnrollment(String enrollmentId) {
         Asserts.assertNotNull(enrollmentId, "enrollment id");
@@ -78,7 +78,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * A token with scope read:guardian_factors is needed.
      *
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/get_templates">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/get_templates">Management API2 docs</a>
      */
     public Request<GuardianTemplates> getTemplates() {
         String url = baseUrl
@@ -98,7 +98,7 @@ public class GuardianEntity extends BaseManagementEntity {
      *
      * @param guardianTemplates the templates data to set.
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_templates">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_templates">Management API2 docs</a>
      */
     public Request<GuardianTemplates> updateTemplates(GuardianTemplates guardianTemplates) {
         Asserts.assertNotNull(guardianTemplates, "guardian templates");
@@ -139,7 +139,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * @param name    the name of the Factor to update.
      * @param enabled whether to enable or disable the Factor.
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_factors_by_name">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_factors_by_name">Management API2 docs</a>
      */
     public Request<Factor> updateFactor(String name, Boolean enabled) {
         Asserts.assertNotNull(name, "name");
@@ -162,7 +162,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * Request Guardian's Twilio SMS Factor Provider settings. A token with scope read:guardian_factors is needed.
      *
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/get_twilio">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/get_twilio">Management API2 docs</a>
      */
     public Request<TwilioFactorProvider> getTwilioFactorProvider() {
 
@@ -182,7 +182,7 @@ public class GuardianEntity extends BaseManagementEntity {
      *
      * @param provider the provider data to set.
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_twilio">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_twilio">Management API2 docs</a>
      */
     public Request<TwilioFactorProvider> updateTwilioFactorProvider(TwilioFactorProvider provider) {
         Asserts.assertNotNull(provider, "provider");
@@ -204,7 +204,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * A token with scope update:guardian_factors is needed.
      *
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_twilio">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_twilio">Management API2 docs</a>
      */
     public Request<TwilioFactorProvider> resetTwilioFactorProvider() {
         return updateTwilioFactorProvider(new TwilioFactorProvider(null, null, null, null));
@@ -214,7 +214,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * Request Guardian's SNS push-notification Factor Provider. A token with scope read:guardian_factors is needed.
      *
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/get_sns">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/get_sns">Management API2 docs</a>
      */
     public Request<SNSFactorProvider> getSNSFactorProvider() {
 
@@ -234,7 +234,7 @@ public class GuardianEntity extends BaseManagementEntity {
      *
      * @param provider the provider data to set.
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_sns">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_sns">Management API2 docs</a>
      */
     public Request<SNSFactorProvider> updateSNSFactorProvider(SNSFactorProvider provider) {
         Asserts.assertNotNull(provider, "provider");
@@ -256,7 +256,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * A token with scope update:guardian_factors is needed.
      *
      * @return a Request to execute.
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_sns">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_sns">Management API2 docs</a>
      */
     public Request<SNSFactorProvider> resetSNSFactorProvider() {
         return updateSNSFactorProvider(new SNSFactorProvider(null, null, null, null, null));
@@ -266,7 +266,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * Get Guardian's MFA authentication policies. A token with scope read:mfa_policies is needed.
      *
      * @return a Request to execute
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/get_policies">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/get_policies">Management API2 docs</a>
      */
     public Request<List<String>> getAuthenticationPolicies() {
         String url = baseUrl
@@ -284,7 +284,7 @@ public class GuardianEntity extends BaseManagementEntity {
      * Updates Guardian's MFA authentication policies. A token with scope update:mfa_policies is needed.
      *
      * @return a Request to execute
-     * @see <a href="https://authok.cn/docs/api/management/v2#!/Guardian/put_policies">Management API2 docs</a>
+     * @see <a href="https://authok.cn/docs/api/management/v1#!/Guardian/put_policies">Management API2 docs</a>
      */
     public Request<List<String>> updateAuthenticationPolicies(List<String> policies) {
         Asserts.assertNotNull(policies, "policies");

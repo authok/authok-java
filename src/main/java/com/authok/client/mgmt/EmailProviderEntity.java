@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Emails methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Emails
+ * Class that provides an implementation of the Emails methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Emails
  * <p>
  * This class is not thread-safe.
  *
@@ -27,7 +27,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
 
     /**
      * Request the Email Provider. A token with scope read:email_provider is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Emails/get_provider
+     * See https://authok.cn/docs/api/management/v1#!/Emails/get_provider
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -50,7 +50,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
 
     /**
      * Setup the Email Provider. A token with scope create:email_provider is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Emails/post_provider
+     * See https://authok.cn/docs/api/management/v1#!/Emails/post_provider
      *
      * @param emailProvider the email provider data to set
      * @return a Request to execute.
@@ -72,7 +72,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
 
     /**
      * Delete the existing Email Provider. A token with scope delete:email_provider is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Emails/delete_provider
+     * See https://authok.cn/docs/api/management/v1#!/Emails/delete_provider
      *
      * @return a Request to execute.
      */
@@ -89,7 +89,7 @@ public class EmailProviderEntity extends BaseManagementEntity {
 
     /**
      * Update the existing Email Provider. A token with scope update:email_provider is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Emails/patch_provider
+     * See https://authok.cn/docs/api/management/v1#!/Emails/patch_provider
      *
      * @param emailProvider the email provider data to set.
      * @return a Request to execute.

@@ -3,7 +3,7 @@
   "length": 14,
   "total": 14,
   "limit": 50,
-  "client_grants": [
+  "items": [
     {
       "id": "1",
       "client_id": "clientId1",

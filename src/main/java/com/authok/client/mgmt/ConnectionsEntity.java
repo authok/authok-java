@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Connections methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Connections
+ * Class that provides an implementation of the Connections methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Connections
  * <p>
  * This class is not thread-safe.
  *
@@ -31,7 +31,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Request all the ConnectionsEntity. A token with scope read:connections is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/get_connections
+     * See https://authok.cn/docs/api/management/v1#!/Connections/get_connections
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -55,7 +55,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Request all the ConnectionsEntity. A token with scope read:connections is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/get_connections
+     * See https://authok.cn/docs/api/management/v1#!/Connections/get_connections
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -84,7 +84,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Request a Connection. A token with scope read:connections is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/get_connections_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Connections/get_connections_by_id
      *
      * @param connectionId the id of the connection to retrieve.
      * @param filter       the filter to use. Can be null.
@@ -111,7 +111,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Create a Connection. A token with scope create:connections is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/post_connections
+     * See https://authok.cn/docs/api/management/v1#!/Connections/post_connections
      *
      * @param connection the connection data to set.
      * @return a Request to execute.
@@ -133,7 +133,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing Connection. A token with scope delete:connections is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/delete_connections_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Connections/delete_connections_by_id
      *
      * @param connectionId the connection id.
      * @return a Request to execute.
@@ -154,7 +154,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Update an existing Connection. A token with scope update:connections is needed. Note that if the 'options' value is present it will override all the 'options' values that currently exist.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/patch_connections_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Connections/patch_connections_by_id
      *
      * @param connectionId the connection id.
      * @param connection   the connection data to set. It can't include name or strategy.
@@ -179,7 +179,7 @@ public class ConnectionsEntity extends BaseManagementEntity {
 
     /**
      * Delete an existing User from the given Database Connection. A token with scope delete:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Connections/delete_users_by_email
+     * See https://authok.cn/docs/api/management/v1#!/Connections/delete_users_by_email
      *
      * @param connectionId the connection id where the user is stored.
      * @param email        the email of the user to delete.

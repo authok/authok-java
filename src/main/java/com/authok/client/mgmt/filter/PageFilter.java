@@ -17,7 +17,7 @@ public class PageFilter extends BaseFilter {
      */
     public PageFilter withPage(int pageNumber, int amountPerPage) {
         parameters.put("page", pageNumber);
-        parameters.put("per_page", amountPerPage);
+        parameters.put("page_size", amountPerPage);
         return this;
     }
 

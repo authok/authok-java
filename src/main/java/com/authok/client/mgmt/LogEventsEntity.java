@@ -14,7 +14,7 @@ import okhttp3.OkHttpClient;
 import java.util.Map;
 
 /**
- * Class that provides an implementation of the Events methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Logs
+ * Class that provides an implementation of the Events methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Logs
  * <p>
  * This class is not thread-safe.
  *
@@ -29,7 +29,7 @@ public class LogEventsEntity extends BaseManagementEntity {
 
     /**
      * Request all the Log Events. A token with scope read:logs is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Logs/get_logs
+     * See https://authok.cn/docs/api/management/v1#!/Logs/get_logs
      *
      * @param filter the filter to use. Can be null.
      * @return a Request to execute.
@@ -56,7 +56,7 @@ public class LogEventsEntity extends BaseManagementEntity {
 
     /**
      * Request a Log Event. A token with scope read:logs is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Logs/get_logs_by_id
+     * See https://authok.cn/docs/api/management/v1#!/Logs/get_logs_by_id
      *
      * @param logEventId the id of the connection to retrieve.
      * @return a Request to execute.

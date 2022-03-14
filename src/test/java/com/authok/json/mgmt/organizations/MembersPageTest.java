@@ -27,7 +27,7 @@ public class MembersPageTest extends JsonTest<MembersPage> {
         "]\n";
 
     private static final String jsonWithTotals = "{\n" +
-        "  \"members\": [\n" +
+        "  \"items\": [\n" +
         "    {\n" +
         "      \"user_id\": \"authok|605a1f57cbeb2c0070fdf123\",\n" +
         "      \"email\": \"dave@domain.com\",\n" +
@@ -47,7 +47,7 @@ public class MembersPageTest extends JsonTest<MembersPage> {
         "}\n";
 
     private static final String jsonWithCheckpointPageResponse = "{\n" +
-        "  \"members\": [\n" +
+        "  \"items\": [\n" +
         "    {\n" +
         "      \"user_id\": \"authok|605a1f57cbeb2c0070fdf123\",\n" +
         "      \"email\": \"dave@domain.com\",\n" +

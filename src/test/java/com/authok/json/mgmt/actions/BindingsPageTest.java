@@ -15,7 +15,7 @@ public class BindingsPageTest extends JsonTest<BindingsPage> {
     @Test
     public void shouldDeserialize() throws Exception {
         String json = "{\n" +
-            "  \"bindings\": [\n" +
+            "  \"items\": [\n" +
             "    {\n" +
             "      \"id\": \"binding-id\",\n" +
             "      \"trigger_id\": \"post-login\",\n" +
@@ -25,7 +25,7 @@ public class BindingsPageTest extends JsonTest<BindingsPage> {
             "        \"supported_triggers\": [\n" +
             "          {\n" +
             "            \"id\": \"post-login\",\n" +
-            "            \"version\": \"v2\"\n" +
+            "            \"version\": \"v1\"\n" +
             "          }\n" +
             "        ],\n" +
             "        \"created_at\": \"2021-08-11T15:44:05.330221459Z\",\n" +
@@ -71,7 +71,7 @@ public class BindingsPageTest extends JsonTest<BindingsPage> {
             "    }\n" +
             "  ],\n" +
             "  \"total\": 1,\n" +
-            "  \"per_page\": 20\n" +
+            "  \"page_size\": 20\n" +
             "}\n";
 
         BindingsPage page = fromJSON(json, BindingsPage.class);

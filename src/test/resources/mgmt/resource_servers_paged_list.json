@@ -3,7 +3,7 @@
   "length": 14,
   "total": 14,
   "limit": 50,
-  "resource_servers": [
+  "items": [
     {
       "id": "23445566abab",
       "name": "Some API",

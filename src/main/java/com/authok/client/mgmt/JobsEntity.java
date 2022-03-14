@@ -22,7 +22,7 @@ import java.util.Map;
 import okhttp3.ResponseBody;
 
 /**
- * Class that provides an implementation of the Jobs methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Jobs
+ * Class that provides an implementation of the Jobs methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Jobs
  * <p>
  * This class is not thread-safe.
  *
@@ -37,7 +37,7 @@ public class JobsEntity extends BaseManagementEntity {
 
     /**
      * Request a Job. A token with scope create:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Jobs/get_jobs_by_id.
+     * See https://authok.cn/docs/api/management/v1#!/Jobs/get_jobs_by_id.
      *
      * @param jobId the id of the job to retrieve.
      * @return a Request to execute.
@@ -61,7 +61,7 @@ public class JobsEntity extends BaseManagementEntity {
     /**
      * Get error details of a failed job. A token with scope create:users is needed.
      * See https://
-     * authok.cn/docs/api/management/v2#!/Jobs/get_errors.
+     * authok.cn/docs/api/management/v1#!/Jobs/get_errors.
      *
      * @param jobId the id of the job to retrieve.
      * @return a Request to execute.
@@ -94,7 +94,7 @@ public class JobsEntity extends BaseManagementEntity {
 
     /**
      * Sends an Email Verification. A token with scope update:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Jobs/post_verification_email.
+     * See https://authok.cn/docs/api/management/v1#!/Jobs/post_verification_email.
      *
      * @param userId   The user_id of the user to whom the email will be sent.
      * @param clientId The id of the client, if not provided the global one will be used.
@@ -109,7 +109,7 @@ public class JobsEntity extends BaseManagementEntity {
 
     /**
      * Sends an Email Verification. A token with scope update:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Jobs/post_verification_email.
+     * See https://authok.cn/docs/api/management/v1#!/Jobs/post_verification_email.
      *
      * @param userId   The user_id of the user to whom the email will be sent.
      * @param clientId The id of the client, if not provided the global one will be used.
@@ -125,7 +125,7 @@ public class JobsEntity extends BaseManagementEntity {
 
     /**
      * Sends an Email Verification. A token with scope update:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Jobs/post_verification_email.
+     * See https://authok.cn/docs/api/management/v1#!/Jobs/post_verification_email.
      *
      * @param userId   The user_id of the user to whom the email will be sent.
      * @param clientId The id of the client, if not provided the global one will be used.
@@ -167,7 +167,7 @@ public class JobsEntity extends BaseManagementEntity {
 
     /**
      * Requests a Users Exports job. A token with scope read:users is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Jobs/post_users_exports.
+     * See https://authok.cn/docs/api/management/v1#!/Jobs/post_users_exports.
      * See https://authok.cn/docs/users/guides/bulk-user-exports.
      *
      * @param connectionId The id of the connection to export the users from.
@@ -198,7 +198,7 @@ public class JobsEntity extends BaseManagementEntity {
 
     /**
      * 发起一个用户导入任务. 需要一个带 write:users scope 的 令牌.
-     * See https://authok.cn/docs/api/management/v2#!/Jobs/post_users_imports.
+     * See https://authok.cn/docs/api/management/v1#!/Jobs/post_users_imports.
      * See https://authok.cn/docs/users/guides/bulk-user-imports.
      *
      * @param connectionId The id of the connection to import the users to.

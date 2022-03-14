@@ -9,7 +9,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 /**
- * Class that provides an implementation of the Email Templates methods of the Management API as defined in https://authok.cn/docs/api/management/v2#!/Email_Templates
+ * Class that provides an implementation of the Email Templates methods of the Management API as defined in https://authok.cn/docs/api/management/v1#!/Email_Templates
  * <p>
  * This class is not thread-safe.
  *
@@ -34,7 +34,7 @@ public class EmailTemplatesEntity extends BaseManagementEntity {
 
     /**
      * Request the Email Templates. A token with scope read:email_templates is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Email_Templates/get_email_templates_by_templateName
+     * See https://authok.cn/docs/api/management/v1#!/Email_Templates/get_email_templates_by_templateName
      *
      * @param templateName the template name to request. You can use any of the constants defined in {@link EmailTemplatesEntity}
      * @return a Request to execute.
@@ -54,7 +54,7 @@ public class EmailTemplatesEntity extends BaseManagementEntity {
 
     /**
      * Create an Email Template. A token with scope create:email_templates is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Email_Templates/post_email_templates
+     * See https://authok.cn/docs/api/management/v1#!/Email_Templates/post_email_templates
      *
      * @param template the template data to set
      * @return a Request to execute.
@@ -76,7 +76,7 @@ public class EmailTemplatesEntity extends BaseManagementEntity {
 
     /**
      * Patches the existing Email Template. A token with scope update:email_templates is needed.
-     * See https://authok.cn/docs/api/management/v2#!/Email_Templates/patch_email_templates_by_templateName
+     * See https://authok.cn/docs/api/management/v1#!/Email_Templates/patch_email_templates_by_templateName
      *
      * @param templateName the name of the template to update. You can use any of the constants defined in {@link EmailTemplatesEntity}
      * @param template     the email template data to set.

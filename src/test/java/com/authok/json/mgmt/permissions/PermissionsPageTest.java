@@ -9,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class PermissionsPageTest extends JsonTest<PermissionsPage> {
-    private static final String jsonWithTotals = "{\"start\":0,\"length\":10,\"total\":14,\"limit\":50,\"permissions\":[{\"permission_name\":\"pName\",\"description\":\"pDesc\",\"resource_server_name\":\"resName\",\"resource_server_identifier\":\"resId\",\"sources\":[]}]}";
+    private static final String jsonWithTotals = "{\"start\":0,\"length\":10,\"total\":14,\"limit\":50,\"items\":[{\"permission_name\":\"pName\",\"description\":\"pDesc\",\"resource_server_name\":\"resName\",\"resource_server_identifier\":\"resId\",\"sources\":[]}]}";
     private static final String jsonWithoutTotals = "[{\"permission_name\":\"pName\",\"description\":\"pDesc\",\"resource_server_name\":\"resName\",\"resource_server_identifier\":\"resId\",\"sources\":[]}]";
 
     @Test

@@ -24,7 +24,7 @@ public class TriggersTest extends JsonTest<Triggers> {
             "    },\n" +
             "    {\n" +
             "      \"id\": \"post-login\",\n" +
-            "      \"version\": \"v2\",\n" +
+            "      \"version\": \"v1\",\n" +
             "      \"status\": \"CURRENT\",\n" +
             "      \"runtimes\": [\n" +
             "        \"node12\",\n" +
