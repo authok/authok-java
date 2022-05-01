@@ -5,7 +5,6 @@ import com.authok.client.mgmt.filter.FieldsFilter;
 import com.authok.client.mgmt.filter.InvitationsFilter;
 import com.authok.client.mgmt.filter.PageFilter;
 import com.authok.json.mgmt.RolesPage;
-import com.authok.json.mgmt.organizations.*;
 import com.authok.net.Request;
 import com.authok.json.mgmt.organizations.Branding;
 import com.authok.json.mgmt.organizations.Colors;
